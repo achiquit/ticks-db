@@ -53,7 +53,7 @@ CREATE TABLE areas(
 	PRIMARY KEY("area_name", "state")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/data/areas.csv areas
+.import /home/andre/Documents/ticks-db/scripts/data/areas.csv areas
 
 CREATE TABLE climbs(
 	"name" TEXT NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE climbs(
 	PRIMARY KEY ("name", "area")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/data/climbs.csv climbs
+.import /home/andre/Documents/ticks-db/scripts/data/climbs.csv climbs
 
 CREATE TABLE clients(
 	"fname" TEXT NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE clients(
     PRIMARY KEY ("fname", "lname")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/data/clients.csv clients
+.import /home/andre/Documents/ticks-db/scripts/data/clients.csv clients
 
 CREATE TABLE ticks(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -97,7 +97,7 @@ CREATE TABLE ticks(
 	FOREIGN KEY("client_fname", "client_lname") REFERENCES clients("fname", "lname")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/data/ticks.csv ticks
+.import /home/andre/Documents/ticks-db/scripts/data/ticks.csv ticks
 
 CREATE TABLE guided(
 	"date" TEXT NOT NULL,
@@ -110,4 +110,4 @@ CREATE TABLE guided(
 	FOREIGN KEY("client_fname", "client_lname") REFERENCES clients("fname", "lname")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/training/guided.csv guided
+.import /home/andre/Documents/ticks-db/scripts/data/guided.csv guided
