@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS styles;
 DROP TABLE IF EXISTS lead_styles;
 DROP TABLE IF EXISTS commitment;
 DROP TABLE IF EXISTS climb_type;
+DROP TABLE IF EXISTS partners;
 
 CREATE TABLE grades(
 	"grade" TEXT PRIMARY KEY NOT NULL
@@ -43,38 +44,47 @@ CREATE TABLE climb_type(
 );
 INSERT INTO climb_type (type)
 VALUES
-	('boulder'),('TR'),('sport'),('trad'),('alpine ice'),('water ice'),('aid');
+	('Boulder'),('TR'),('Sport'),('Trad'),('Alpine Ice'),('Water Ice'),('Aid');
+
+CREATE TABLE partners(
+	"id" INTEGER PRIMARY KEY ASC,
+	"partner_fname" TEXT NOT NULL,
+	"partner_lname" TEXT NOT NULL,
+	"notes" TEXT
+);
+.mode csv
+.import /home/andre/Documents/ticks-db/scripts/data/partners.csv partners
 
 CREATE TABLE areas(
+	"id" INTEGER PRIMARY KEY ASC,
 	"area_name" TEXT NOT NULL,
 	"country" TEXT NOT NULL,
 	"state" TEXT NOT NULL,
-	"notes" TEXT,
-	PRIMARY KEY("area_name", "state")
+	"notes" TEXT
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/areas.csv areas
 
 CREATE TABLE climbs(
+	"id" INTEGER PRIMARY KEY ASC,
 	"name" TEXT NOT NULL,
 	"grade" TEXT NOT NULL,
 	"commitment" TEXT,
 	"type" TEXT NOT NULL,
 	"gps" TEXT NOT NULL,
-	"area" TEXT NOT NULL,
-	"area_state" TEXT NOT NULL,
+	"area" INTEGER NOT NULL,
 	"notes" TEXT,
-	FOREIGN KEY("area", "area_state") REFERENCES areas("area_name", "state"),
-	PRIMARY KEY ("name", "area")
+	FOREIGN KEY("area") REFERENCES areas("id"),
+	FOREIGN KEY("type") REFERENCES climb_type("type")
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/climbs.csv climbs
 
 CREATE TABLE clients(
+	"id" INTEGER PRIMARY KEY ASC,
 	"fname" TEXT NOT NULL,
     "lname" TEXT NOT NULL,
-    "notes" TEXT,
-    PRIMARY KEY ("fname", "lname")
+    "notes" TEXT
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/clients.csv clients
@@ -83,31 +93,30 @@ CREATE TABLE ticks(
 	"id" INTEGER PRIMARY KEY ASC,
 	"date" TEXT NOT NULL,
 	"name" TEXT NOT NULL,
-	"area" TEXT NOT NULL,
+	"area" INTEGER NOT NULL,
 	"pitches" INTEGER NOT NULL,
 	"height" INTEGER NOT NULL,
 	"style" TEXT NOT NULL,
 	"lead_style" TEXT,
 	"notes" TEXT,
-	"client_fname" TEXT,
-	"client_lname" TEXT,
-	"partner_fname" TEXT,
-	"partner_lname" TEXT,
-	FOREIGN KEY("name", "area") REFERENCES climbs("name", "area"),
-	FOREIGN KEY("client_fname", "client_lname") REFERENCES clients("fname", "lname")
+	"client_id" INTEGER,
+	"partner_id" INTEGER,
+	FOREIGN KEY("partner_id") REFERENCES partners("id"),
+	FOREIGN KEY("name") REFERENCES climbs("name"),
+	FOREIGN KEY ("area") REFERENCES areas("id"),
+	FOREIGN KEY("client_id") REFERENCES clients("id")
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/ticks.csv ticks
 
 CREATE TABLE guided(
 	"date" TEXT NOT NULL,
-	"client_fname" TEXT NOT NULL,
-	"client_lname" TEXT NOT NULL,
+	"client_id" INTEGER NOT NULL,
 	"company" TEXT NOT NULL,
 	"tip" INTEGER,
-	PRIMARY KEY ("date", "client_fname", "client_lname"),
+	PRIMARY KEY ("date", "client_id"),
 	FOREIGN KEY("date") REFERENCES ticks("date"),
-	FOREIGN KEY("client_fname", "client_lname") REFERENCES clients("fname", "lname")
+	FOREIGN KEY("client_id") REFERENCES clients("id")
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/guided.csv guided
