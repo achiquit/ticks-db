@@ -1,3 +1,4 @@
+-- View all ticks with a given partner
 SELECT 
     ticks.date AS 'Date', climbs.name AS 'Climb Name', climbs.grade AS 'Grade', ticks.pitches AS 'Pitches', ticks.height AS 'Height', ticks.style AS 'Style', ticks.lead_style AS 'Lead Style', partners.fname || ' ' || partners.lname AS 'Partner / Belayer', ticks.notes AS 'Notes'
 FROM 
@@ -9,7 +10,7 @@ WHERE
 ORDER BY ticks.date DESC;
 
 
-
+-- View aggregate days, height, and pitches with a given partner
 SELECT 
     COUNT(DISTINCT ticks.date) as 'Total Days', SUM(ticks.height) AS 'Total Height', SUM(ticks.pitches) AS 'Total Pitches', partners.fname || ' ' || partners.lname AS 'Partner / Belayer'
 FROM 

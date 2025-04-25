@@ -17,6 +17,12 @@ SELECT
         WHERE ticks.partner_id = partners.id
     )
     total_height,
+    (
+        SELECT COUNT(DISTINCT area)
+        FROM ticks
+        WHERE ticks.partner_id = partners.id
+    )
+    total_areas,
     partners.fname || ' ' || partners.lname AS 'Partner / Belayer'
 FROM
     partners
