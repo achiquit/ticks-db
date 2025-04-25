@@ -1,4 +1,7 @@
 PRAGMA foreign_keys = OFF;
+.mode column
+.headers ON
+
 DROP TABLE IF EXISTS guided;
 DROP TABLE IF EXISTS ticks;
 DROP TABLE IF EXISTS clients;
@@ -23,14 +26,14 @@ CREATE TABLE styles(
 );
 INSERT INTO styles (style)
 VALUES
-	('lead'),('TR'),('LRS'),('TRS'),('solo'),('follow');
+	('Lead'),('TR'),('LRS'),('TRS'),('Solo'),('Follow');
 
 CREATE TABLE lead_styles(
 	"style" TEXT PRIMARY KEY NOT NULL
 );
 INSERT INTO lead_styles (style)
 VALUES
-	('fell/hung'),('pinkpoint'),('redpoint'),('onsight'),('flash'),('clean');
+	('Fell/Hung'),('Pinkpoint'),('Redpoint'),('Onsight'),('Flash'),('Clean'), ('Attempt');
 
 CREATE TABLE commitment(
 	"type" TEXT PRIMARY KEY NOT NULL
@@ -48,8 +51,8 @@ VALUES
 
 CREATE TABLE partners(
 	"id" INTEGER PRIMARY KEY ASC,
-	"partner_fname" TEXT NOT NULL,
-	"partner_lname" TEXT NOT NULL,
+	"fname" TEXT NOT NULL,
+	"lname" TEXT NOT NULL,
 	"notes" TEXT
 );
 .mode csv
@@ -92,7 +95,7 @@ CREATE TABLE clients(
 CREATE TABLE ticks(
 	"id" INTEGER PRIMARY KEY ASC,
 	"date" TEXT NOT NULL,
-	"name" TEXT NOT NULL,
+	"climb" TEXT NOT NULL,
 	"area" INTEGER NOT NULL,
 	"pitches" INTEGER NOT NULL,
 	"height" INTEGER NOT NULL,
@@ -102,7 +105,7 @@ CREATE TABLE ticks(
 	"client_id" INTEGER,
 	"partner_id" INTEGER,
 	FOREIGN KEY("partner_id") REFERENCES partners("id"),
-	FOREIGN KEY("name") REFERENCES climbs("name"),
+	FOREIGN KEY("climb") REFERENCES climbs("name"),
 	FOREIGN KEY ("area") REFERENCES areas("id"),
 	FOREIGN KEY("client_id") REFERENCES clients("id")
 );
