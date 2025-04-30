@@ -33,7 +33,7 @@
 33,Russell,Hobart,UNC
 34,Josie,Davis,UNC
 35,Phillip,Hooper,UNC
-36,Guilherme,Chiquito,
+36,Guilherme,Chiquito,-1
 37,Masha,Lourie,Apogee
 38,Brianna,Dechet,Apogee
 39,Walker,Mims,UNC
@@ -51,13 +51,14 @@
 51,Maureen,Sullivan,UNC
 52,Kate,Kerr,UNC
 53,Cecilia,Carter,"UNC, Daniels ex"
-54,Kelly,Williams,
+54,Kelly,Williams,-1
 55,Chris,Miller,Linked up with him at the red. Cute dog. Lives in his promaster
 56,Hannah,Feinsilber,UNC
 57,JC,Fillion-Robin,Local to Carrboro
-58,Woody,Holliman,
+58,Woody,Holliman,-1
 59,Will,Manness,UNC
 60,Quincy,Godwin,UNC
 61,Dave,Hause,Local to Carrboro
 62,Kevin,Twitchell,Seneca
 63,Mark,Jourdain,Linked up with him to climb at Pilot
+-1,NULL,NULL,-1
