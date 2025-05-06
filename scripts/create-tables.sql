@@ -128,3 +128,8 @@ CREATE TABLE guided_client(
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/guided_client.csv guided_client
+
+UPDATE ticks
+SET
+	notes = replace (notes, '-1', NULL)
+WHERE notes LIKE '-1';

@@ -27,5 +27,5 @@ SELECT
     partners.fname || ' ' || partners.lname AS 'Partner / Belayer'
 FROM
     partners
-ORDER BY total_days DESC
+ORDER BY total_height DESC
 LIMIT 5;
