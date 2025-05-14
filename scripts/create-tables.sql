@@ -1,7 +1,9 @@
 PRAGMA foreign_keys = ON;
 
+DROP TABLE IF EXISTS climbed_with;
 DROP TABLE IF EXISTS guided_client;
 DROP TABLE IF EXISTS ticks;
+DROP TABLE IF EXISTS climbed_partners;
 DROP TABLE IF EXISTS clients;
 DROP TABLE IF EXISTS guided;
 DROP TABLE IF EXISTS climbs;
@@ -94,10 +96,18 @@ CREATE TABLE clients(
 CREATE TABLE guided(
 	"id" INTEGER PRIMARY KEY ASC,
 	"company" TEXT NOT NULL,
-	"tip" INTEGER
+	"tip" INTEGER,
+	"notes" TEXT
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/guided.csv guided
+
+CREATE TABLE climbed_partners(
+	"id" INTEGER PRIMARY KEY ASC,
+	"notes" TEXT
+);
+.mode csv
+.import /home/andre/Documents/ticks-db/scripts/data/climbed_partners.csv climbed_partners
 
 CREATE TABLE ticks(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -108,13 +118,13 @@ CREATE TABLE ticks(
 	"style" TEXT NOT NULL,
 	"success" TEXT,
 	"notes" TEXT,
+	"climbed_id" INTEGER,
 	"guided_id" INTEGER,
-	"partner_id" INTEGER,
 	FOREIGN KEY("climb") REFERENCES climbs("id"),
 	FOREIGN KEY("style") REFERENCES styles('style'),
 	FOREIGN KEY("success") REFERENCES success("style"),
-	FOREIGN KEY("guided_id") REFERENCES guided("id"),
-	FOREIGN KEY("partner_id") REFERENCES partners("id")
+	FOREIGN KEY("climbed_id") REFERENCES climbed_partners("id"),
+	FOREIGN KEY("guided_id") REFERENCES guided("id")
 );
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/ticks.csv ticks
@@ -129,7 +139,17 @@ CREATE TABLE guided_client(
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/guided_client.csv guided_client
 
-UPDATE ticks
-SET
-	notes = replace (notes, '-1', NULL)
-WHERE notes LIKE '-1';
+CREATE TABLE climbed_with(
+	"climbing_id" INTEGER NOT NULL,
+	"partner_id" INTEGER NOT NULL,
+	PRIMARY KEY("climbing_id", "partner_id"),
+	FOREIGN KEY("climbing_id") REFERENCES climbed_partners("id"),
+	FOREIGN KEY("partner_id") REFERENCES partners("id")
+);
+.mode csv
+.import /home/andre/Documents/ticks-db/scripts/data/climbed_with.csv climbed_with
+
+-- UPDATE ticks
+-- SET
+-- 	notes = replace (notes, '-1', NULL)
+-- WHERE notes LIKE '-1';
