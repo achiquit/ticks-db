@@ -5,5 +5,5 @@ SELECT
     COUNT(id) AS climbs
 FROM ticks
 GROUP BY month
-ORDER BY total_height DESC
-LIMIT 5;
+ORDER BY month DESC
+LIMIT 6;
