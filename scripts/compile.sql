@@ -149,7 +149,16 @@ CREATE TABLE climbed_with(
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/climbed_with.csv climbed_with
 
--- UPDATE ticks
--- SET
--- 	notes = replace (notes, '-1', NULL)
--- WHERE notes LIKE '-1';
+.header ON
+.mode csv
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/last-six-ticks.csv
+.read scripts/scripts/last-six.sql
+
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/all-ticks.csv
+.read scripts/scripts/all-ticks.sql
+
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/all-time-stats.csv
+.read scripts/scripts/all-time-stats.sql
+
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/partner-leaderboard.csv
+.read scripts/scripts/leaderboard.sql

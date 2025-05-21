@@ -1,4 +1,4 @@
-SELECT partners.fname || ' ' || partners.lname AS 'Partner', COUNT(DISTINCT ticks.date) AS total_days, SUM(ticks.pitches) AS total_pitches, printf('%,d', SUM(height)) AS total_height, COUNT(DISTINCT climbs.area) AS total_areas
+SELECT partners.fname || ' ' || partners.lname AS 'Partner', COUNT(DISTINCT ticks.date) AS 'Days', SUM(ticks.pitches) AS 'Pitches', printf('%,d', SUM(height)) AS 'Height(ft)', COUNT(DISTINCT climbs.area) AS 'Areas'
 FROM
     ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
@@ -6,6 +6,4 @@ FROM
     JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
     JOIN partners ON climbed_with.partner_id = partners.id
 WHERE NOT partners.id = -1
-GROUP BY partners.id
-ORDER BY total_days DESC
-LIMIT 5;
+GROUP BY partners.id;
