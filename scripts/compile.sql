@@ -149,11 +149,6 @@ CREATE TABLE climbed_with(
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/climbed_with.csv climbed_with
 
-.header ON
-.mode csv
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/last-six-ticks.csv
-.read scripts/scripts/last-six.sql
-
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/all-ticks.csv
 .read scripts/scripts/all-ticks.sql
 

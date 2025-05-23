@@ -1,6 +1,6 @@
 SELECT
     COUNT(DISTINCT date) AS 'Days Climbed',
-    COUNT(DISTINCT ticks.id) AS 'Ticks Made',
+    printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
     printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
     printf('%,d', SUM(height)) AS 'Feet Climbed',
     COUNT(DISTINCT partner_id) AS 'Partners',
