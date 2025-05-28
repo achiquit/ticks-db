@@ -3,9 +3,9 @@ SELECT
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
     printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
     printf('%,d', SUM(height)) AS 'Feet Climbed',
-    COUNT(DISTINCT partner_id) AS 'Partners',
-    COUNT(DISTINCT climb) AS 'Climbs',
-    COUNT(DISTINCT area) AS 'Areas',
+    (COUNT(DISTINCT partner_id) -1) AS 'Partners',
+    (COUNT(DISTINCT climb) -1) AS 'Climbs',
+    (COUNT(DISTINCT area) -1) AS 'Areas',
     COUNT(DISTINCT country) AS 'Countries',
     COUNT(DISTINCT state) AS 'States'
 FROM ticks
