@@ -123,78 +123,78 @@ CREATE TABLE climbs(
 .mode csv
 .import /home/andre/Documents/ticks-db/scripts/data/climbs.csv climbs
 
-CREATE TABLE clients(
-	"id" INTEGER PRIMARY KEY ASC,
-	"fname" TEXT NOT NULL,
-    "lname" TEXT NOT NULL,
-    "notes" TEXT
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/clients.csv clients
+-- CREATE TABLE clients(
+-- 	"id" INTEGER PRIMARY KEY ASC,
+-- 	"fname" TEXT NOT NULL,
+--     "lname" TEXT NOT NULL,
+--     "notes" TEXT
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/clients.csv clients
 
-CREATE TABLE guided(
-	"id" INTEGER PRIMARY KEY ASC,
-	"company" TEXT NOT NULL,
-	"tip" INTEGER,
-	"notes" TEXT
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/guided.csv guided
+-- CREATE TABLE guided(
+-- 	"id" INTEGER PRIMARY KEY ASC,
+-- 	"company" TEXT NOT NULL,
+-- 	"tip" INTEGER,
+-- 	"notes" TEXT
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/guided.csv guided
 
-CREATE TABLE climbed_partners(
-	"id" INTEGER PRIMARY KEY ASC,
-	"notes" TEXT
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/climbed_partners.csv climbed_partners
+-- CREATE TABLE climbed_partners(
+-- 	"id" INTEGER PRIMARY KEY ASC,
+-- 	"notes" TEXT
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/climbed_partners.csv climbed_partners
 
-CREATE TABLE ticks(
-	"id" INTEGER PRIMARY KEY ASC,
-	"date" TEXT NOT NULL,
-	"climb" INTEGER NOT NULL,
-	"pitches" INTEGER NOT NULL,
-	"height" INTEGER NOT NULL,
-	"style" INTEGER NOT NULL,
-	"success" TEXT,
-	"notes" TEXT,
-	"climbed_id" INTEGER,
-	"guided_id" INTEGER,
-	FOREIGN KEY("climb") REFERENCES climbs("id"),
-	FOREIGN KEY("style") REFERENCES styles("style"),
-	FOREIGN KEY("success") REFERENCES success("style"),
-	FOREIGN KEY("climbed_id") REFERENCES climbed_partners("id"),
-	FOREIGN KEY("guided_id") REFERENCES guided("id")
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/ticks.csv ticks
+-- CREATE TABLE ticks(
+-- 	"id" INTEGER PRIMARY KEY ASC,
+-- 	"date" TEXT NOT NULL,
+-- 	"climb" INTEGER NOT NULL,
+-- 	"pitches" INTEGER NOT NULL,
+-- 	"height" INTEGER NOT NULL,
+-- 	"style" INTEGER NOT NULL,
+-- 	"success" TEXT,
+-- 	"notes" TEXT,
+-- 	"climbed_id" INTEGER,
+-- 	"guided_id" INTEGER,
+-- 	FOREIGN KEY("climb") REFERENCES climbs("id"),
+-- 	FOREIGN KEY("style") REFERENCES styles("style"),
+-- 	FOREIGN KEY("success") REFERENCES success("style"),
+-- 	FOREIGN KEY("climbed_id") REFERENCES climbed_partners("id"),
+-- 	FOREIGN KEY("guided_id") REFERENCES guided("id")
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/ticks.csv ticks
 
-CREATE TABLE guided_client(
-	"guided_id" INTEGER NOT NULL,
-	"client_id" INTEGER NOT NULL,
-	PRIMARY KEY("guided_id", "client_id"),
-	FOREIGN KEY("guided_id") REFERENCES guided("id"),
-	FOREIGN KEY("client_id") REFERENCES clients("id")
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/guided_client.csv guided_client
+-- CREATE TABLE guided_client(
+-- 	"guided_id" INTEGER NOT NULL,
+-- 	"client_id" INTEGER NOT NULL,
+-- 	PRIMARY KEY("guided_id", "client_id"),
+-- 	FOREIGN KEY("guided_id") REFERENCES guided("id"),
+-- 	FOREIGN KEY("client_id") REFERENCES clients("id")
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/guided_client.csv guided_client
 
-CREATE TABLE climbed_with(
-	"climbing_id" INTEGER NOT NULL,
-	"partner_id" INTEGER NOT NULL,
-	PRIMARY KEY("climbing_id", "partner_id"),
-	FOREIGN KEY("climbing_id") REFERENCES climbed_partners("id"),
-	FOREIGN KEY("partner_id") REFERENCES partners("id")
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/climbed_with.csv climbed_with
+-- CREATE TABLE climbed_with(
+-- 	"climbing_id" INTEGER NOT NULL,
+-- 	"partner_id" INTEGER NOT NULL,
+-- 	PRIMARY KEY("climbing_id", "partner_id"),
+-- 	FOREIGN KEY("climbing_id") REFERENCES climbed_partners("id"),
+-- 	FOREIGN KEY("partner_id") REFERENCES partners("id")
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/climbed_with.csv climbed_with
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/all-ticks.csv
-.read scripts/scripts/all-ticks.sql
+-- .output /home/andre/Documents/websitejazzhands-1/climbing/data/all-ticks.csv
+-- .read scripts/scripts/all-ticks.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/all-time-stats.csv
-.read scripts/scripts/all-time-stats.sql
+-- .output /home/andre/Documents/websitejazzhands-1/climbing/data/all-time-stats.csv
+-- .read scripts/scripts/all-time-stats.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/partner-leaderboard.csv
-.read scripts/scripts/leaderboard.sql
+-- .output /home/andre/Documents/websitejazzhands-1/climbing/data/partner-leaderboard.csv
+-- .read scripts/scripts/leaderboard.sql
 
-.mode table
+-- .mode table
