@@ -1,90 +1,91 @@
--1,NULL,NULL,-1
-1,Yav,Pernev,"Bulgarian, works at SRMG"
-2,Kimberly,O’Neill,:)
-3,Chris,Conger,Works at Nrocks
-4,Tom,Cronin,Works at SRCS
-5,Arthur,Brooks,Works at SRMG
-6,Dylan,James,UNC
-7,Andrew,Bounds,UNC
-8,Henrique,Vermelho,Rio
-9,Johannes,Unknown,Belgian climber visiting Rio briefly
-10,Matt,O’Brien,Ranger Matt
-11,Joe,Pirani,DSA and Hawbridge
-12,Mack,Ireland,Nrocks
-13,John-Michael,Montgomery,Seneca
-14,Zia,Zhou,Nrocks
-15,Jack,Webb,Nrocks
-16,Colin,McElroy,Nrocks
-17,Morgan,McAndrew,Nrocks
-18,Holly,Frost,SRMG
-19,Julie,Yakaboski,UNC
-20,Maeve,Thompson,DSA and Hawbridge
-21,Troy,Phillips,SRMG
-22,Kyle,Mills,SRMG
-23,Josh,Rich,Hung out with him and company at Whites Run
-24,Chad,Cochran,Works at the American Alpine Institute. Trains with SRMG sometimes
-25,Tom,Cecil,SRMG
-26,Lucia,Daranyi,Apogee
-27,Rob,Sulaski,UNC
-28,Kaya,Lindsay,Owns the gym in Moab
-29,James,Brown,UNC
-30,Dana,Bumbalo,UNC
-31,Angela,Whangpo,Met her at the Biscuit in AZ. Lives in her CRV
-32,Abigail,Lamoutte,UNC
-33,Russell,Hobart,UNC
-34,Josie,Davis,UNC
-35,Phillip,Hooper,UNC
-36,Guilherme,Chiquito,-1
-37,Masha,Lourie,Apogee
-38,Brianna,Dechet,Apogee
-39,Walker,Mims,UNC
-40,Andrew,Morse,Apogee
-41,William,Barrett,UNC. Disappeared without a trace
-42,David,Thoenen,Active in the NC community. 
-43,Connor,O’Fallon,Worked with him at Deepest Beliefs Lab at UNC
-44,Sofia,Brantley,UNC
-45,Hannes,Backerling,Swedish crusher
-46,Magnus,Gulbra,Norway. Didn’t really jive
-47,Gorm,Larsen,Met him on Galdhopiggen
-48,Evelyn,DeBoeck,Mushing in Norway
-49,Phillipe,Queiroz,Carioca
-50,Liam,Elliott,Canadian ice climber
-51,Maureen,Sullivan,UNC
-52,Kate,Kerr,UNC
-53,Cecilia,Carter,"UNC, Daniels ex"
-54,Kelly,Williams,-1
-55,Chris,Miller,Linked up with him at the red. Cute dog. Lives in his promaster
-56,Hannah,Feinsilber,UNC
-57,JC,Fillion-Robin,Local to Carrboro
-58,Woody,Holliman,-1
-59,Will,Manness,UNC
-60,Quincy,Godwin,UNC
-61,Dave,Hause,Local to Carrboro
-62,Kevin,Twitchell,Seneca
-63,Mark,Jourdain,Linked up with him to climb at Pilot
-64,Nico,Bruzera,Found him on the NRG Partner Finder FB group. Owns land out here and invited me to camp out there on any return visits! He lives close to Cotton Club.
-65,Reverend,Wild,My trusty Revo for LRS (light mod on one side)
-66,Austin,Banks,"Rob’s good friend from UNC, married to Monica"
-67,Hailey,Schreyer,Great friend from UNC
-68,Mattias,-1,Eef’s Swedish friend in Norway
-69,PJ,-1,Eef’s obsessive and creepy ex
-70,Jakob,Andersen,Gorms son from Galdhopiggen
-71,Barry,Myers,Masters power lifter. Friends with David Thoenen
-72,Amma,Yamada,"UNC pal, still on friendly terms I think"
-73,Will,Petty,Super tall blonde from UNC. Became stoked on bouldering
-74,Joe,Hines,Does the books at SRMG
-75,Skylar,Strickler,Nrocks guide
-76,Sarah,Cha,Homie from UNC
-77,Ashley,Ackley,Dating Arthur Brooks lives on Spruce Knob working at Experience Learning
-78,Joe,Simpson,Partners with Kaya who owns the Moab climbing gym
-79,Erica,Beall,"Psychology professor, red hair, pretty strong!"
-80,Chelsea,Huddleston,"Highliner who hangs in Pittsburgh, chill with all the highlining folks"
-81,Jenna,Montgomery,John-Michael’s sister
-82,Lola,Aronovitz,Nrocks 2025
-83,Whitney,Gerhart,Nrocks 2025
-84,Jasmine,McCobb-Pratt,Nrocks 2025
-85,Alex,Wallace,Highliner crew at Seneca
-86,Anthony,Ferrante,Nrocks 2025
-87,Anna,Reachmack,Dating Ranger Matt
-88,Heather,Porter,Nrocks 2025
-89,Madeline,Chadwell,Nrocks summed up
+-1,"NULL","NULL",-1
+1,"Yav","Pernev","Bulgarian, works at SRMG"
+2,"Kimberly","O’Neill",":)"
+3,"Chris","Conger","Works at Nrocks"
+4,"Tom","Cronin","Works at SRCS"
+5,"Arthur","Brooks","Works at SRMG"
+6,"Dylan","James","UNC"
+7,"Andrew","Bounds","UNC"
+8,"Henrique","Vermelho","Rio"
+9,"Johannes","Unknown","Belgian climber visiting Rio briefly"
+10,"Matt","O’Brien","Ranger Matt"
+11,"Joe","Pirani","DSA and Hawbridge"
+12,"Mack","Ireland","Nrocks"
+13,"John-Michael","Montgomery","Seneca"
+14,"Zia","Zhou","Nrocks"
+15,"Jack","Webb","Nrocks"
+16,"Colin","McElroy","Nrocks"
+17,"Morgan","McAndrew","Nrocks"
+18,"Holly","Frost","SRMG"
+19,"Julie","Yakaboski","UNC"
+20,"Maeve","Thompson","DSA and Hawbridge"
+21,"Troy","Phillips","SRMG"
+22,"Kyle","Mills","SRMG"
+23,"Josh","Rich","Hung out with him and company at Whites Run"
+24,"Chad","Cochran","Works at the American Alpine Institute. Trains with SRMG sometimes"
+25,"Tom","Cecil","SRMG"
+26,"Lucia","Daranyi","Apogee"
+27,"Rob","Sulaski","UNC"
+28,"Kaya","Lindsay","Owns the gym in Moab"
+29,"James","Brown","UNC"
+30,"Dana","Bumbalo","UNC"
+31,"Angela","Whangpo","Met her at the Biscuit in AZ. Lives in her CRV"
+32,"Abigail","Lamoutte","UNC"
+33,"Russell","Hobart","UNC"
+34,"Josie","Davis","UNC"
+35,"Phillip","Hooper","UNC"
+36,"Guilherme","Chiquito",-1
+37,"Masha","Lourie","Apogee"
+38,"Brianna","Dechet","Apogee"
+39,"Walker","Mims","UNC"
+40,"Andrew","Morse","Apogee"
+41,"William","Barrett","UNC. Disappeared without a trace"
+42,"David","Thoenen","Active in the NC community. "
+43,"Connor","O’Fallon","Worked with him at Deepest Beliefs Lab at UNC"
+44,"Sofia","Brantley","UNC"
+45,"Hannes","Backerling","Swedish crusher"
+46,"Magnus","Gulbra","Norway. Didn’t really jive"
+47,"Gorm","Larsen","Met him on Galdhopiggen"
+48,"Evelyn","DeBoeck","Mushing in Norway"
+49,"Phillipe","Queiroz","Carioca"
+50,"Liam","Elliott","Canadian ice climber"
+51,"Maureen","Sullivan","UNC"
+52,"Kate","Kerr","UNC"
+53,"Cecilia","Carter","UNC, Daniels ex"
+54,"Kelly","Williams",-1
+55,"Chris","Miller","Linked up with him at the red. Cute dog. Lives in his promaster"
+56,"Hannah","Feinsilber","UNC"
+57,"JC","Fillion-Robin","Local to Carrboro"
+58,"Woody","Holliman",-1
+59,"Will","Manness","UNC"
+60,"Quincy","Godwin","UNC"
+61,"Dave","Hause","Local to Carrboro"
+62,"Kevin","Twitchell","Seneca"
+63,"Mark","Jourdain","Linked up with him to climb at Pilot"
+64,"Nico","Bruzera","Found him on the NRG Partner Finder FB group. Owns land out here and invited me to camp out there on any return visits! He lives close to Cotton Club."
+65,"Reverend","Wild","My trusty Revo for LRS (light mod on one side)"
+66,"Austin","Banks","Rob’s good friend from UNC, married to Monica"
+67,"Hailey","Schreyer","Great friend from UNC"
+68,"Mattias",-1,"Eef’s Swedish friend in Norway"
+69,"PJ",-1,"Eef’s obsessive and creepy ex"
+70,"Jakob","Andersen","Gorms son from Galdhopiggen"
+71,"Barry","Myers","Masters power lifter. Friends with David Thoenen"
+72,"Amma","Yamada","UNC pal, still on friendly terms I think"
+73,"Will","Petty","Super tall blonde from UNC. Became stoked on bouldering"
+74,"Joe","Hines","Does the books at SRMG"
+75,"Skylar","Strickler","Nrocks guide"
+76,"Sarah","Cha","Homie from UNC"
+77,"Ashley","Ackley","Dating Arthur Brooks lives on Spruce Knob working at Experience Learning"
+78,"Joe","Simpson","Partners with Kaya who owns the Moab climbing gym"
+79,"Erica","Beall","Psychology professor, red hair, pretty strong!"
+80,"Chelsea","Huddleston","Highliner who hangs in Pittsburgh, chill with all the highlining folks"
+81,"Jenna","Montgomery","John-Michael’s sister"
+82,"Lola","Aronovitz","Nrocks 2025"
+83,"Whitney","Gerhart","Nrocks 2025"
+84,"Jasmine","McCobb-Pratt","Nrocks 2025"
+85,"Alex","Wallace","Highliner crew at Seneca"
+86,"Anthony","Ferrante","Nrocks 2025"
+87,"Anna","Reachmack","Dating Ranger Matt"
+88,"Heather","Porter","Nrocks 2025"
+89,"Madeline","Chadwell","Nrocks summed up"
+90,"Jules","Manosky","Nrocks guide, dating Chris Conger"

@@ -3,7 +3,7 @@ WITH RECURSIVE months(month_date) AS (
     UNION ALL
     SELECT date(month_date, '-1 month')
     FROM months
-    WHERE date(month_date) >= date('now', '-60 months')
+    WHERE date(month_date) >= date('now', '-59 months')
 )
 SELECT 
     strftime('%Y-%m', month_date) AS month,
@@ -11,4 +11,4 @@ SELECT
 FROM months
 LEFT OUTER JOIN ticks ON strftime('%Y-%m', ticks.date) = month
 GROUP BY month
-ORDER BY month DESC;
+ORDER BY month ASC;

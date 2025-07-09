@@ -555,7 +555,7 @@
 555,"Via dos Italianos",18,-1,4,"-22.949900, -43.159100",120,-1
 556,"K2",15,"PG13",5,"-22.9549, -43.2144",114,-1
 557,"K3",21,-1,5,"-22.9549, -43.2144",114,-1
-558,"CERJ",15,"PG13",5,"22.33888, -42.72446",115,-1
+558,"CERJ",15,"PG13",5,"-22.33888, -42.72446",115,-1
 559,"Infravermelho",7,-1,5,"-22.9504, -43.1635",116,-1
 560,"Graalzinho",6,-1,4,"-22.95173, -43.15762",117,-1
 561,"Formiga Atômica",7,-1,4,"-22.95173, -43.15762",117,-1
@@ -603,7 +603,7 @@
 603,"Sixth Sense",45,-1,8,"38.833800, -79.366300",123,"Using this line to train for El Cap"
 604,"Moderato",6,-1,5,"38.695500, -79.465000",124,
 605,"The Tribe Lite",18,-1,4,"38.695500, -79.465000",124,"Rotten rock in the first half, do not recommend"
-606,"Superwoman",13,-1,4,"38.78577, -7929022",109,-1
+606,"Superwoman",13,-1,4,"38.78577, -79.29022",109,-1
 607,"Grain of Sand",20,-1,4,"38.78574, -79.29021",109,-1
 608,"Joker",18,-1,4,"38.78585, -79.29020",109,-1
 609,"La Machina",24,-1,4,"38.78545, -79.28913",109,-1
@@ -611,6 +611,8 @@
 611,"Skywalker",28,-1,4,"38.78546, -79.28937",109,-1
 612,"Triple Direct",135,-1,12,"38.695500, -79.465000",124,"TEST"
 613,"Superstition",45,-1,8,"38.833800, -79.365000",123,"Using this line to train for El Cap"
-614,"Totem (p1 only)",5,-1,5,"38.33800, -79.36630",123,"Common TR for scout groups"
+614,"Totem (p1 only)",5,-1,5,"38.833800, -79.366500",123,"Common TR for scout groups"
 615,"Bat Girl",15,-1,5,"38.842265, -79.362615",128,"Sweet climb! Really nice roof. Definitely link pitches one and two"
 616,"Leaky Corner",7,-1,5,"38.842265, -79.362615",128,"Really grimy when I did it! But if it was dry it’d be super nice. Already with some good stemming!"
+617,"Ugly Duckling",9,-1,4,"38.80916, -79.28002",129,
+618,"Lusting for Ladybugs",23,-1,4,"38.80877, -79.28088",129,"So gooddddd"
