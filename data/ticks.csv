@@ -640,7 +640,7 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 631,2023-09-03,389,1,80,"Lead","Fell/Hung","What a fight! Had a ton of fun, it was just the right challenge level. Very dirty though ",31,-1
 632,2023-09-05,390,1,70,"Lead","Onsight",-1,31,-1
 633,2023-09-05,391,1,50,"Lead","Fell/Hung","Route was bone dry today, had a ton of fun! Hung a couple times, made it to the moves just below the anchor and biffed it. So fun!",31,-1
-634,2023-09-08,392,1,120,"Lead","Redpoint","Guiding, accidentally took the 5.6/7 roof on the left just below the anchor. Oops!",-1,-1
+634,2023-09-08,392,1,120,"Lead","Redpoint","Guiding, accidentally took the 5.6/7 roof on the left just below the anchor. Oops!",-1,6
 635,2023-09-16,393,1,50,"Lead","Redpoint",-1,-1,-1
 636,2023-09-23,394,2,70,"Lead","Onsight","FA of Prime Rib. Led the crux pitch",31,-1
 637,2023-09-23,395,2,110,"Lead","Onsight","FA of 19'-hexanoyloxyfucoxanthin. Followed crux pitch",31,-1
@@ -660,8 +660,8 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 650,2023-10-30,405,2,200,"Lead","Redpoint","Spoopy climb!",-1,-1
 651,2023-11-03,407,3,400,"Lead","Redpoint","Mock guide w/ Russell & Josie",43,-1
 652,2023-11-03,406,1,140,"Lead","Redpoint",-1,43,-1
-653,2023-11-12,406,1,140,"Lead","Redpoint","Guiding",-1,-1
-654,2023-11-12,407,3,400,"Lead","Redpoint","Guiding",-1,-1
+653,2023-11-12,406,1,140,"Lead","Redpoint","Guiding",-1,6
+654,2023-11-12,407,3,400,"Lead","Redpoint","Guiding",-1,6
 655,2023-11-18,408,1,60,"Lead","Onsight",-1,31,-1
 656,2023-11-18,409,1,60,"Lead","Redpoint",-1,31,-1
 657,2023-11-18,411,1,45,"Lead","Fell/Hung","Got it clean to the dyno, then fell. Hung for a bit then tried again and got the move for the first time!",31,-1
@@ -733,19 +733,19 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 723,2024-03-24,542,1,285,"Lead","Flash","Just pitch 1 w/ Josh",55,-1
 724,2024-03-24,457,1,55,"Lead","Onsight","A harder, thinner version of critter crack, so good!",55,-1
 725,2024-03-24,575,2,180,"Lead","Onsight","W/ Josh. So sick!!! Bring some wide gear, pink tricam under the roof, #1 for the roof, save some TCUs for the corner above",55,-1
-726,2024-03-26,527,3,200,"Lead","Onsight","Chris led p1 of Old Mans, then I led  both pitches of Conns. Fun route!",56,-1
+726,2024-03-26,527,3,300,"Lead","Onsight","Chris led p1 of Old Mans, then I led  both pitches of Conns. Fun route!",56,-1
 727,2024-03-27,508,1,70,"Lead","Onsight","License to Drill at nrocks",-1,-1
 728,2024-03-27,509,1,70,"Lead","Onsight","Never Say Never at nrocks",-1,-1
 729,2024-03-27,459,1,50,"Lead","Onsight","Abandoned at nrocks",-1,-1
 730,2024-03-27,583,1,70,"Lead","Onsight","Dominion at nrocks. Super wet for the entire first half, but really quality climb",-1,-1
 731,2024-03-27,458,1,50,"Lead","Onsight","Nameless at nrocks 007 wall",-1,-1
 732,2024-03-27,459,1,50,"Lead","Redpoint","Abandoned at nrocks. Used only one of the jugs on the arete to reach the lip just for fun",-1,-1
-733,2024-03-29,537,3,150,"Follow","Clean","Guiding. Followed Kyle's lead, guided Alex and Kolton",57,-1
+733,2024-03-29,537,3,150,"Follow","Clean","Guiding. Followed Kyle's lead, guided Alex and Kolton",57,6
 734,2024-03-31,460,2,200,"LRS","Onsight","LRS w/ Revo  a follow pitch. Fun route! On point at 5.9 I think, so pretty soft by Seneca standards",17,-1
 735,2024-03-31,461,1,160,"LRS","Onsight","LRS w/ Revo. Went in direct once to handle the back feeding",17,-1
 736,2024-03-31,462,1,100,"TRS","Clean","TR solo. Just pitch 2",-1,-1
 737,2024-03-31,463,1,50,"TRS","Fell/Hung","TR solo. Hard as nails, but got all the moves after some effort. Reckon another bolt could go in down low given that the old gear placement is gone, otherwise I'll shamelessly stick clip this puppy",-1,-1
-738,2024-04-02,527,2,100,"TRS","Clean","TR solo, just first two pitches to retrieve Kyle's gear ",-1,-1
+738,2024-04-02,527,2,200,"TRS","Clean","TR solo, just first two pitches to retrieve Kyle's gear ",-1,-1
 739,2024-04-06,576,2,160,"Lead","Clean","Guided Matt",-1,-1
 740,2024-04-06,485,2,130,"Lead","Onsight","Guided Matt. Better movement than I expected, it was quite a fun way to access Old Ladies from the East",-1,-1
 741,2024-04-06,537,2,150,"Lead","Clean","Guided Matt. Just the last two pitches. Squeaked in among a group of 7, they were super kind and chill",-1,-1
@@ -754,7 +754,7 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 744,2024-04-16,510,1,150,"Lead","Redpoint",-1,58,-1
 745,2024-04-16,467,1,100,"TR","Clean","Could go for the lead after I dial the gear!",58,-1
 746,2024-04-16,492,1,45,"Lead","Fell/Hung","Went bolt to bolt, but it's not as futuristic as I thought it might be!",58,-1
-747,2024-04-19,527,3,200,"Lead","Redpoint","Guided Jonah. Need to find a decent placement before the chockstone on P2 and a piece thats easier to clean on the first ledge of P3",-1,-1
+747,2024-04-19,527,3,300,"Lead","Redpoint","Guided Jonah. Need to find a decent placement before the chockstone on P2 and a piece thats easier to clean on the first ledge of P3",-1,-1
 748,2024-04-19,541,4,150,"Lead","Redpoint","Guided Jonah. Split it into 4 pitches from upper broadway to the summit.",-1,-1
 749,2024-04-21,614,1,100,"Lead","Redpoint","Guided some scouts. Just P1 to TR this and the climb to the left",-1,-1
 750,2024-04-22,464,1,90,"Lead","Redpoint","Bottom Feeder at nrocks",46,-1
@@ -788,16 +788,16 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 778,2024-05-21,479,4,225,"Lead","Fell/Hung","Fell on a bomber .75 at the crux. Tried to lieback but should have just stayed in the crack and went for the foot jams. Followed Matt on the OG second pitch left of the roof, super licheny! Two more adventure pitches to get to the top of the southern pillar",62,-1
 779,2024-05-25,480,2,180,"LRS","Onsight","LRS w/ Revo & mtrax. Did one mega pitch from the base of Lichen or Leave it all the way to the ridge, about 55m. Scrambled down the observation deck to take the tourist trail down. Neat crux!",17,-1
 780,2024-05-25,481,1,80,"Lead","Onsight","Linked this with Lichen or Leave it for a mega pitch",-1,-1
-781,2024-05-26,527,3,200,"Lead","Redpoint","Guiding",-1,-1
+781,2024-05-26,527,3,300,"Lead","Redpoint","Guiding",-1,6
 782,2024-05-27,528,2,160,"Lead","Redpoint","Simuled with Matt on a booty run",62,-1
 783,2024-05-27,551,3,150,"Lead","Redpoint","Soloed to the last pitch then roped up for the crux pitch",62,-1
 784,2024-05-27,482,1,80,"Lead","Fell/Hung","Two Poops at nrocks. Morgans first time lead belaying so I took at the crux for her sake",63,-1
 785,2024-05-27,483,1,60,"TR","Clean","IMOL at nrocks",63,-1
 786,2024-05-27,484,1,60,"TR","Fell/Hung","Two Scoops at nrocks. Super stout, crimpy crux! Really fun movement though",63,-1
-787,2024-05-28,576,3,160,"Lead","Redpoint","Guiding Matt B. Nighttime ascent",-1,-1
-788,2024-05-28,485,2,130,"Lead","Redpoint","Guiding Matt B. Nighttime ascent",-1,-1
-789,2024-05-28,537,2,150,"Lead","Redpoint","Guiding Matt B. Nighttime ascent",-1,-1
-790,2024-06-01,527,3,200,"Lead","Redpoint","Guiding. Busy day on the rock!",-1,-1
+787,2024-05-28,576,3,160,"Lead","Redpoint","Guiding Matt B. Nighttime ascent",-1,6
+788,2024-05-28,485,2,130,"Lead","Redpoint","Guiding Matt B. Nighttime ascent",-1,6
+789,2024-05-28,537,2,150,"Lead","Redpoint","Guiding Matt B. Nighttime ascent",-1,6
+790,2024-06-01,527,3,300,"Lead","Redpoint","Guiding. Busy day on the rock!",-1,6
 791,2024-06-03,505,4,600,"LRS","Onsight","LRS with Revo. Linked pitches 1&2 and 3&4. I thought the second pitch was the money!",17,-1
 792,2024-06-04,583,1,65,"TR","Clean","Dominion at nrocks. Dogs out send!",-1,-1
 793,2024-06-05,492,1,45,"TRS","Fell/Hung","TR solo. ",-1,-1
@@ -829,46 +829,46 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 818,2024-06-24,541,2,150,"Lead","Redpoint","W/ Chris and Mack",66,-1
 819,2024-06-25,497,1,90,"Lead","Fell/Hung","Guided Mateo. Pulled on gear a couple times to get the job done",-1,-1
 820,2024-07-06,505,2,200,"Lead","Redpoint",-1,-1,-1
-821,2024-07-06,506,1,40,"Lead","Onsight","Guiding",-1,-1
-822,2024-07-07,503,1,95,"Lead","Redpoint","Guiding",-1,-1
-823,2024-07-07,540,2,190,"Lead","Redpoint","Guiding. Just the last two pitches.",-1,-1
+821,2024-07-06,506,1,40,"Lead","Onsight","Guiding",-1,6
+822,2024-07-07,503,1,95,"Lead","Redpoint","Guiding",-1,6
+823,2024-07-07,540,2,190,"Lead","Redpoint","Guiding. Just the last two pitches.",-1,6
 824,2024-07-09,498,1,65,"Lead","Redpoint","Same line from before at Honey Hole. You can dodge the big deadpoint, but why would you?",67,-1
 825,2024-07-09,499,1,55,"Lead","Onsight","Super fun line above the road at Honey Hole. Super fun, good holds!",67,-1
 826,2024-07-09,499,1,55,"TR","Clean","TRd the line above the road at Honey Hole for fun.",67,-1
-827,2024-07-10,527,3,200,"Lead","Redpoint","Guided Cleo. ",-1,-1
-828,2024-07-10,539,1,90,"Lead","Redpoint","Guided Cleo. Just P1",-1,-1
-829,2024-07-11,551,4,150,"Lead","Redpoint","Guiding",-1,-1
+827,2024-07-10,527,3,300,"Lead","Redpoint","Guided Cleo. ",-1,6
+828,2024-07-10,539,1,90,"Lead","Redpoint","Guided Cleo. Just P1",-1,6
+829,2024-07-11,551,4,150,"Lead","Redpoint","Guiding",-1,6
 830,2024-07-12,500,1,55,"Lead","Flash",-1,-1,-1
 831,2024-07-12,500,1,55,"TR","Clean","Followed to clean. Dogs out!",-1,-1
 832,2024-07-14,583,1,65,"TR","Clean","Dominion at NRocks. Approach shoe send",-1,-1
 833,2024-07-14,501,1,65,"TR","Clean","Kamikaze at NRocks. Approach shoe send to clean.",-1,-1
-834,2024-07-17,614,1,100,"Lead","Redpoint","Guiding",-1,-1
-835,2024-07-17,502,1,85,"TR","Clean","TR to tweak the anchor",-1,-1
-836,2024-07-18,527,3,200,"Lead","Redpoint","Guiding. Phone rescue mission from the crack under the first summit rappel station. Success!",-1,-1
-837,2024-07-20,614,1,100,"Lead","Redpoint","Guiding",-1,-1
-838,2024-07-20,614,1,100,"TR","Clean","TR to clean",-1,-1
-839,2024-07-20,510,1,150,"TR","Clean","TR to clean",-1,-1
-840,2024-07-22,614,1,100,"Lead","Redpoint","Guiding",-1,-1
-841,2024-07-24,614,1,100,"LRS","Redpoint","Guiding. LRS with Revo. Just P1.",17,-1
+834,2024-07-17,614,1,100,"Lead","Redpoint","Guiding",-1,6
+835,2024-07-17,502,1,85,"TR","Clean","TR to tweak the anchor",-1,6
+836,2024-07-18,527,3,300,"Lead","Redpoint","Guiding. Phone rescue mission from the crack under the first summit rappel station. Success!",-1,6
+837,2024-07-20,614,1,100,"Lead","Redpoint","Guiding",-1,6
+838,2024-07-20,614,1,100,"TR","Clean","TR to clean",-1,6
+839,2024-07-20,510,1,150,"TR","Clean","TR to clean",-1,6
+840,2024-07-22,614,1,100,"Lead","Redpoint","Guiding",-1,6
+841,2024-07-24,614,1,100,"LRS","Redpoint","Guiding. LRS with Revo. Just P1.",17,6
 842,2024-07-24,536,1,120,"Solo","Clean","Explored starting near the base of Candy Corner ending at the normal start for Skyline",-1,-1
 843,2024-07-25,535,3,280,"Lead","Fell/Hung","W/ Tom Cronin. Led the crux roof, fuckin gnarly!",64,-1
-844,2024-07-29,503,1,95,"Lead","Redpoint","Guiding",-1,-1
-845,2024-07-29,510,1,150,"TR","Clean","Guiding. TR to clean",-1,-1
+844,2024-07-29,503,1,95,"Lead","Redpoint","Guiding",-1,6
+845,2024-07-29,510,1,150,"TR","Clean","Guiding. TR to clean",-1,6
 846,2024-07-30,548,2,130,"LRS","Redpoint","LRS w/ Revo. Lives up to the hype, it was dope!! Great pro throughout too",17,-1
 847,2024-07-30,536,2,120,"LRS","Redpoint","LRS w/ Revo. One pitch to the skyline anchors  1 to follow. Pro on the corner is super sus. Was this corner really Bella Vista Lotus Var?",17,-1
 848,2024-07-31,504,1,100,"LRS","Onsight","LRS w/ Revo. Just pitch 1 to set up a TR. Guiding",17,-1
 849,2024-07-31,614,1,100,"TR","Clean","TR just pitch 1 to clean. Guiding",-1,-1
-850,2024-08-01,527,3,200,"Lead","Redpoint","Guiding, shouldn't have done the third pitch",-1,-1
-851,2024-08-01,528,2,160,"Lead","Redpoint","Guiding",-1,-1
-852,2024-08-02,505,2,200,"Lead","Redpoint","Guiding. Much smoother transitions",-1,-1
-853,2024-08-02,506,1,40,"Lead","Redpoint","Guiding",-1,-1
+850,2024-08-01,527,3,300,"Lead","Redpoint","Guiding, shouldn't have done the third pitch",-1,6
+851,2024-08-01,528,2,160,"Lead","Redpoint","Guiding",-1,6
+852,2024-08-02,505,2,200,"Lead","Redpoint","Guiding. Much smoother transitions",-1,6
+853,2024-08-02,506,1,40,"Lead","Redpoint","Guiding",-1,6
 854,2024-08-03,584,1,85,"Lead","Onsight","Lifers at nrocks",68,-1
 855,2024-08-03,507,2,85,"Lead","Onsight","Flying Bunghole at nrocks. Finding the bunghole made pulling the roof a breeze! � pitch to TR for fun",68,-1
 856,2024-08-03,508,1,85,"Lead","Redpoint","License to Drill at nrocks.",68,-1
 857,2024-08-03,509,1,85,"TR","Clean","Never Say Never at nrocks",68,-1
-858,2024-08-04,614,1,100,"LRS","Redpoint","LRS w/ revo. Guiding",17,-1
-859,2024-08-04,510,1,150,"TR","Clean","TR to clean. Guiding",-1,-1
-860,2024-08-04,539,1,90,"Lead","Redpoint","Led P1 to set up a TR. Guiding",-1,-1
+858,2024-08-04,614,1,100,"LRS","Redpoint","LRS w/ revo. Guiding",17,6
+859,2024-08-04,510,1,150,"TR","Clean","TR to clean. Guiding",-1,6
+860,2024-08-04,539,1,90,"Lead","Redpoint","Led P1 to set up a TR. Guiding",-1,6
 861,2024-08-12,540,3,250,"Lead","Redpoint","W/ Jack. Booty run with the grabber",69,-1
 862,2024-08-12,551,3,150,"Lead","Redpoint","W/ Jack. Booty run. Found a wiregate on the traverse pitch. Led the whole thing with the grabber hanging off me!",69,-1
 863,2024-08-13,540,1,60,"Lead","Redpoint","W/ John Michael. Just P1 to get to rear entry",65,-1
@@ -893,40 +893,40 @@ Wild doing those insecure, slabby moves above the two smallest pieces I own (a #
 882,2024-08-31,614,2,200,"Lead","Redpoint","Just P1 to set up a top rope � tr pitch to clean. Guiding",-1,-1
 883,2024-09-02,582,1,120,"Lead","Redpoint","Aid rope solo with Revo. Get a connect adjust, they're awesome. 1h6m",17,-1
 884,2024-09-02,525,1,60,"Lead","Fell/Hung","Sirius at nrocks. Went the wrong way at the first bolt, then hung out to booty a piton",70,-1
-885,2024-09-05,551,4,150,"Lead","Redpoint","Guiding",-1,-1
+885,2024-09-05,551,4,150,"Lead","Redpoint","Guiding",-1,6
 886,2024-09-06,551,3,150,"Lead","Redpoint","Carrying up the portaledge to sleep from the orange aid anchors!",70,-1
 887,2024-09-08,576,2,160,"Solo","Clean","Chill scramble day",62,-1
 888,2024-09-08,526,4,500,"Solo","Clean","Chill scramble day",62,-1
-889,2024-09-10,576,2,160,"Lead","Redpoint","Guiding",-1,-1
-890,2024-09-10,541,3,150,"Lead","Redpoint","Guiding",-1,-1
-891,2024-09-10,551,2,60,"Lead","Redpoint","Guiding. Just the last two pitches after rapping Conn's",-1,-1
-892,2024-09-11,527,3,200,"Lead","Redpoint","Guiding",-1,-1
-893,2024-09-12,528,2,160,"Lead","Redpoint","Guiding",-1,-1
-894,2024-09-12,529,3,300,"Lead","Redpoint","Guiding",-1,-1
+889,2024-09-10,576,2,160,"Lead","Redpoint","Guiding",-1,6
+890,2024-09-10,541,3,150,"Lead","Redpoint","Guiding",-1,6
+891,2024-09-10,551,2,60,"Lead","Redpoint","Guiding. Just the last two pitches after rapping Conn's",-1,6
+892,2024-09-11,527,3,300,"Lead","Redpoint","Guiding",-1,6
+893,2024-09-12,528,2,160,"Lead","Redpoint","Guiding",-1,6
+894,2024-09-12,529,3,300,"Lead","Redpoint","Guiding",-1,6
 895,2024-09-15,530,7,900,"Lead","Redpoint","Millennium at NRocks W/ Mack. Linked first two pitches (EZ Wider). Barely beat the 9am via! Flying squirrel nest in the last pitch crack, disturbed the poor dudes nap",70,-1
 896,2024-09-16,531,2,120,"Lead","Onsight","Sick climb! One TR pitch to clean since Joe couldn't get up it. TR pitch I didn't use the back wall or the arete for fun",72,-1
 897,2024-09-16,537,3,150,"Lead","Redpoint","With Joe!",72,-1
 898,2024-09-19,532,2,160,"Lead","Onsight","Followed Matt on P1 and led P2. Rowdy!! Climbed into the sunset and saw a bald eagle fly through Roy gap from the top of P2 ",62,-1
 899,2024-09-20,533,2,300,"LRS","Onsight","LRS w/ Revo. Just the last two pitches, linked them together into a rope stretcher 40m pitch! Pitch 3 was sweet, took the direct var. ",17,-1
 900,2024-09-20,534,6,400,"LRS","Onsight","LRS w/ Revo. Sick climb, awesome movement throughout! Don't dodge the off width/chimney on P2 by going right to those flakes, the pro is garbage and there's a wonderful hidden hand crack if you go straight up. P3 is well worth it, should be climbed more. ",17,-1
-901,2024-09-21,614,3,280,"Lead","Redpoint","Guiding. � TR pitches to anchor stuff and clean",-1,-1
+901,2024-09-21,614,3,280,"Lead","Redpoint","Guiding. � TR pitches to anchor stuff and clean",-1,6
 902,2024-09-22,551,3,60,"TRS","Clean","TR soloed the last pitch on a stuck rope on the traffic jam rap",-1,-1
 903,2024-09-22,540,1,60,"TRS","Clean","TR soloed the last pitch on a booty run",-1,-1
-904,2024-09-26,551,4,60,"Lead","Redpoint","Guiding. Rainy day!",-1,-1
-905,2024-10-07,536,2,120,"Lead","Redpoint","Guiding",-1,-1
-906,2024-10-07,540,2,250,"Lead","Redpoint","Guiding",-1,-1
-907,2024-10-07,541,3,150,"Lead","Redpoint","Guiding",-1,-1
+904,2024-09-26,551,4,60,"Lead","Redpoint","Guiding. Rainy day!",-1,6
+905,2024-10-07,536,2,120,"Lead","Redpoint","Guiding",-1,6
+906,2024-10-07,540,2,250,"Lead","Redpoint","Guiding",-1,6
+907,2024-10-07,541,3,150,"Lead","Redpoint","Guiding",-1,6
 908,2024-10-12,537,2,60,"Lead","Redpoint","Longest day ever :o",-1,-1
 909,2024-10-12,538,1,80,"Lead","Onsight","Holy rope drag for my followers on this one",-1,-1
-910,2024-10-16,539,1,90,"Lead","Redpoint","Guiding. Just P1",-1,-1
-911,2024-10-17,540,3,250,"Lead","Redpoint","Guiding. Client bootied a fixed nut!",-1,-1
-912,2024-10-17,541,4,150,"Lead","Redpoint","Guiding",-1,-1
-913,2024-10-18,542,1,60,"Lead","Redpoint","Guiding. Just P1",-1,-1
-914,2024-10-18,543,1,50,"Lead","Flash","Guiding",-1,-1
-915,2024-10-18,544,1,80,"Lead","Redpoint","Guiding",-1,-1
+910,2024-10-16,539,1,90,"Lead","Redpoint","Guiding. Just P1",-1,6
+911,2024-10-17,540,3,250,"Lead","Redpoint","Guiding. Client bootied a fixed nut!",-1,6
+912,2024-10-17,541,4,150,"Lead","Redpoint","Guiding",-1,6
+913,2024-10-18,542,1,60,"Lead","Redpoint","Guiding. Just P1",-1,6
+914,2024-10-18,543,1,50,"Lead","Flash","Guiding",-1,6
+915,2024-10-18,544,1,80,"Lead","Redpoint","Guiding",-1,6
 916,2024-10-21,545,3,200,"Lead","Onsight","Stone Gallows at NRocks. Led P1 and P2, Chris led a short P3 to get to the top of the headwall. SO SICK. Super sandbagged at 10b though",56,-1
-917,2024-10-22,546,2,150,"Lead","Flash","Guiding to set up silks from a highline across the notch. Two pitches from upper broadway to the highline anchor.",-1,-1
-918,2024-10-24,547,4,150,"Lead","Onsight","Guided my oldest client yet at 81! First time on the upper pitches",-1,-1
+917,2024-10-22,546,2,150,"Lead","Flash","Guiding to set up silks from a highline across the notch. Two pitches from upper broadway to the highline anchor.",-1,6
+918,2024-10-24,547,4,150,"Lead","Onsight","Guided my oldest client yet at 81! First time on the upper pitches",-1,6
 919,2024-10-24,576,1,160,"Solo","Clean","Access to lower broadway",-1,-1
 920,2024-10-24,548,1,130,"TRS","Clean","TR solo w/ approach shoes. Still so fun!",-1,-1
 921,2024-10-24,549,1,75,"TRS","Clean","TR solo w/ approach shoes no falls. Nice line!",-1,-1
@@ -944,8 +944,8 @@ Got lost after the Rubro Negro crack and did a 55m pitch all the way to the top.
 932,2025-01-17,557,1,100,"Lead","Onsight","Proud onsight! Was seriously touch and go through the crux. Absolutely incredible movement! W/ Johannes. ",74,-1
 933,2025-01-18,558,9,1312,"Lead","Onsight","Swung leads with Henrique, I took evens plus the 9th pitch. Had to traverse a water streak twice on the crux pitch! Such an incredible climb, absolute classic!! Followed the A0 pitch, but got it clean. Would love to come back and lead odds to lead the 5.10 pitch too. 6 hours base to summit ",73,-1
 934,2025-01-20,571,5,400,"LRS","Onsight","LRS w/ revo. Started 15 minutes before sunset to beat the heat, climbed most of it in the dark by headlamp. Crossed paths with two women rapping down as I was finishing up P1. Rigged P3 to rap after leading it so I didn&#39;t have to reclimb. Beautiful views of the city the whole way up!",17,-1
-935,2025-01-23,569,4,330,"Lead","Redpoint","Guided Sigrid",-1,-1
-936,2025-01-23,570,1,1000,"Lead","Redpoint","Guided Sigrid",-1,-1
+935,2025-01-23,569,4,330,"Lead","Redpoint","Guided Sigrid",-1,6
+936,2025-01-23,570,1,1000,"Lead","Redpoint","Guided Sigrid",-1,6
 937,2025-01-29,559,1,80,"LRS","Onsight","LRS with revo. Got rained off at the top of P1 by a lightning storm. Still worth it!",17,-1
 938,2025-01-30,560,1,45,"LRS","Redpoint","LRS with revo. ",17,-1
 939,2025-01-30,561,1,45,"TRS","Clean","TR solo. No falls ",-1,-1
@@ -1033,15 +1033,19 @@ Got lost after the Rubro Negro crack and did a 55m pitch all the way to the top.
 1021,2025-06-11,492,1,45,"Lead","Fell/Hung","Send go but botched it right below the last bolt :( Gotta refine my redpoint crux beta and smooth out my beta low down to save more energy",79,-1
 1022,2025-06-11,492,1,45,"Lead","Fell/Hung","Figured out that clipping the crux bolt after pulling the crux is the way to go!",79,-1
 1023,2025-06-13,613,3,190,"Lead","Onsight","Using this line to train for el cap. Led P1, jugged P2, followed P3 free in my approach shoes. Rowdy line, super fun on aid! Wild roof pull on P1 was quite interesting in ladders. Matt almost pissed on me while I was jugging P2!!",62,-1
-1024,2025-06-20,614,1,100,"Lead","Redpoint","Guiding a church group.",56,-1
+1024,2025-06-20,614,1,100,"Lead","Redpoint","Guiding a church group.",56,6
 1025,2025-06-21,465,3,250,"Lead","Redpoint","Quick evening run to get an anchor after the accident at the start of P1 but somebody had already snagged it. Got benighted finishing P3, rapped over the cave in the dark. Ironically found some sunglasses at the bottom of the rap though!",94,-1
-1026,2025-06-25,614,1,100,"Lead","Redpoint","Guiding CHM",17,-1
-1027,2025-07-02,614,1,100,"Lead","Redpoint","Guiding CHM",17,-1
+1026,2025-06-25,614,1,100,"Lead","Redpoint","Guiding CHM",17,6
+1027,2025-07-02,614,1,100,"Lead","Redpoint","Guiding CHM",17,6
 1028,2025-07-02,615,1,90,"Lead","Onsight","Really fun climb! Linked pitches 1 and 2, don’t know why you’d do any different. ",95,-1
 1029,2025-07-02,616,1,60,"TR","Clean","Like rock climbing on Dagobah!!",95,-1
 1030,2025-07-02,615,1,90,"TR","Fell/Hung","Took a shot at some of Tom’s beta here, but didn’t really like it. Going out right for some side pulls",95,-1
 1031,2025-07-03,329,4,400,"Lead","Redpoint","Flashed pitch 1 (only followed it once I guess) and did the classic Alzheimer’s onsight for pitch 2. Such an awesome climb!! When I followed pitch 2 I went right on the face above the small roof pull and it was a delightful little sequence. Would definitely want a human belayer to go for it on lead, but it would be plenty well protected and a lot of fun!",17,-1
 1032,2025-07-05,617,1,25,"Lead","Onsight","Barely a warmup",96,-1
 1033,2025-07-05,618,1,45,"Lead","Onsight","Such a sweet climb! If the crux had one more crimp I would have been outta there",97,-1
-1034,2025-07-06,527,3,200,"Lead","Redpoint",,-1,4
+1034,2025-07-06,527,3,300,"Lead","Redpoint",,-1,4
 1035,2025-07-06,533,1,70,"TR","Clean","Counterbalance lower to clean the route",-1,4
+1036,2025-07-09,619,1,90,"Lead","Onsight","Sick setting! Very worried about loose rock the whole time though",84,-1
+1037,2025-07-09,620,1,40,"Lead","Onsight","Always wanted to do this line just because I see it from the start of the via all the timeeee",84,-1
+1038,2025-07-10,551,4,200,"Lead","Redpoint","Minor freakout at the top of P2 just before the big ledge. Scampered down and showed him how to hand jam to get up which he surprisingly actually learned even after the freakout",-1,5
+1039,2025-07-10,575,1,180,"TR","Clean","TR soloed to get back up to the West Pole rap anchors to do a tandem rappel after a bit of a freakout on rappelling occurred ",-1,5
