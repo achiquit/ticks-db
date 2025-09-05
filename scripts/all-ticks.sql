@@ -2,12 +2,21 @@ SELECT
     ticks.date AS 'Date', 
     climbs.name AS 'Climb', 
     (
-        SELECT group_concat(grades.grade, ', ')
-        FROM join_grades
-        INNER JOIN which_grades ON which_grades.id = join_grades.id
-        INNER JOIN grades ON grades.id = which_grades.grade
-        WHERE join_grades.id = climbs.grade
-    ) AS 'Grade',
+        CASE
+            WHEN climbs.commitment IS -1 THEN
+                (SELECT group_concat(grades.grade, ', ')
+                FROM join_grades
+                INNER JOIN which_grades ON which_grades.id = join_grades.id
+                INNER JOIN grades ON grades.id = which_grades.grade
+                WHERE join_grades.id = climbs.grade)
+            ELSE
+                (SELECT group_concat(grades.grade, ', ')  || ', Grade ' || climbs.commitment
+                FROM join_grades
+                INNER JOIN which_grades ON which_grades.id = join_grades.id
+                INNER JOIN grades ON grades.id = which_grades.grade
+                WHERE join_grades.id = climbs.grade)
+            END
+    ) AS 'Difficulty',
     (
         SELECT group_concat(climb_type.type, ', ')
         FROM join_types

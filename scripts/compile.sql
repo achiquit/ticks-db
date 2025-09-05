@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS which_grades;
 DROP TABLE IF EXISTS grades;
 DROP TABLE IF EXISTS styles;
 DROP TABLE IF EXISTS success;
+DROP TABLE IF EXISTS danger;
 DROP TABLE IF EXISTS commitment;
 DROP TABLE IF EXISTS which_types;
 DROP TABLE IF EXISTS climb_type;
@@ -57,12 +58,19 @@ INSERT INTO success (style)
 VALUES
 	('-1'),('Fell/Hung'),('Pinkpoint'),('Redpoint'),('Onsight'),('Flash'),('Clean'), ('Attempt');
 
-CREATE TABLE commitment(
+CREATE TABLE danger(
 	"type" TEXT PRIMARY KEY NOT NULL
 );
-INSERT INTO commitment (type)
+INSERT INTO danger (type)
 VALUES
 	(-1),('G'),('PG'),('PG13'),('R'),('X');
+
+CREATE TABLE commitment(
+	"level" TEXT PRIMARY KEY NOT NULL
+);
+INSERT INTO commitment (level)
+VALUES
+	('-1'), ('I'), ('II'), ('III'), ('IV'), ('V'), ('VI'), ('VII');
 
 CREATE TABLE climb_type(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -111,13 +119,15 @@ CREATE TABLE climbs(
 	"id" INTEGER PRIMARY KEY ASC,
 	"name" TEXT NOT NULL,
 	"grade" INTEGER NOT NULL,
-	"commitment" TEXT,
+	"danger" TEXT,
 	"type" INTEGER NOT NULL,
+	"commitment" TEXT NOT NULL,
 	"gps" TEXT NOT NULL,
 	"area" INTEGER NOT NULL,
 	"notes" TEXT,
 	FOREIGN KEY("grade") REFERENCES join_grades("id"),
 	FOREIGN KEY("type") REFERENCES join_types("id"),
+	FOREIGN KEY("commitment") REFERENCES commitment("level"),
 	FOREIGN KEY("area") REFERENCES areas("id")
 );
 .mode csv
