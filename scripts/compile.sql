@@ -80,7 +80,7 @@ CREATE TABLE join_types(
 
 CREATE TABLE which_types(
 	"id" INTEGER ASC NOT NULL,
-	"type" TEXT NOT NULL,
+	"type" INTEGER NOT NULL,
 	PRIMARY KEY ("id", "type"),
 	FOREIGN KEY("type") REFERENCES climb_type("id"),
 	FOREIGN KEY("id") REFERENCES join_types("id")

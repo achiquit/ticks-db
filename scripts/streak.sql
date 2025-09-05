@@ -1,20 +1,29 @@
-WITH ClimbingStreak AS (
-    SELECT
-        date,
-        JULIANDAY(date) AS grp
-    FROM
-        ticks
-),
-ConsecutiveCounts AS (
-    SELECT
-        grp,
-        COUNT(*) AS consecutive_days
-    FROM
-        ClimbingStreak
-    GROUP BY
-        grp
-)
+-- SELECT
+--     MAX(consecutive_count) AS longest_consecutive_streak,
+--     grp
+-- FROM
+--     (SELECT
+--         grp,
+--         COUNT(*) AS consecutive_count
+--     FROM
+--         (SELECT
+--             date,
+--             JULIANDAY(date) - ROW_NUMBER() OVER (ORDER BY date) AS grp
+--         FROM
+--             ticks) AS grouped_events
+--     GROUP BY
+--         grp);
+
 SELECT
-    MAX(consecutive_days) AS max_consecutive_dates
+    date,
+    grp,
+    COUNT(*) AS consecutive_count
 FROM
-    ConsecutiveCounts;
+    (SELECT
+        date,
+        JULIANDAY(date) - ROW_NUMBER() OVER (ORDER BY date) AS grp
+    FROM
+        ticks) AS grouped_events
+GROUP BY
+    grp
+ORDER BY consecutive_count ASC
