@@ -9,10 +9,10 @@
 9,2019-07-01,7,1,10,"Flash",-1,-1,-1,-1
 10,2019-07-01,8,1,10,"Send",-1,-1,-1,-1
 11,2019-07-27,9,1,10,"Send",-1,-1,-1,-1
-12,2019-07-31,574,1,60,"TR","Fell/Hung",-1,-1,-1
-13,2019-07-31,314,1,90,"Lead","Onsight",-1,-1,-1
-14,2019-08-30,574,1,60,"Lead","Pinkpoint",-1,-1,-1
-15,2019-08-30,36,1,55,"TR","Clean",-1,-1,-1
+12,2019-07-31,574,1,60,"TR","Fell/Hung",-1,1,-1
+13,2019-07-31,314,1,90,"Lead","Onsight",-1,1,-1
+14,2019-08-30,574,1,60,"Lead","Pinkpoint",-1,1,-1
+15,2019-08-30,36,1,55,"TR","Clean",-1,1,-1
 16,2019-09-07,415,1,50,"TR","Clean",-1,-1,-1
 17,2019-09-07,384,1,50,"Lead","Fell/Hung",-1,-1,-1
 18,2019-09-07,36,1,55,"Lead","Pinkpoint",-1,-1,-1
@@ -24,15 +24,15 @@
 24,2019-09-20,574,1,60,"TR","Clean",-1,-1,-1
 25,2019-09-20,315,1,90,"TR","Clean",-1,-1,-1
 26,2019-09-20,11,1,65,"Lead","Onsight",-1,-1,-1
-27,2019-09-27,414,1,50,"TR","Clean",-1,-1,-1
-28,2019-09-27,574,1,60,"Lead","Fell/Hung",-1,-1,-1
-29,2019-09-27,34,1,60,"Lead","Fell/Hung",-1,-1,-1
-30,2019-10-04,12,1,50,"TR","Clean",-1,-1,-1
-31,2019-10-04,27,1,60,"Lead","Redpoint",-1,-1,-1
-32,2019-10-04,27,1,60,"TR","Clean",-1,-1,-1
-33,2019-10-04,13,1,50,"TR","Clean",-1,-1,-1
-34,2019-11-03,407,3,400,"Follow","Clean",-1,-1,-1
-35,2019-11-03,406,1,140,"Follow","Fell/Hung",-1,-1,-1
+27,2019-09-27,414,1,50,"TR","Clean",-1,100,-1
+28,2019-09-27,574,1,60,"Lead","Fell/Hung",-1,100,-1
+29,2019-09-27,34,1,60,"Lead","Fell/Hung",-1,100,-1
+30,2019-10-04,12,1,50,"TR","Clean",-1,100,-1
+31,2019-10-04,27,1,60,"Lead","Redpoint",-1,100,-1
+32,2019-10-04,27,1,60,"TR","Clean",-1,100,-1
+33,2019-10-04,13,1,50,"TR","Clean",-1,100,-1
+34,2019-11-03,407,3,400,"Follow","Clean",-1,101,-1
+35,2019-11-03,406,1,140,"Follow","Fell/Hung",-1,101,-1
 36,2019-11-09,262,1,50,"Lead","Flash",-1,-1,-1
 37,2019-11-09,264,1,50,"TR","Clean",-1,-1,-1
 38,2019-11-09,264,1,50,"Lead","Redpoint",-1,-1,-1
@@ -40,13 +40,13 @@
 40,2019-11-09,258,1,50,"Lead","Flash",-1,-1,-1
 41,2019-11-09,279,1,45,"TR","Clean",-1,-1,-1
 42,2019-11-09,280,1,40,"TR","Clean",-1,-1,-1
-43,2019-12-26,42,1,60,"TR","Clean","Mock led, lots of bomber gear, mostly nuts & tricams",-1,-1
-44,2019-12-26,40,1,60,"Lead","Fell/Hung",-1,-1,-1
-45,2019-12-27,27,1,60,"Lead","Redpoint",-1,2,-1
-46,2019-12-27,32,1,80,"Lead","Onsight",-1,2,-1
-47,2019-12-27,574,1,60,"Lead","Redpoint",-1,2,-1
-48,2019-12-27,319,1,90,"Lead","Onsight",-1,2,-1
-49,2019-12-27,315,1,90,"Lead","Redpoint","First trad lead! Felt great :)",2,-1
+43,2019-12-26,42,1,60,"TR","Clean","Mock led, lots of bomber gear, mostly nuts & tricams",102,-1
+44,2019-12-26,40,1,60,"Lead","Fell/Hung",-1,102,-1
+45,2019-12-27,27,1,60,"Lead","Redpoint",-1,103,-1
+46,2019-12-27,32,1,80,"Lead","Onsight",-1,103,-1
+47,2019-12-27,574,1,60,"Lead","Redpoint",-1,103,-1
+48,2019-12-27,319,1,90,"Lead","Onsight",-1,103,-1
+49,2019-12-27,315,1,90,"Lead","Redpoint","First trad lead! Felt great :)",103,-1
 50,2020-02-01,415,1,50,"TR","Clean","First climbers to the crag, found booty quad anchor ",-1,-1
 51,2020-02-01,34,1,40,"Lead","Pinkpoint","Felt super desperate in September, found a high-ish left foot on a chip makes the crux move easy",-1,-1
 52,2020-02-01,574,1,60,"Lead","Redpoint","Right variation. Super easy, albeit a little pumpy",-1,-1
@@ -114,15 +114,15 @@
 114,2020-07-12,384,1,50,"Lead","Fell/Hung",-1,-1,-1
 115,2020-07-12,384,1,50,"Lead","Fell/Hung",-1,-1,-1
 116,2020-07-12,125,1,50,"Lead","Flash",-1,-1,-1
-117,2020-07-18,35,1,40,"TR","Clean",-1,-1,-1
-118,2020-07-18,574,1,60,"Lead","Redpoint",-1,-1,-1
-119,2020-07-18,574,1,60,"Lead","Pinkpoint",-1,-1,-1
-120,2020-07-18,36,1,45,"Lead","Redpoint",-1,-1,-1
-121,2020-07-18,414,1,50,"Lead","Redpoint",-1,-1,-1
-122,2020-07-18,384,1,50,"Lead","Fell/Hung",-1,-1,-1
-123,2020-07-18,384,1,50,"Lead","Redpoint","do the left heelhook beta next time instead of the mega layback",-1,-1
-124,2020-07-18,44,1,55,"Lead","Fell/Hung","fell because I couldn't find Crux hold (horn). can get it next time",-1,-1
-125,2020-07-18,37,1,50,"TR","Clean",-1,-1,-1
+117,2020-07-18,35,1,40,"TR","Clean",-1,9,-1
+118,2020-07-18,574,1,60,"Lead","Redpoint",-1,9,-1
+119,2020-07-18,574,1,60,"Lead","Pinkpoint",-1,9,-1
+120,2020-07-18,36,1,45,"Lead","Redpoint",-1,9,-1
+121,2020-07-18,414,1,50,"Lead","Redpoint",-1,9,-1
+122,2020-07-18,384,1,50,"Lead","Fell/Hung",-1,9,-1
+123,2020-07-18,384,1,50,"Lead","Redpoint","do the left heelhook beta next time instead of the mega layback",9,-1
+124,2020-07-18,44,1,55,"Lead","Fell/Hung","fell because I couldn't find Crux hold (horn). can get it next time",9,-1
+125,2020-07-18,37,1,50,"TR","Clean",-1,9,-1
 126,2020-07-19,38,1,25,"Lead","Onsight",-1,-1,-1
 127,2020-07-19,410,1,25,"Lead","Fell/Hung","Pumped out and fell at crux, then got through on the second try",-1,-1
 128,2020-07-19,410,1,25,"TR","Clean","Clean climb, but on TR",-1,-1
@@ -135,29 +135,29 @@
 135,2020-08-02,41,1,50,"Lead","Onsight","Borrowed some aliens from someone",-1,-1
 136,2020-08-02,42,1,60,"Lead","Redpoint",-1,-1,-1
 137,2020-08-02,43,1,60,"Lead","Onsight",-1,-1,-1
-138,2020-08-09,124,1,60,"Lead","Onsight",-1,-1,-1
-139,2020-08-09,249,1,60,"Lead","Fell/Hung","Rested before crux",-1,-1
-140,2020-08-09,44,1,55,"Lead","Redpoint",-1,-1,-1
-141,2020-08-09,44,1,55,"TR","Clean",-1,-1,-1
-142,2020-08-09,384,1,50,"Lead","Redpoint","Heelhook beta works, feels good",-1,-1
+138,2020-08-09,124,1,60,"Lead","Onsight",-1,104,-1
+139,2020-08-09,249,1,60,"Lead","Fell/Hung","Rested before crux",104,-1
+140,2020-08-09,44,1,55,"Lead","Redpoint",-1,104,-1
+141,2020-08-09,44,1,55,"TR","Clean",-1,104,-1
+142,2020-08-09,384,1,50,"Lead","Redpoint","Heelhook beta works, feels good",104,-1
 143,2020-08-16,46,1,250,"Lead","Onsight","Had to downclimb just before the pitch 2 slab, it was soaking wet",7,-1
 144,2020-08-16,45,3,250,"Follow","Clean",-1,7,-1
-145,2020-08-24,105,1,10,"Flash",-1,-1,-1,-1
-146,2020-08-24,106,1,20,"Flash",-1,-1,-1,-1
-147,2020-08-24,47,1,7,"Send",-1,-1,-1,-1
-148,2020-08-24,107,1,12,"Flash",-1,-1,-1,-1
-149,2020-08-24,108,1,14,"Flash",-1,-1,-1,-1
-150,2020-08-24,109,1,10,"Flash",-1,-1,-1,-1
-151,2020-08-24,110,1,12,"Flash",-1,-1,-1,-1
-152,2020-08-24,48,2,25,"Flash",-1,-1,-1,-1
-153,2020-08-24,49,2,12,"Flash",-1,-1,-1,-1
-154,2020-08-25,50,1,14,"Flash",-1,-1,-1,-1
-155,2020-08-25,51,1,10,"Flash",-1,-1,-1,-1
-156,2020-08-25,592,1,10,"Flash",-1,-1,-1,-1
-157,2020-08-25,52,1,10,"Attempt",-1,-1,-1,-1
-158,2020-08-25,53,1,16,"Flash",-1,-1,-1,-1
-159,2020-08-25,54,1,11,"Flash",-1,-1,-1,-1
-160,2020-08-25,55,1,10,"Flash",-1,-1,-1,-1
+145,2020-08-24,105,1,10,"Flash",-1,-1,14,-1
+146,2020-08-24,106,1,20,"Flash",-1,-1,14,-1
+147,2020-08-24,47,1,7,"Send",-1,-1,14,-1
+148,2020-08-24,107,1,12,"Flash",-1,-1,14,-1
+149,2020-08-24,108,1,14,"Flash",-1,-1,14,-1
+150,2020-08-24,109,1,10,"Flash",-1,-1,14,-1
+151,2020-08-24,110,1,12,"Flash",-1,-1,14,-1
+152,2020-08-24,48,2,25,"Flash",-1,-1,14,-1
+153,2020-08-24,49,2,12,"Flash",-1,-1,14,-1
+154,2020-08-25,50,1,14,"Flash",-1,-1,105,-1
+155,2020-08-25,51,1,10,"Flash",-1,-1,105,-1
+156,2020-08-25,592,1,10,"Flash",-1,-1,105,-1
+157,2020-08-25,52,1,10,"Attempt",-1,-1,105,-1
+158,2020-08-25,53,1,16,"Flash",-1,-1,105,-1
+159,2020-08-25,54,1,11,"Flash",-1,-1,105,-1
+160,2020-08-25,55,1,10,"Flash",-1,-1,105,-1
 161,2020-08-30,94,1,50,"Lead","Redpoint","The Medallion (downgraded to 9). Nighttime ascent ",1,-1
 162,2020-08-30,56,1,15,"Lead","Redpoint","Flatten Your Curves. Nighttime ascent. ",1,-1
 163,2020-09-05,57,1,60,"Lead","Onsight","used 3 bolts from Fierce Face at the end",-1,-1
@@ -204,14 +204,14 @@
 204,2020-09-24,78,1,65,"TRS","Clean","TR solo. Clean",-1,-1
 205,2020-09-24,79,1,8,"Flash",-1,-1,-1,-1
 206,2020-09-24,80,1,8,"Attempt",-1,"Got a big flapper on the crux move(?) moving from the fat fin after the start holds",-1,-1
-207,2020-09-26,81,1,120,"Follow","Clean","Clean follow",-1,-1
-208,2020-09-26,82,1,80,"Lead","Flash",-1,-1,-1
-209,2020-09-26,83,1,80,"Follow","Clean","clean follow",-1,-1
-210,2020-09-26,84,1,90,"Follow","Fell/Hung","1 fall under roof",-1,-1
-211,2020-09-26,85,1,90,"Follow","Clean","clean follow",-1,-1
-212,2020-09-26,86,1,80,"Lead","Onsight",-1,-1,-1
-213,2020-09-26,87,1,90,"Follow","Fell/Hung","fell once after low traverse",-1,-1
-214,2020-09-26,88,1,90,"Follow","Clean","clean follow",-1,-1
+207,2020-09-26,81,1,120,"Follow","Clean","Clean follow",8,-1
+208,2020-09-26,82,1,80,"Lead","Flash",-1,8,-1
+209,2020-09-26,83,1,80,"Follow","Clean","clean follow",8,-1
+210,2020-09-26,84,1,90,"Follow","Fell/Hung","1 fall under roof",8,-1
+211,2020-09-26,85,1,90,"Follow","Clean","clean follow",8,-1
+212,2020-09-26,86,1,80,"Lead","Onsight",-1,8,-1
+213,2020-09-26,87,1,90,"Follow","Fell/Hung","fell once after low traverse",8,-1
+214,2020-09-26,88,1,90,"Follow","Clean","clean follow",8,-1
 215,2020-09-27,89,1,50,"Follow","Clean","Clean follow",11,-1
 216,2020-09-27,403,1,70,"Follow","Clean","Clean follow",11,-1
 217,2020-09-27,90,1,90,"Lead","Onsight","Tricky gear low, walk in the park after the ledge",11,-1
@@ -247,20 +247,20 @@
 247,2020-11-15,108,1,14,"Send",-1,"No pad piddling",12,-1
 248,2020-11-15,109,1,12,"Send",-1,"No pad piddling",12,-1
 249,2020-11-15,110,1,12,"Send",-1,"No pad piddling",12,-1
-250,2020-11-22,111,2,160,"Follow","Clean",-1,-1,-1
-251,2020-11-22,112,1,70,"Follow","Clean",-1,-1,-1
-252,2020-11-22,589,1,80,"Lead","Redpoint",-1,-1,-1
-253,2020-11-27,113,1,80,"Lead","Pinkpoint",-1,-1,-1
-254,2020-11-27,114,1,70,"Lead","Onsight",-1,-1,-1
-255,2020-11-27,115,1,75,"Lead","Onsight",-1,-1,-1
-256,2020-11-27,116,1,90,"Lead","Pinkpoint",-1,-1,-1
-257,2020-11-27,117,1,45,"TR","Clean",-1,-1,-1
-258,2020-11-27,118,1,60,"Lead","Onsight","Definitely would want to stick clip next time, beginning moves are real thin",-1,-1
-259,2020-11-28,119,1,80,"TR","Clean",-1,-1,-1
-260,2020-11-28,120,1,65,"TRS","Clean","TR solo. Send",-1,-1
-261,2020-11-28,121,1,70,"Follow","Clean",-1,-1,-1
-262,2020-11-28,397,1,65,"Lead","Redpoint",-1,-1,-1
-263,2020-11-28,397,1,65,"TR","Clean","Ran up it, felt easy",-1,-1
+250,2020-11-22,111,2,160,"Follow","Clean",-1,106,-1
+251,2020-11-22,112,1,70,"Follow","Clean",-1,106,-1
+252,2020-11-22,589,1,80,"Lead","Redpoint",-1,106,-1
+253,2020-11-27,113,1,80,"Lead","Pinkpoint",-1,12,-1
+254,2020-11-27,114,1,70,"Lead","Onsight",-1,12,-1
+255,2020-11-27,115,1,75,"Lead","Onsight",-1,12,-1
+256,2020-11-27,116,1,90,"Lead","Pinkpoint",-1,12,-1
+257,2020-11-27,117,1,45,"TR","Clean",-1,12,-1
+258,2020-11-27,118,1,60,"Lead","Onsight","Definitely would want to stick clip next time, beginning moves are real thin",12,-1
+259,2020-11-28,119,1,80,"TR","Clean",-1,12,-1
+260,2020-11-28,120,1,65,"TRS","Clean","TR solo. Send",12,-1
+261,2020-11-28,121,1,70,"Follow","Clean",-1,12,-1
+262,2020-11-28,397,1,65,"Lead","Redpoint",-1,12,-1
+263,2020-11-28,397,1,65,"TR","Clean","Ran up it, felt easy",12,-1
 264,2020-12-06,591,3,500,"Lead","Onsight","Simuled first pitch, followed second, led third",12,-1
 265,2020-12-12,406,1,140,"Lead","Redpoint",-1,16,-1
 266,2020-12-12,407,3,400,"Follow","Clean","Followed Walker w/ Phil",16,-1
@@ -304,9 +304,9 @@
 304,2021-05-08,418,1,50,"TR","Clean",-1,19,-1
 305,2021-05-08,277,1,30,"TR","Clean","Clean. I think I found the low beta!",19,-1
 306,2021-05-08,277,1,30,"TR","Clean","Clean. Extra practice I guess",19,-1
-307,2021-05-09,230,1,120,"Lead","Onsight",-1,-1,-1
-308,2021-05-09,313,1,120,"Lead","Flash",-1,-1,-1
-309,2021-05-09,405,2,200,"Lead","Redpoint",-1,-1,-1
+307,2021-05-09,230,1,120,"Lead","Onsight",-1,19,-1
+308,2021-05-09,313,1,120,"Lead","Flash",-1,19,-1
+309,2021-05-09,405,2,200,"Lead","Redpoint",-1,19,-1
 310,2021-05-25,148,2,250,"Solo","Clean","Pulled on fixed ropes, all in good condition",12,-1
 311,2021-05-26,149,3,400,"Lead","Onsight","Swung leads, followed P2 and P3 that were linked",12,-1
 312,2021-05-27,150,1,1100,"Solo","Clean","Super fun!",12,-1
