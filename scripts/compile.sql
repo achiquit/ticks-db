@@ -207,6 +207,7 @@ CREATE TABLE climbed_with(
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/partner-leaderboard.csv
 .read scripts/scripts/leaderboard.sql
 
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/climb-locs.csv
 .read scripts/scripts/climbs-map.sql
 
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/monthly-height.csv

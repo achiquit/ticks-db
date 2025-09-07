@@ -39,7 +39,7 @@ SELECT
     areas.area_name AS 'Area',
     ticks.pitches AS 'Pitches',
     ticks.height AS 'Height',
-    ticks.style AS 'Style',
+    ticks.style || ', ' || ticks.success AS 'Style',
     CASE
         WHEN climbed_id IS -1 AND guided_id IS -1 THEN 'Unknown Partner'
         WHEN climbed_id IS -1 THEN 'Guiding'
