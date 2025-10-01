@@ -216,4 +216,7 @@ CREATE TABLE climbed_with(
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/yearly-height.csv
 .read scripts/scripts/yearly-height.sql
 
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/top-climbs.csv
+.read scripts/scripts/top-climbs.sql
+
 .mode table
