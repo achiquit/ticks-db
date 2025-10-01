@@ -20,12 +20,12 @@ DROP TABLE IF EXISTS partners;
 DROP TABLE IF EXISTS join_types;
 DROP TABLE IF EXISTS join_grades;
 
-CREATE TABLE grades(
-	"id" INTEGER PRIMARY KEY ASC,
-	"grade" TEXT NOT NULL
-);
-.mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/grades.csv grades
+-- CREATE TABLE grades(
+-- 	"id" INTEGER PRIMARY KEY ASC,
+-- 	"grade" TEXT NOT NULL
+-- );
+-- .mode csv
+-- .import /home/andre/Documents/ticks-db/scripts/data/grades.csv grades
 
 CREATE TABLE join_grades(
 	"id" INTEGER PRIMARY KEY ASC,
