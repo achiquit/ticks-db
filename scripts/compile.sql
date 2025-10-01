@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS guided;
 DROP TABLE IF EXISTS climbs;
 DROP TABLE IF EXISTS areas;
 DROP TABLE IF EXISTS which_grades;
-DROP TABLE IF EXISTS grades;
+-- DROP TABLE IF EXISTS grades;
 DROP TABLE IF EXISTS styles;
 DROP TABLE IF EXISTS success;
 DROP TABLE IF EXISTS danger;
@@ -25,14 +25,14 @@ DROP TABLE IF EXISTS join_grades;
 -- 	"grade" TEXT NOT NULL
 -- );
 -- .mode csv
--- .import /home/andre/Documents/ticks-db/scripts/data/grades.csv grades
+-- .import ./scripts/data/grades.csv grades
 
 CREATE TABLE join_grades(
 	"id" INTEGER PRIMARY KEY ASC,
 	"notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/join_grades.csv join_grades
+.import ./scripts/data/join_grades.csv join_grades
 
 CREATE TABLE which_grades(
 	"id" INTEGER ASC NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE which_grades(
 	FOREIGN KEY("grade") REFERENCES grades("id")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/which_grades.csv which_grades
+.import ./scripts/data/which_grades.csv which_grades
 
 CREATE TABLE styles(
 	"style" TEXT PRIMARY KEY NOT NULL
@@ -77,14 +77,14 @@ CREATE TABLE climb_type(
 	"type" TEXT NOT NULL
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/types.csv climb_type
+.import ./scripts/data/types.csv climb_type
 
 CREATE TABLE join_types(
 	"id" INTEGER PRIMARY KEY ASC,
 	"notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/join_types.csv join_types
+.import ./scripts/data/join_types.csv join_types
 
 CREATE TABLE which_types(
 	"id" INTEGER ASC NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE which_types(
 	FOREIGN KEY("id") REFERENCES join_types("id")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/which_types.csv which_types
+.import ./scripts/data/which_types.csv which_types
 
 CREATE TABLE partners(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -103,7 +103,7 @@ CREATE TABLE partners(
 	"notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/partners.csv partners
+.import ./scripts/data/partners.csv partners
 
 CREATE TABLE areas(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -113,7 +113,7 @@ CREATE TABLE areas(
 	"notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/areas.csv areas
+.import ./scripts/data/areas.csv areas
 
 CREATE TABLE climbs(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -131,7 +131,7 @@ CREATE TABLE climbs(
 	FOREIGN KEY("area") REFERENCES areas("id")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/climbs.csv climbs
+.import ./scripts/data/climbs.csv climbs
 
 CREATE TABLE clients(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -140,7 +140,7 @@ CREATE TABLE clients(
     "notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/clients.csv clients
+.import ./scripts/data/clients.csv clients
 
 CREATE TABLE guided(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -149,14 +149,14 @@ CREATE TABLE guided(
 	"notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/guided.csv guided
+.import ./scripts/data/guided.csv guided
 
 CREATE TABLE climbed_partners(
 	"id" INTEGER PRIMARY KEY ASC,
 	"notes" TEXT
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/climbed_partners.csv climbed_partners
+.import ./scripts/data/climbed_partners.csv climbed_partners
 
 CREATE TABLE ticks(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -176,7 +176,7 @@ CREATE TABLE ticks(
 	FOREIGN KEY("guided_id") REFERENCES guided("id")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/ticks.csv ticks
+.import ./scripts/data/ticks.csv ticks
 
 CREATE TABLE guided_client(
 	"guided_id" INTEGER NOT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE guided_client(
 	FOREIGN KEY("client_id") REFERENCES clients("id")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/guided_client.csv guided_client
+.import ./scripts/data/guided_client.csv guided_client
 
 CREATE TABLE climbed_with(
 	"climbing_id" INTEGER NOT NULL,
@@ -196,7 +196,7 @@ CREATE TABLE climbed_with(
 	FOREIGN KEY("partner_id") REFERENCES partners("id")
 );
 .mode csv
-.import /home/andre/Documents/ticks-db/scripts/data/climbed_with.csv climbed_with
+.import ./scripts/data/climbed_with.csv climbed_with
 
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/all-ticks.csv
 .read scripts/scripts/all-ticks.sql
@@ -218,5 +218,8 @@ CREATE TABLE climbed_with(
 
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/top-climbs.csv
 .read scripts/scripts/top-climbs.sql
+
+.output /home/andre/Documents/websitejazzhands-1/climbing/data/ticks-by-grade.csv
+.read scripts/scripts/ticks-by-grade.sql
 
 .mode table

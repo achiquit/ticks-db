@@ -4,4 +4,4 @@ To open DB:
 
 
 To populate DB:
-  - .read scripts/scripts/create-tables.sql
+  - .read scripts/scripts/compile.sql
