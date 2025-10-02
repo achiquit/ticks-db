@@ -9,4 +9,4 @@ FROM
     LEFT JOIN ticks ON ticks.climb = climbs.id
 WHERE grades.grade LIKE '5.%' AND grades.grade NOT LIKE '5.10' AND grades.grade NOT LIKE '5.11' AND grades.grade NOT LIKE '5.12' AND grades.grade NOT LIKE '5.13' AND grades.grade NOT LIKE '5.14' AND grades.grade NOT LIKE '5.15'
 GROUP BY grades.grade
-ORDER BY grades.id DESC;
+ORDER BY grades.id ASC;
