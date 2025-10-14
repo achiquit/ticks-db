@@ -202,7 +202,7 @@ CREATE TABLE climbed_with(
 .read scripts/scripts/all-ticks.sql
 
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/all-time-stats.csv
-.read scripts/scripts/all-time-stats.sql
+.read scripts/scripts/stats-over-time.sql
 
 .output /home/andre/Documents/websitejazzhands-1/climbing/data/partner-leaderboard.csv
 .read scripts/scripts/leaderboard.sql
