@@ -60,5 +60,7 @@ FROM
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON areas.id = climbs.area
 GROUP BY ticks.id
-ORDER BY date DESC
+ORDER BY 
+    date DESC,
+    ticks.id DESC
 LIMIT 1000000000;
