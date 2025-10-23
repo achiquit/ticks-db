@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS guided;
 DROP TABLE IF EXISTS climbs;
 DROP TABLE IF EXISTS areas;
 DROP TABLE IF EXISTS which_grades;
--- DROP TABLE IF EXISTS grades;
+DROP TABLE IF EXISTS grades;
 DROP TABLE IF EXISTS styles;
 DROP TABLE IF EXISTS success;
 DROP TABLE IF EXISTS danger;
@@ -20,19 +20,19 @@ DROP TABLE IF EXISTS partners;
 DROP TABLE IF EXISTS join_types;
 DROP TABLE IF EXISTS join_grades;
 
--- CREATE TABLE grades(
--- 	"id" INTEGER PRIMARY KEY ASC,
--- 	"grade" TEXT NOT NULL
--- );
--- .mode csv
--- .import ./scripts/data/grades.csv grades
+CREATE TABLE grades(
+	"id" INTEGER PRIMARY KEY ASC,
+	"grade" TEXT NOT NULL
+);
+.mode csv
+.import data/grades.csv grades
 
 CREATE TABLE join_grades(
 	"id" INTEGER PRIMARY KEY ASC,
 	"notes" TEXT
 );
 .mode csv
-.import ./scripts/data/join_grades.csv join_grades
+.import data/join_grades.csv join_grades
 
 CREATE TABLE which_grades(
 	"id" INTEGER ASC NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE which_grades(
 	FOREIGN KEY("grade") REFERENCES grades("id")
 );
 .mode csv
-.import ./scripts/data/which_grades.csv which_grades
+.import data/which_grades.csv which_grades
 
 CREATE TABLE styles(
 	"style" TEXT PRIMARY KEY NOT NULL
@@ -77,14 +77,14 @@ CREATE TABLE climb_type(
 	"type" TEXT NOT NULL
 );
 .mode csv
-.import ./scripts/data/types.csv climb_type
+.import data/types.csv climb_type
 
 CREATE TABLE join_types(
 	"id" INTEGER PRIMARY KEY ASC,
 	"notes" TEXT
 );
 .mode csv
-.import ./scripts/data/join_types.csv join_types
+.import data/join_types.csv join_types
 
 CREATE TABLE which_types(
 	"id" INTEGER ASC NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE which_types(
 	FOREIGN KEY("id") REFERENCES join_types("id")
 );
 .mode csv
-.import ./scripts/data/which_types.csv which_types
+.import data/which_types.csv which_types
 
 CREATE TABLE partners(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -103,7 +103,7 @@ CREATE TABLE partners(
 	"notes" TEXT
 );
 .mode csv
-.import ./scripts/data/partners.csv partners
+.import data/partners.csv partners
 
 CREATE TABLE areas(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -113,7 +113,7 @@ CREATE TABLE areas(
 	"notes" TEXT
 );
 .mode csv
-.import ./scripts/data/areas.csv areas
+.import data/areas.csv areas
 
 CREATE TABLE climbs(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -131,7 +131,7 @@ CREATE TABLE climbs(
 	FOREIGN KEY("area") REFERENCES areas("id")
 );
 .mode csv
-.import ./scripts/data/climbs.csv climbs
+.import data/climbs.csv climbs
 
 CREATE TABLE clients(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -140,7 +140,7 @@ CREATE TABLE clients(
     "notes" TEXT
 );
 .mode csv
-.import ./scripts/data/clients.csv clients
+.import data/clients.csv clients
 
 CREATE TABLE guided(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -149,14 +149,14 @@ CREATE TABLE guided(
 	"notes" TEXT
 );
 .mode csv
-.import ./scripts/data/guided.csv guided
+.import data/guided.csv guided
 
 CREATE TABLE climbed_partners(
 	"id" INTEGER PRIMARY KEY ASC,
 	"notes" TEXT
 );
 .mode csv
-.import ./scripts/data/climbed_partners.csv climbed_partners
+.import data/climbed_partners.csv climbed_partners
 
 CREATE TABLE ticks(
 	"id" INTEGER PRIMARY KEY ASC,
@@ -176,7 +176,7 @@ CREATE TABLE ticks(
 	FOREIGN KEY("guided_id") REFERENCES guided("id")
 );
 .mode csv
-.import ./scripts/data/ticks.csv ticks
+.import data/ticks.csv ticks
 
 CREATE TABLE guided_client(
 	"guided_id" INTEGER NOT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE guided_client(
 	FOREIGN KEY("client_id") REFERENCES clients("id")
 );
 .mode csv
-.import ./scripts/data/guided_client.csv guided_client
+.import data/guided_client.csv guided_client
 
 CREATE TABLE climbed_with(
 	"climbing_id" INTEGER NOT NULL,
@@ -196,30 +196,31 @@ CREATE TABLE climbed_with(
 	FOREIGN KEY("partner_id") REFERENCES partners("id")
 );
 .mode csv
-.import ./scripts/data/climbed_with.csv climbed_with
+.import data/climbed_with.csv climbed_with
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/all-ticks.csv
-.read scripts/scripts/all-ticks.sql
+.headers ON
+.output ../websitejazzhands/climbing/data/all-ticks.csv
+.read scripts/all-ticks.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/all-time-stats.csv
-.read scripts/scripts/stats-over-time.sql
+.output ../websitejazzhands/climbing/data/all-time-stats.csv
+.read scripts/stats-over-time.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/partner-leaderboard.csv
-.read scripts/scripts/leaderboard.sql
+.output ../websitejazzhands/climbing/data/partner-leaderboard.csv
+.read scripts/leaderboard.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/climb-locs.csv
-.read scripts/scripts/climbs-map.sql
+.output ../websitejazzhands/climbing/data/climb-locs.csv
+.read scripts/climbs-map.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/monthly-height.csv
-.read scripts/scripts/monthly-histogram.sql
+.output ../websitejazzhands/climbing/data/monthly-height.csv
+.read scripts/monthly-histogram.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/yearly-height.csv
-.read scripts/scripts/yearly-height.sql
+.output ../websitejazzhands/climbing/data/yearly-height.csv
+.read scripts/yearly-height.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/top-climbs.csv
-.read scripts/scripts/top-climbs.sql
+.output ../websitejazzhands/climbing/data/top-climbs.csv
+.read scripts/top-climbs.sql
 
-.output /home/andre/Documents/websitejazzhands-1/climbing/data/ticks-by-grade.csv
-.read scripts/scripts/ticks-by-grade.sql
+.output ../websitejazzhands/climbing/data/ticks-by-grade.csv
+.read scripts/ticks-by-grade.sql
 
 .mode table
