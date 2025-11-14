@@ -223,4 +223,4 @@ CREATE TABLE climbed_with(
 .output ../websitejazzhands/climbing/data/ticks-by-grade.csv
 .read scripts/ticks-by-grade.sql
 
-.mode table
+.mode column

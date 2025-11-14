@@ -1,82 +1,83 @@
--1,"NULL","NULL",-1
-1,"Parker","Eldridge","Parent Jeremiah. 11 (in 2025)"
-2,"Grey","Eldridge","Parent Jeremiah. 13 (in 2025)"
-3,"Jeremiah","Eldridge","Two children Grey and Parker. They all climb decently hard, 9’s and 10’s are on the table."
-4,"Nila","Franzetti","Parents Erica and Nick"
-5,"Erica","Franzetti","Two children with husband Nick"
-6,"Nick","Franzetti","Two children with wife Erica"
-7,"Jonah","Unknown",-1
-8,"Matt","Kolberg","My first client :)"
-9,"Matt","Tolbert","Traded me his Freino as a tip!"
-10,"Matt","Benden","Guiding him on the Matterhorn?"
-11,"Lindsay","Ballard",-1
-12,"Joe","Barnes","Spreading Bob’s ashes on the summit. Hawker"
-13,"Mateo","Unknown",-1
-14,"Cleo","Harvey","Super strong trans woman. Put her on more 10s if she comes back"
-15,"Adam","Versaw",-1
-16,"Angel","Auman",-1
-17,"Kevin","Barker",-1
-18,"Stephen","Yannucci",-1
-19,"Nica","Morrison",-1
-20,"Katie","Stallard",-1
-21,"Arushi","Bhalla",-1
-22,"Jennifer","Stuck","DON’T WORK WITH HER AGAIN"
-23,"Kristen","Kwong","Also super nice like her husband JC"
-24,"JC","Alvarado","Super nice like wife Kristen"
-25,"John","Holland","Oldest client yet at 82!"
-26,"Sigrid","Pastor","German bikepacker in Rio. Bad language barrier; still learning multipitch and is very sketchy."
-27,"Ladan","Espandar","Climbed Everest and lots of other crazy things. Likes to climb best in Red Rocks. Not a tipper? Weird."
-28,"Erin","Willis","Climbed at Seneca starting 1999. Really nice guy and awesome to climb with."
-29,"Victoria","Cugini","Super nice"
-30,"Katie","Grauer","Super nice"
-31,"Anthony","Cugini","Super nice"
-32,"Kathy","Carisch","Really nice, from Burmingham Alabama"
-33,"Tim","Carisch","Really nice, from Burmingham Alabama"
-34,"Camp","Jumonville","Camp that summits Seneca once a year with SRMG"
-35,"Generic","Client","For folks I guided before I started this DB or folks I can’t remember anything about them"
-36,"John","Cooper","Really nice guy learning trad to become an independent leader and take nonprofit kids out climbing. Tall black guy who clearly used to lift"
-37,"Jennifer","Law","Great client, a little nervous on rappel but does great climbing"
-38,"Evelyn","Whitaker","Daughter of Jennifer Law (37)"
-39,"Teddy","Lettan","Son of Rob Lettan. Strong gym climber (16 y.o. in 2025)"
-40,"Rob","Lettan",
-41,"Gautam (G.I)","Iyer",
-42,"Jack","Iyer","Son of Gautam Iyer. Strong gym climber (16 y.o. in 2025)"
-43,"SRMG Kids Camp","NULL","Annual SRMG kids camp"
-44,"Tensin","NULL","SRMG kids camp"
-45,"Sam","NULL","SRMG kids camp"
-46,"Asher","NULL","SRMG kids camp"
-47,"Justin","Reynolds","Papa Reynolds. Commercial and Air Force pilot, super nice dude. Climbed with SRMG in 2019"
-48,"Hansen","Reynolds","Son of Justin Reynolds"
-49,"Lucy","Reynolds","Daughter of Justin Reynolds. Strong team kid, flashed Ye Gods on TR"
-50,"Megan","Knapp","Married to Hayden Whitmyer"
-51,"Hayden","Whitmyer","Married to Megan Knapp"
-52,"Olivia","Stein","Dating Alex Gonyias. Crazy strong"
-53,"Alex","Gonyias","Dating Olivia Stein. Really strong, V7 boulderer (not sure if that’s indoors or outdoors)"
-54,"Rachel","Kraus",
-55,"Harry","Kraus",
-56,"Sunny","Kraus",
-57,"William","Kraus",
-58,"Kalyna","Reistad","Bitaemo camp 2025"
-59,"Augustyn","Reistad","Bitaemo camp 2025"
-60,"Lev","Ferencevych","Bitaemo camp 2025"
-61,"Brian","Chu",
-62,"Bryant","Crouch",
-63,"Tony","Burns","Military man"
-64,"Eden","Martinez",
-65,"Faith","Martinez","Daughter of Eden"
-66,"Molly","Lones","Climbed GSP about 15 years ago, wants to climb harder things!"
-67,"Ethan","Lones",
-68,"Acer","Lones","About 7 or 8 years old in 2025"
-69,"Rowyn","Lones","5 years old in 2025"
-70,"David","Steele","Mid 50s, wants to get into more mountaineering type stuff. SRMG road trip Fall 2025"
-71,"Sara","Salisbury","Nice woman in her mid 30s, used to climb super hard on sport. Wants to get into long sport stuff like at EPC"
-72,"Jacob","Burr","Gay dude in his early 30s, starting to get into outdoors climbing. Really fun to climb with, learns quick!"
-73,"John","Shelton",
-74,"Matt","Shelton",
-75,"Nick","Rheinberger",
-76,"Matt","Kearns","Married to Michelle Knight. Used to be big into alpine climbing, super technically capable but doesn’t climb very hard"
-77,"Michelle","Knight","Married to Matt Kearns, super nice folks!"
-78,"Jihan","Gao",
-79,"Chenqian","Lin","Goes by Jojo. "
-80,"Brian","Buxton","From Northern California, been climbing over 10 years. Knows what he’s doing pretty well"
-81,"Angela","Forester","Interesting lady who does a lot of adventuring, brand new to climbing"
+-1,NULL,NULL,-1
+1,Parker,Eldridge,Parent Jeremiah. 11 (in 2025)
+2,Grey,Eldridge,Parent Jeremiah. 13 (in 2025)
+3,Jeremiah,Eldridge,"Two children Grey and Parker. They all climb decently hard, 9’s and 10’s are on the table."
+4,Nila,Franzetti,Parents Erica and Nick
+5,Erica,Franzetti,Two children with husband Nick
+6,Nick,Franzetti,Two children with wife Erica
+7,Jonah,Unknown,-1
+8,Matt,Kolberg,My first client :)
+9,Matt,Tolbert,Traded me his Freino as a tip!
+10,Matt,Benden,Guiding him on the Matterhorn?
+11,Lindsay,Ballard,-1
+12,Joe,Barnes,Spreading Bob’s ashes on the summit. Hawker
+13,Mateo,Unknown,-1
+14,Cleo,Harvey,Super strong trans woman. Put her on more 10s if she comes back
+15,Adam,Versaw,-1
+16,Angel,Auman,-1
+17,Kevin,Barker,-1
+18,Stephen,Yannucci,-1
+19,Nica,Morrison,-1
+20,Katie,Stallard,-1
+21,Arushi,Bhalla,-1
+22,Jennifer,Stuck,DON’T WORK WITH HER AGAIN
+23,Kristen,Kwong,Also super nice like her husband JC
+24,JC,Alvarado,Super nice like wife Kristen
+25,John,Holland,Oldest client yet at 82!
+26,Sigrid,Pastor,German bikepacker in Rio. Bad language barrier; still learning multipitch and is very sketchy.
+27,Ladan,Espandar,Climbed Everest and lots of other crazy things. Likes to climb best in Red Rocks. Not a tipper? Weird.
+28,Erin,Willis,Climbed at Seneca starting 1999. Really nice guy and awesome to climb with.
+29,Victoria,Cugini,Super nice
+30,Katie,Grauer,Super nice
+31,Anthony,Cugini,Super nice
+32,Kathy,Carisch,"Really nice, from Burmingham Alabama"
+33,Tim,Carisch,"Really nice, from Burmingham Alabama"
+34,Camp,Jumonville,Camp that summits Seneca once a year with SRMG
+35,Generic,Client,For folks I guided before I started this DB or folks I can’t remember anything about them
+36,John,Cooper,Really nice guy learning trad to become an independent leader and take nonprofit kids out climbing. Tall black guy who clearly used to lift
+37,Jennifer,Law,"Great client, a little nervous on rappel but does great climbing"
+38,Evelyn,Whitaker,Daughter of Jennifer Law (37)
+39,Teddy,Lettan,Son of Rob Lettan. Strong gym climber (16 y.o. in 2025)
+40,Rob,Lettan,
+41,Gautam (G.I),Iyer,
+42,Jack,Iyer,Son of Gautam Iyer. Strong gym climber (16 y.o. in 2025)
+43,SRMG Kids Camp,NULL,Annual SRMG kids camp
+44,Tensin,NULL,SRMG kids camp
+45,Sam,NULL,SRMG kids camp
+46,Asher,NULL,SRMG kids camp
+47,Justin,Reynolds,"Papa Reynolds. Commercial and Air Force pilot, super nice dude. Climbed with SRMG in 2019"
+48,Hansen,Reynolds,Son of Justin Reynolds
+49,Lucy,Reynolds,"Daughter of Justin Reynolds. Strong team kid, flashed Ye Gods on TR"
+50,Megan,Knapp,Married to Hayden Whitmyer
+51,Hayden,Whitmyer,Married to Megan Knapp
+52,Olivia,Stein,Dating Alex Gonyias. Crazy strong
+53,Alex,Gonyias,"Dating Olivia Stein. Really strong, V7 boulderer (not sure if that’s indoors or outdoors)"
+54,Rachel,Kraus,
+55,Harry,Kraus,
+56,Sunny,Kraus,
+57,William,Kraus,
+58,Kalyna,Reistad,Bitaemo camp 2025
+59,Augustyn,Reistad,Bitaemo camp 2025
+60,Lev,Ferencevych,Bitaemo camp 2025
+61,Brian,Chu,
+62,Bryant,Crouch,
+63,Tony,Burns,Military man
+64,Eden,Martinez,
+65,Faith,Martinez,Daughter of Eden
+66,Molly,Lones,"Climbed GSP about 15 years ago, wants to climb harder things!"
+67,Ethan,Lones,
+68,Acer,Lones,About 7 or 8 years old in 2025
+69,Rowyn,Lones,5 years old in 2025
+70,David,Steele,"Mid 50s, wants to get into more mountaineering type stuff. SRMG road trip Fall 2025"
+71,Sara,Salisbury,"Nice woman in her mid 30s, used to climb super hard on sport. Wants to get into long sport stuff like at EPC"
+72,Jacob,Burr,"Gay dude in his early 30s, starting to get into outdoors climbing. Really fun to climb with, learns quick!"
+73,John,Shelton,
+74,Matt,Shelton,
+75,Nick,Rheinberger,
+76,Matt,Kearns,"Married to Michelle Knight. Used to be big into alpine climbing, super technically capable but doesn’t climb very hard"
+77,Michelle,Knight,"Married to Matt Kearns, super nice folks!"
+78,Jihan,Gao,
+79,Chenqian,Lin,Goes by Jojo. 
+80,Brian,Buxton,"From Northern California, been climbing over 10 years. Knows what he’s doing pretty well"
+81,Angela,Forester,"Interesting lady who does a lot of adventuring, brand new to climbing"
+82,Thomas,Towns,"Young guy, 27, a little too into sounding like he knows what he’s doing"
