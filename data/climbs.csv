@@ -126,7 +126,7 @@
 126,Laurel Springs WI4,62,-1,7,-1,"35.292656, -82.914668",11,-1
 127,Neckerchief?,12,PG13,5,-1,"34.1804, -85.81699",32,-1
 128,Neckerchief? Traverse,7,-1,5,-1,"34.1804, -85.81699",32,-1
-129,Misty,20,-1,4,-1,"34.1804, -85.81699",32,-1
+129,Misty,20,-1,4,-1,"34.18031, -85.81555",32,-1
 130,Glory and Consequence,10,-1,4,-1,"37.73288, -83.63751",12,-1
 131,Ohio Climbing,12,-1,4,-1,"37.72444, -83.62657",57,-1
 132,No Alternative,6,PG13,5,-1,"36.3916, -81.0473",88,-1
@@ -285,8 +285,8 @@
 285,Anchors Away,26,-1,4,-1,"36.340200, -80.480780",122,-1
 286,Novi,10,-1,4,-1,"36.340200, -80.480780",122,-1
 287,5.7 Corner,10,-1,5,-1,"36.375128, -80.369331",55,-1
-288,I'll Be Danned,21,-1,4,-1,"36.375128, -80.369331",55,-1
-289,Kish Dish,12,-1,4,-1,"36.375128, -80.369331",55,-1
+288,I'll Be Danned,21,-1,4,-1,"36.37579, -80.36644",55,-1
+289,Kish Dish,12,-1,4,-1,"36.37576, -80.36654",55,-1
 290,Pilot's License,19,-1,4,-1,"36.375128, -80.369331",55,-1
 291,Deadbeat Dad,26,-1,5,-1,"36.375128, -80.369331",55,-1
 292,DC Comics,19,-1,4,-1,"36.375128, -80.369331",55,-1
@@ -647,3 +647,28 @@
 647,Berecik,12,-1,4,-1,"38.14379, -80.92019",125,"Same as Girl Boner but a little easier. Exciting, somewhat tough finish though!"
 648,Supercrack,16,-1,5,-1,"38.05081, -81.03160",113,"Lives up to the hype! The start is wildly different in character from the top, and while the bottom is fun the top is even better! "
 649,Wham Bam Thanks for the Jam,19,-1,5,-1,"38.05244, -81.03368",113,"Sucky start, but the crack high up is super fun and monkeying over to it is also a blast"
+650,Arms Control,25,-1,4,-1,"36.34013, -80.48401",122,Super fun climb with a punchy crux! Interesting mantle to get out the lip. Bring cordo to extend the anchor below the lip for the follower. 
+651,Just As I Am,84,-1,2,-1,"35.44983, -82.21881",140,"Mega easy boulder problem, but pretty fun!"
+652,Big Erector,16,-1,4,-1,"36.37555, -80.36654",55,-1
+653,Knob Wall,7,-1,5,-1,"34.18057, -85.81486",32,"Super chill, can protect with only slung chickenheads!"
+654,Will The Wolf Survive?,18,-1,4,-1,"25.95021, -100.47460",141,"Lives up to the hype :) Pitch 3 was the money to be honest, what a fun romp!"
+655,Lobos Trabajando,25,-1,4,-1,"25.95086, -100.47532",141,Wowee!! What a line! Two super fun cruxes; one technical at the mid anchors and one physical heartbreaker crux right below the final anchors
+656,The Anvil,12,-1,4,-1,"25.95091, -100.47570",141,"Meh. Decent movement, but soo easy"
+657,Howlin' Wolf,15,-1,4,-1,"25.95075, -100.47564",141,"Would definitely go on trad, but really fun to crack climb on sport"
+658,Evil Shenanigans,24,-1,4,-1,"25.95040,  -100.47698",141,Seems like a harder version of Ramsey next door. 
+659,Yankee Clipper (p1 only),12,-1,4,-1,"25.94687, -100.47706",141,Just the first pitch of this mega classic. Kinda runout 5.8 climbing!
+660,La Chiky Baby,12,-1,4,-1,"25.94715, -100.47672",141,A more fun version of P1 of Yankee Clipper in my opinion. A fun jug haul
+661,Yankee Clipper,28,-1,4,-1,"25.94687, -100.47706",141,"Mega classic! The last pitch is a little out of character, I think it deserves to be it's own line "
+662,CDC&J,15,-1,4,-1,"25.94845, -100.47579",141,"Not super crazy good, but fun enough"
+663,Deja Vu,15,-1,4,-1,"25.94873, -100.47671",141,-1
+664,Graffiti Route,12,-1,4,-1,"25.94869, -100.47671",141,"Pretty meh climb, but nice that it's there"
+665,Jungle Mountaineering,18,-1,4,-1,"25.94833, -100.47693",141,"The first bolted line at EPC! First pitch felt like the hardest because of the crazy polish, but I think the second pitch was the most fun"
+666,Pitch Black,21,-1,4,-1,"25.94826, -100.47519",141,"Such a fun line! Lots of techy face climbing, the crux is super fun too"
+667,Inglorious Bastards,28,-1,4,-1,"25.94821, -100.47547",141,An EPC version of Starry! What an awesome time
+668,Aguja Celo Rey,19,-1,4,-1,"25.94851, -100.47774",141,Great route up to the uphill spire!!
+669,When You're Lost In The Wild,24,-1,4,-1,"25.95398, -100.48521",141,"So chossy!! Some good climbing up there for sure, but man it's some alpine shit"
+670,Lisa's Pizzas,6,-1,4,-1,"25.94782, -100.47611",141,Super mega classic LISA'S PIZZAS
+671,Time Wave Zero,28,-1,4,-1,"25.94733, -100.47965",141,THE route to do at EPC
+672,Blue Fin,28,-1,4,-1,"25.94747, -100.47989",141,"The easiest perma'd bolt at the surf bowl. Pretty chossy to the third bolt, but after that fun stuff!"
+673,Snott Girlz,21,-1,4,-1,"25.94749, -100.47591",141,"Does NOT live up to the hype. The first two pitches are pretty good, but wow after that it's a bit of a shit show. There's some fun climbing up there, but so much loose shit and it's so sparsely bolted that it's hard to enjoy."
+674,Pancho Villa Rides Again,20,-1,4,-1,"25.94730, -100.47565",141,What a sweet line! In a whole 'nother league from Snott Girlz

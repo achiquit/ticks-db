@@ -13,12 +13,12 @@
 13,2019-07-31,314,1,90,Lead,Onsight,-1,1,-1
 14,2019-08-30,574,1,60,Lead,Pinkpoint,-1,1,-1
 15,2019-08-30,36,1,55,TR,Clean,-1,1,-1
-16,2019-09-07,415,1,50,TR,Clean,-1,-1,-1
-17,2019-09-07,384,1,50,Lead,Fell/Hung,-1,-1,-1
-18,2019-09-07,36,1,55,Lead,Pinkpoint,-1,-1,-1
-19,2019-09-07,572,1,70,Lead,Fell/Hung,-1,-1,-1
-20,2019-09-07,10,1,55,TR,Clean,-1,-1,-1
-21,2019-09-07,33,1,80,Lead,Fell/Hung,-1,-1,-1
+16,2019-09-07,415,1,50,TR,Clean,-1,10,-1
+17,2019-09-07,384,1,50,Lead,Fell/Hung,-1,10,-1
+18,2019-09-07,36,1,55,Lead,Pinkpoint,-1,10,-1
+19,2019-09-07,572,1,70,Lead,Fell/Hung,-1,10,-1
+20,2019-09-07,10,1,55,TR,Clean,-1,10,-1
+21,2019-09-07,33,1,80,Lead,Fell/Hung,-1,10,-1
 22,2019-09-20,34,1,60,Lead,Fell/Hung,-1,-1,-1
 23,2019-09-20,12,1,50,Lead,Onsight,-1,-1,-1
 24,2019-09-20,574,1,60,TR,Clean,-1,-1,-1
@@ -218,7 +218,7 @@
 218,2020-09-27,91,1,80,Follow,Clean,Clean follow. Super fun!,11,-1
 219,2020-09-27,92,1,70,Follow,Clean,Clean follow. Gotta come back for the lead!,11,-1
 220,2020-10-03,111,2,160,Lead,Onsight,Pitch 2 is a must do! So fun!,12,-1
-221,2020-10-03,112,1,70,Lead,Onsight,stout traverse,12,-1
+221,2020-10-03,112,1,90,Lead,Onsight,stout traverse,12,-1
 222,2020-10-03,93,1,90,TR,Fell/Hung,one fall on thin section above roof pull,12,-1
 223,2020-10-03,589,1,80,Lead,Flash,-1,12,-1
 224,2020-10-03,111,1,160,Follow,Clean,clean follow (just P1),12,-1
@@ -248,7 +248,7 @@
 248,2020-11-15,109,1,12,Send,-1,No pad piddling,12,-1
 249,2020-11-15,110,1,12,Send,-1,No pad piddling,12,-1
 250,2020-11-22,111,2,160,Follow,Clean,-1,106,-1
-251,2020-11-22,112,1,70,Follow,Clean,-1,106,-1
+251,2020-11-22,112,1,90,Follow,Clean,-1,106,-1
 252,2020-11-22,589,1,80,Lead,Redpoint,-1,106,-1
 253,2020-11-27,113,1,80,Lead,Pinkpoint,-1,12,-1
 254,2020-11-27,114,1,70,Lead,Onsight,-1,12,-1
@@ -1035,12 +1035,12 @@ Got lost after the Rubro Negro crack and did a 55m pitch all the way to the top.
 1023,2025-06-13,613,3,190,Lead,Onsight,"Using this line to train for el cap. Led P1, jugged P2, followed P3 free in my approach shoes. Rowdy line, super fun on aid! Wild roof pull on P1 was quite interesting in ladders. Matt almost pissed on me while I was jugging P2!!",62,-1
 1024,2025-06-20,614,1,100,Lead,Redpoint,Guiding a church group.,56,6
 1025,2025-06-21,465,3,250,Lead,Redpoint,"Quick evening run to get an anchor after the accident at the start of P1 but somebody had already snagged it. Got benighted finishing P3, rapped over the cave in the dark. Ironically found some sunglasses at the bottom of the rap though!",94,-1
-1026,2025-06-25,614,1,100,Lead,Redpoint,Guiding CHM,17,6
-1027,2025-07-02,614,1,100,Lead,Redpoint,Guiding CHM,17,6
+1026,2025-06-25,614,1,100,LRS,Redpoint,Guiding CHM,17,6
+1027,2025-07-02,614,1,100,LRS,Redpoint,Guiding CHM,17,6
 1028,2025-07-02,615,1,90,Lead,Onsight,"Really fun climb! Linked pitches 1 and 2, don’t know why you’d do any different. ",95,-1
 1029,2025-07-02,616,1,60,TR,Clean,Like rock climbing on Dagobah!!,95,-1
 1030,2025-07-02,615,1,90,TR,Fell/Hung,"Took a shot at some of Tom’s beta here, but didn’t really like it. Going out right for some side pulls",95,-1
-1031,2025-07-03,329,4,400,Lead,Redpoint,"Flashed pitch 1 (only followed it once I guess) and did the classic Alzheimer’s onsight for pitch 2. Such an awesome climb!! When I followed pitch 2 I went right on the face above the small roof pull and it was a delightful little sequence. Would definitely want a human belayer to go for it on lead, but it would be plenty well protected and a lot of fun!",17,-1
+1031,2025-07-03,329,4,400,LRS,Redpoint,"Flashed pitch 1 (only followed it once I guess) and did the classic Alzheimer’s onsight for pitch 2. Such an awesome climb!! When I followed pitch 2 I went right on the face above the small roof pull and it was a delightful little sequence. Would definitely want a human belayer to go for it on lead, but it would be plenty well protected and a lot of fun!",17,-1
 1032,2025-07-05,617,1,25,Lead,Onsight,Barely a warmup,96,-1
 1033,2025-07-05,618,1,45,Lead,Onsight,Such a sweet climb! If the crux had one more crimp I would have been outta there,97,-1
 1034,2025-07-06,527,3,300,Lead,Redpoint,,-1,4
@@ -1105,8 +1105,8 @@ Got lost after the Rubro Negro crack and did a 55m pitch all the way to the top.
 1093,2025-09-28,542,1,70,Lead,Redpoint,Found a neat way to extend the belay in order to hang out at the top of the last corner. Gold DMM Offset in a shallow crack to elevate the master point is key,-1,18
 1094,2025-09-28,543,1,50,Lead,Redpoint,Always so fun to guide this!,-1,18
 1095,2025-09-28,544,1,80,Lead,Redpoint,-1,-1,18
-1096,2025-09-29,486,2,250,Lead,Redpoint,"Looking for Tom's stuck cam, didn't find it :( +1 pitch to follow",17,-1
-1097,2025-09-29,549,2,150,Lead,Redpoint,Classic! +1 pitch to follow,17,-1
+1096,2025-09-29,486,2,250,LRS,Redpoint,"Looking for Tom's stuck cam, didn't find it :( +1 pitch to follow",17,-1
+1097,2025-09-29,549,2,150,LRS,Redpoint,Classic! +1 pitch to follow,17,-1
 1098,2025-09-30,551,4,200,Lead,Redpoint,-1,-1,19
 1099,2025-09-30,512,1,75,TR,Clean,Counterbalance lower to clean the route,-1,19
 1100,2025-10-03,539,1,90,TR,Clean,TR solo in approach shoes to clean after teaching aid climbing all day,-1,20
@@ -1150,3 +1150,41 @@ Got lost after the Rubro Negro crack and did a 55m pitch all the way to the top.
 1138,2025-11-05,647,1,60,Lead,Onsight,Great movement! Oddly hard finish right below the chains,82,-1
 1139,2025-11-06,648,1,100,Lead,Onsight,"What a fun climb! Awesome movement, great rests, and an exciting finish!",115,-1
 1140,2025-11-06,649,1,70,Lead,Onsight,"Kinda brutal start. Almost got Zias #3 stuck in there! The second half made it all worth it though, what a sweet crack",115,-1
+1141,2025-11-24,252,1,200,Lead,Redpoint,"Been a while since I climbed slab like this, definitely had to dial in the mental game on the runout! Crux move was fun as ever ",-1,26
+1142,2025-11-24,407,3,400,Lead,Redpoint,Saw a ZILLION turkey vultures circling while rapping the route. They left as quickly as they appeared too!,-1,26
+1143,2025-11-28,224,1,60,Lead,Redpoint,Chill warmup,116,-1
+1144,2025-11-28,278,1,70,Lead,Redpoint,Blew the crux move off the crappy left sidepull bc I went for the right jug too low. Got the rest of it without much issue! Stoked for the next go,116,-1
+1145,2025-11-28,650,1,75,Lead,Flash,"What a fun crux! Super fun, vertical climbing on really good holds the whole way. Make sure to get the order of the hands right!",116,-1
+1146,2025-11-28,414,1,50,TR,Clean,Followed Vince on this one to suss out his gear after his first ever trad lead!,116,-1
+1147,2025-11-28,384,1,50,Lead,Redpoint,"Cruised it, feels good to see clear progress!",116,-1
+1148,2025-12-01,111,2,160,Lead,Redpoint,"Swung leads, I led the second. Always a treat!",56,-1
+1149,2025-12-01,112,1,90,Lead,Redpoint,That traverse is always a little exciting! Tough to find bomber gear,56,-1
+1150,2025-12-01,93,1,90,TR,Clean,Got the whole thing clean this time! Tricky moves above the burly roof pull,56,-1
+1151,2025-12-02,651,0,10,Send,Clean,"Got rained out from Gunboat Diplomacy, so we messed around on this on our way out",56,-1
+1152,2025-12-12,289,1,60,Lead,Fell/Hung,"Warmup on a WICKED cold day. Had to take to warm up my cold fingies, couldn't feel the holds!",117,-1
+1153,2025-12-12,652,1,60,TR,Fell/Hung,Fun line! Would go for the lead on a good day,117,-1
+1154,2025-12-12,288,1,60,Lead,Fell/Hung,"Love this line, bootied a locker from the first roof! ",117,-1
+1155,2025-12-12,288,1,60,TR,Fell/Hung,TR lap for fun :),117,-1
+1156,2025-12-26,653,1,80,Lead,Onsight,"Kim found this line, thought it was sport but nope! Led it with two double length slings and some floppy sport draws with the bolt side 'biner taken out to sling the chicken heads.",118,-1
+1157,2025-12-26,129,1,90,Lead,Redpoint,Finally made it back for the redpoint! Sick as a dawg but it went without much issue. Rescued some folks' draws since they were hangdogging and just decided to let me at it than to continue riding the struggle bus,118,-1
+1158,2026-01-08,654,4,400,Lead,Onsight,"Sick climb, lives up to the hype! I thought pitch 3 was the money pitch, not pitch 4. It was such a fun, cruiser romp with really fun, sustained climbing! Swung leads, I took odds",119,-1
+1159,2026-01-08,655,1,125,Lead,Onsight,"So sick!!! New hardest onsight! Super techy crux halfway up to traverse past the mid anchors that should not be missed, then a tough heartbreaker physical crux right at the end. There was a lizard guardian at the high crux who watched me figure out how to get there, then scampered into the crux undercling and I thought he would bite me for sure but he didn't.",119,-1
+1160,2026-01-08,656,1,70,Lead,Onsight,Too easy tbh,119,-1
+1161,2026-01-08,657,1,110,Lead,Onsight,"Fun bolted crack climb, it was fun to cruise through all the jams while clipping bolts!",119,-1
+1162,2026-01-09,658,3,240,Lead,Onsight,"Swung leads, I took the last pitch since Taylor linked 1 and 2. The crux was super techy and fun, but I got the money pitch which was sustained 10a pretty much the whole time with a super sick topout! Chris got some sweet drone footage towards the top too",119,-1
+1163,2026-01-09,659,1,100,Lead,Onsight,Climbed this through the sunset and needed a headlamp by the time I touched the ground! ,120,-1
+1164,2026-01-09,660,1,100,TR,Clean,"Night climb, pretty fun line! I thought this pitch was more fun than P1 of Yankee Clipper.",120,-1
+1165,2026-01-10,661,9,1500,Lead,Fell/Hung,"What a wild romp! 7h46m total, 5h24m to the summit, 2h22m rappelling. We linked a ton of pitches (&). I took 3&4, 6&7, 12&13, and 14. Only took two falls following 15, but man is it stout and sharp. No rattlesnakes to speak of, and Chris got some cool drone shots of Taylor leading 10&11! Insane exposure on 14 and 15 holy snoot. ",119,-1
+1166,2026-01-13,662,1,90,Lead,Onsight,-1,77,-1
+1167,2026-01-13,663,1,90,TR,Clean,-1,121,-1
+1168,2026-01-13,664,1,80,Lead,Onsight,-1,121,-1
+1169,2026-01-13,665,4,400,Lead,Onsight,"First bolted line at EPC! I led 2 & 4. I thought 1 was hardest because of the polish, 2 was most fun, and I can see how 4 can be seen as the crux pitch but it was so well bolted it didn't feel too bad at all. Arthur got buzzed by a hawk while following pitch 2!",77,-1
+1170,2026-01-14,666,5,800,Lead,Onsight,"I led 2 and 5. Definitely a classic for a reason! The crux had me goin', but I managed to pull through and keep the pump away. Thank goodness we were the first crew that showed up, the next party was a bit of a mess! Chatted with Newell on speakerphone while belaying Taylor up P5 and while I climbed P6. ",119,-1
+1171,2026-01-14,667,1,100,Lead,Fell/Hung,Basically the EPC version of Starry hahaha. So many fun pockets and such fun movement! The crux hit me like a sack of bricks. I might be able to get it if I came back fresh!,119,-1
+1172,2026-01-15,668,2,200,Lead,Onsight,"I took P1 and Taylor took P2. Pretty fun movement, awesome setting! Chris crashed his drone from the other spire yikessss. A Canadian woman rapped on a loose hold on her way up and we felt it all the way at the top :skull-emoji",119,-1
+1173,2026-01-16,669,6,1100,Lead,Onsight,"Swung & linked pitches. I took 3, 6&7, and 10&11. So chossy!! Hopefully the choss on the actual climbing will clear up with time, but some of the belays were on straight gravel that will probably never go away. There are still some pretty big death blocks chilling out up there.",119,-1
+1174,2026-01-17,670,1,70,LRS,Onsight,Did a little LRS clinic with Chris on the super mega classic LISA'S PIZZAS,122,-1
+1175,2026-01-18,671,7,2300,Lead,Fell/Hung,"Started climbing at 6:23, 5h19m to summit with a poo break at the bivy ledge, then 20 minutes chilling at the summit, hit the ground at 2:52 for a total time of 8h30m. What a wild romp! We simuled in blocks of 4 standard pitches each, Taylor started us off. Taylor led the last block to below the crux pitch, which I took and linked with the next, then Taylor took us to the summit! Saw a cool falcon about midway up, some GORGEOUS sunbeams over the valley as the sun rose, and a funny stuck drill bit at the bivy ledge. I was pretty happy to lead a 10d pitch at the top of one of my blocks. Definitely a 5-star route, so awesome!! We had a funny situation rappelling when our rope wasn't long enough, so Taylor went to the ground and we extended my side of the rope and I switched to his while he stayed clipped in to the other side for a counterbalance. Love staying safe and working it out :) ",119,-1
+1176,2026-01-18,672,1,90,Lead,Fell/Hung,"First time pulling on tufas! Pretty lame, rotten start that led to some fun movement higher up. Pretty worked from TMZ and biffed it two feet shy of the anchors, but I'm stoked to have almost onsighted this 12a after climbing 2300ft!",119,-1
+1177,2026-01-19,673,5,450,Lead,Fell/Hung,"Started before the sun hit the wall so I took on P1 to get the feeling back into my fingers. Led everything, linked 2&3 as well as 5&6. P1 & 2 are good, but the rest is pretty chossy with uninspiring climbing. No idea why it has the rep it does! It's no Lisa's Pizzas. Did get to see a falcon pretty close from the top!",56,-1
+1178,2026-01-20,674,4,500,Lead,Onsight,"Oh my god thank GOODNESS I climbed this for my last climb instead of Snott Girlz, it's in a whole 'nother league! Some sweet crack climbing with interesting, fun movement :) Saw some ground squirrels chilling out in the talus below from the top of P3! I led 1&2, 3, and 5",77,-1
