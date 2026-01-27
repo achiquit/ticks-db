@@ -1,4 +1,5 @@
 .headers ON
+.mode csv
 .output ../websitejazzhands/climbing/data/all-ticks.csv
 .read scripts/all-ticks.sql
 
