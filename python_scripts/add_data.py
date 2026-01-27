@@ -2,30 +2,73 @@ from datetime import datetime
 import sqlite3
 from sqlite3 import Cursor
 
-### REMEMBER TO ADD CON.COMMIT TO THE END OF THE SCRIPT ###
+def day_out(cur: Cursor, new_ticks: list, new_tick_id: int) -> list:
+    print("Hell yeah, way to get after it, dawg!")
+    print("Let's get those sweet, sweet sends in that there database.")
 
-### To Do: Style script for new_tick() ###
+    date = return_date()
 
-def new_tick(cur: Cursor) -> None:
-    res = cur.execute("SELECT id FROM ticks ORDER BY id DESC;")
-    last_tick = res.fetchone()
-    id = last_tick[0] + 1
+    more_ticks = True
+    while more_ticks is True:
+        new_ticks.append(new_tick(cur, date, new_tick_id))
+        new_tick_id += 1
+        more_ticks = y_n(f"Do you have another tick to make on {date}, ya crusher?")
 
-    tick_date = return_date()
+    another_day = True
+    while another_day is True:
+        another_day = y_n("Do you have ticks from another date to make, you absolute madlad?")
+        if another_day is True:
+            return day_out(cur, new_ticks)
+    
+    return new_ticks
 
+def new_tick(cur: Cursor, date: str, new_tick_id: int) -> tuple:
     climb_id = climb(cur)
 
     pitch_count = get_int("How many pitches, king?")
 
-    height = input("How many feet did you climb? : ")
+    height = get_int("How many feet did you climb?")
 
+    style = style_func()
 
+    success = success_func()
 
-    print(f"ID: {id}")
-    print(f"Date: {tick_date}")
-    print(f"Climb: {climb_id}")
-    print(f"Pitches: {pitch_count}")
-    print(f"Height: {height}")
+    notes = notes_func()
+
+    input = y_n("Were you climbing for pleasure?")
+    if input is True:
+        partner = partner_func(cur)
+        client= '-1'
+    elif input is False:
+        client = client_func(cur)
+        partner = '-1'
+
+    # print("=+=+=+=+=+=+=+=+ NEW TICK ENTRY =+=+=+=+=+=+=+=+")
+    # print(f"ID: {id}")
+    # print(f"Date: {date}")
+    # print(f"Climb: {climb_id}")
+    # print(f"Pitches: {pitch_count}")
+    # print(f"Height: {height}")
+    # print(f"Style: {style}")
+    # print(f"Success: {success}")
+    # print(f"Notes: {notes}")
+    # print(f"Partner/s: {partner}")
+    # print(f"Client/s: {client}")
+
+    # id = 1180
+    # date = '2026-01-26'
+    # climb_id = 406
+    # pitch_count = 1
+    # height = 100
+    # style = 'Lead'
+    # success = 'Redpoint'
+    # notes = "Ayy"
+    # partner = 113
+    # client = -1
+
+    new_tick = (new_tick_id, date, climb_id, pitch_count, height, style, success, notes, partner, client)
+
+    return new_tick
 
 def y_n(text: str) -> bool:
     choice = input(f"{text} (y/n): ")
@@ -76,9 +119,11 @@ def climb_search() -> int:
     newest_climb = newest_climb[0]
 
     search_term = input("What was the name of the climb? : ")
-    res = cur.execute(f"SELECT name, id FROM climbs WHERE name LIKE '%{search_term}%';")
-    print(res.fetchall())
-    search_results = get_int("If your climb showed up, put the ID here. If not, put '-1' : ")
+    climbs = cur.execute(f"SELECT climbs.id, name, areas.area_name FROM climbs INNER JOIN areas ON areas.id = climbs.area WHERE name LIKE '%{search_term}%';")
+
+    for climb in climbs:
+        print(climb)
+    search_results = get_int("If your climb showed up, put the ID here. (If not, put '-1')")
     if search_results == -1:
         redo_search = y_n("Try another search?")
         if redo_search is True:
@@ -203,12 +248,15 @@ def grade_func(cur: Cursor) -> int:
 
     res = cur.execute("SELECT * FROM join_grades WHERE notes LIKE '%" + grade + "%';")
     print(res.fetchall())
-    grade_id = get_int("Grade ID (-1 for new amalgam grade)")
+    grade_id = get_int("Grade ID (-1 for new amalgam grade, or -2 to search again): ")
 
     if grade_id == -1:
         return(new_join_grade(cur, new_id, grade))
+    elif grade_id == -2:
+        return grade_func(cur)
     elif grade_id < new_id:
-        return grade_id
+        if grade_id > 0:
+            return grade_id
     else:
         input("Looks like you made a typo! Try again :)")
         return grade_func(cur)
@@ -277,12 +325,320 @@ def get_grade_id(cur: Cursor, grade_num: int, new_id: int) -> tuple:
         input("Oops, looks like you made a typo! Try again :)")
         return get_grade_id(cur, grade_num, new_id)
 
-print("Hell yeah, way to get after it, dawg!")
-print("Let's get those sweet, sweet sends in that there database.")
+def style_func() -> str:
+    styles = ["Lead", "TR", "LRS", "TRS", "Solo", "Follow", "Send", "Attempt", "Flash"]
 
-con = sqlite3.connect("ticks-test")
+    style = input("In what style did you do the climb? (Lead, TR, Follow, etc. -1 for a list): ")
+
+    if style in styles:
+        return style
+    elif style == '-1':
+        input(f"{styles} Any key to continue.")
+        return style_func()
+    else:
+        input("Looks like you made a typo! Try again :)")
+        return style_func()
+
+def success_func() -> str:
+    successes = ["Fell/Hung", "Pinkpoint", "Redpoint", "Onsight", "Flash", "Clean", "Attempt"]
+
+    success = input("How did you do? (Onsight, Redpoint, Fell/Hung, etc. -1 for a list): ")
+
+    if success in successes:
+        return success
+    elif success == '-1':
+        input(f"{successes} Any key to continue.")
+        return success_func()
+    else:
+        input("Looks like you made a typo! Try again :)")
+        return success_func()
+
+def notes_func() -> str:
+    notes = input("Any notes for this tick? : ")
+
+    if notes == '':
+        return "-1"
+    else:
+        return notes
+
+def partner_func(cur: Cursor) -> int:
+    res = cur.execute("SELECT id FROM climbed_partners ORDER BY id DESC;")
+    last_partner_amalgam = res.fetchone()
+    new_amalgam_id = last_partner_amalgam[0] + 1
+
+    partner_search_param = input("Search for your partner here! If you haven't climbed with them before, enter -1 for new partner or new partner group: ")
+
+    while partner_search_param == '':
+        print("Oops, looks like you hit enter too soon! Try again :)")
+        return partner_func(cur)
+    if partner_search_param == '-1':
+        return new_amalgam_func(cur, new_amalgam_id)
+    else:
+        return easy_partner_search(cur, partner_search_param, new_amalgam_id)
+    
+def new_amalgam_func(cur: Cursor, new_amalgam_id: int) -> int:
+    ### Receives the user input to build the amalgam join tables ###
+
+    complete = False
+    first_search = True
+    partners = []
+
+    while complete is False:
+        if first_search is True:
+            search = input("Partner search (-1 for new partner): ")
+            while search == '':
+                print("Oops! Looks like you hit enter too soon. Try again :)")
+                return new_amalgam_func(cur, new_amalgam_id)
+            if search == "-1":
+                partners.append(new_partner(cur))
+            else:
+                partners.append(partner_search(cur, search))
+            first_search = False
+        else:
+            search = input("Partner search (-1 for new partner, -2 if you're done): ")
+            while search == '':
+                print("Oops! Looks like you hit enter too soon. Try again :)")
+                return new_amalgam_func(cur, new_amalgam_id)
+            if search == "-1":
+                partners.append(new_partner(cur))
+            elif search == "-2":
+                new_amalgam(cur, new_amalgam_id, partners)
+                complete = True
+            else:
+                partners.append(partner_search(cur, search))
+
+    return new_amalgam_id
+
+def new_amalgam(cur: Cursor, new_amalgam_id: int, partners: list) -> int:
+    ### Creates the join tables for new partners or partner groups ###
+
+    # Start with climbed_partners with the join_id and notes
+    notes = ""
+    first_item = True
+    for partner in partners:
+        if first_item is True:
+            notes = f"{partner[1]} {partner[2]}"
+            first_item = False
+        else:
+            notes += f", {partner[1]} {partner[2]}"
+    cur.execute(f"""
+        INSERT INTO climbed_partners VALUES
+            ({new_amalgam_id}, "{notes}")
+    """)
+
+    # climbed_with next with as many rows as partners, linking the new_amalgam_id with each partner_id
+    new_data = []
+    for partner in partners:
+        new_data.append((new_amalgam_id, partner[0]))    
+    cur.executemany("INSERT INTO climbed_with VALUES(?, ?)", new_data)
+
+    return new_amalgam_id
+    
+def new_partner(cur: Cursor) -> list:
+    ### Creates a new partner entry in partners table and returns the partner_id, first, and last name ###
+    res = cur.execute("SELECT id FROM partners ORDER BY id DESC;")
+    last_partner_id = res.fetchone()
+    new_id = last_partner_id[0] + 1
+
+    fname = input("What's their first name? : ")
+
+    lname = input("What's their last name? : ")
+
+    notes = input("Any notes? : ")
+
+    cur.execute(f"""
+        INSERT INTO partners VALUES
+            ({new_id}, "{fname}", "{lname}", "{notes}")
+    """)
+
+    new_partner = [new_id, fname, lname]
+
+    return(new_partner)
+
+def partner_search(cur: Cursor, search: str) -> list:
+    res = cur.execute("SELECT id FROM partners ORDER BY id DESC;")
+    last_partner_id = (res.fetchone())[0]
+
+    res = cur.execute(f"SELECT id, fname, lname, notes FROM partners WHERE fname LIKE '%{search}%' or lname LIKE '%{search}%' ORDER BY fname ASC;")
+    results = res.fetchall()
+
+    for partner in results:
+        print(partner)
+
+    choice = get_int("Partner ID (-1 to search again, -2 to add new partner)")
+
+    if choice == -1:
+        search = input("Partner search: ")
+        return partner_search(cur, search)
+    elif choice == -2:
+        return new_partner(cur)
+    elif choice > 0:
+        if choice <= last_partner_id:
+            res = cur.execute(f"SELECT id, fname, lname FROM partners WHERE id = {choice};")
+            partner = res.fetchall()
+            return [(partner[0])[0], (partner[0])[1], (partner[0])[2]]
+    else:
+        print("Oops, it looks like you made a typo! Try again :)")
+        return partner_search(cur, search)
+
+def easy_partner_search(cur: Cursor, param: str, new_amalgam_id: int) -> int:
+    ### Searches notes field of all amalgams & single partners and returns amalgam id for direct use in ticks partner_id field ###
+    # res = cur.execute(f"SELECT * FROM climbed_partners WHERE notes LIKE '%{param}%';")
+    # print(res.fetchall())
+
+    partners = cur.execute(f"""SELECT climbing_id, GROUP_CONCAT(fname || ' ' || lname, ', ') AS 'Partner/s' FROM climbed_with INNER JOIN partners ON partners.id = climbed_with.partner_id GROUP BY climbing_id;""")
+
+    for partner in partners:
+        if param in partner[1]:
+            print(partner)
+
+    partner_id = get_int("Partner ID (-1 to search again, or -2 to create a new partner or amalgam): ")
+
+    if partner_id == -1:
+        return partner_func(cur)
+    elif partner_id == -2:
+        return new_amalgam_func(cur, new_amalgam_id)
+    elif partner_id < new_amalgam_id:
+        if partner_id > 0:
+            return partner_id
+    else:
+        input("Looks like you made a typo! Try again :)")
+        return partner_func(cur)
+
+def client_func(cur: Cursor) -> int:
+    res = cur.execute("SELECT id FROM guided ORDER BY id DESC;")
+    last_client_amalgam = res.fetchone()
+    new_amalgam_id = last_client_amalgam[0] + 1
+
+    client_search_param = input("Enter your clients first name here! (If they're a returning client, enter -1) : ")
+
+    while client_search_param == '':
+        print("Oops, looks like you hit enter too soon! Try again :)")
+        return client_func(cur)
+    if client_search_param == '-1':
+        return easy_client_search(cur)
+    else:
+        return new_client_func(cur, client_search_param)
+
+def new_client_func(cur: Cursor, fname: str) -> int:
+    res = cur.execute("SELECT id FROM clients ORDER BY id DESC;")
+    new_client_id = (res.fetchone())[0] + 1
+
+    lname = ''
+    while lname == '':
+        lname = input("Enter your clients last name here (-1 to go back and choose an existing client): ")
+    if lname == '-1':
+        return client_func(cur)
+
+    client_notes = ''
+    while client_notes == '':
+        client_notes = input("Enter any notes about them here (-1 to go back and choose an existing client): ")
+    if lname == '-1':
+        return client_func(cur)
+
+    new_clients = [(new_client_id, fname, lname, client_notes)]
+    new_client_id += 1
+
+    more_clients = True
+    while more_clients is True:
+        more_clients = y_n("Were there any more clients?")
+        if more_clients is True:
+            new_clients.append(new_client_simple(new_client_id, new_client_id))
+            new_client_id += 1
+        else:
+            new_guided_id = new_guided_item(cur)
+            for client in new_clients:
+                cur.execute(f"""
+                    INSERT INTO clients VALUES
+                            ({client[0]}, "{client[1]}", "{client[2]}", "{client[3]}")
+                """)
+
+                cur.execute(f"""
+                    INSERT INTO guided_client VALUES
+                            ({new_guided_id}, {client[0]})
+                """)
+
+    return new_guided_id
+            
+def new_guided_item(cur: Cursor) -> int:
+    res = cur.execute("SELECT id FROM guided ORDER BY id DESC;")
+    new_guided_id = (res.fetchone())[0] + 1
+
+    company = ''
+    while company == '':
+        company = input("What outfit abbreviation did you guide for? (ex: SRMG, ARR) : ")
+
+    tip = get_int("How much did they tip?")
+
+    notes = ''
+    while notes == '':
+        notes = input("How did the day go? What'd you guys get up to? : ")
+
+    cur.execute(f"""
+                INSERT INTO guided VALUES
+                ({new_guided_id}, "{company}", {tip}, "{notes}")
+    """)
+    
+    return new_guided_id    
+
+def new_client_simple(cur: Cursor, new_client_id: int) -> tuple:
+    fname = ''
+    while fname == '':
+        fname = input("What's this next client's first name? : ")
+    
+    lname = ''
+    while lname == '':
+        lname = input("What's their last name? : ")
+    
+    notes = ''
+    while notes == '':
+        notes = input("Any notes about them? : ")
+
+    return (new_client_id, fname, lname, notes)
+
+def easy_client_search(cur: Cursor) -> int:
+    res = cur.execute("SELECT guided_id FROM guided_client ORDER BY guided_id DESC;")
+    last_guided_id = (res.fetchone())[0]
+
+    client_search = input("What was your client's name? : ")
+
+    while client_search == '':
+        print("Oops, looks like you hit enter too soon! Try again :)")
+        return easy_client_search(cur)
+    
+    clients = cur.execute(f"""SELECT guided_id, GROUP_CONCAT(fname || ' ' || lname, ', ') AS 'Client/s' FROM guided_client INNER JOIN clients ON clients.id = guided_client.client_id GROUP BY guided_id;""")
+
+    for client in clients:
+        if client_search in client[1]:
+            print(client)
+    
+    choice = get_int("Enter client ID (-1 to search again, -2 to add new client)")
+
+    if choice == -1:
+        return easy_client_search(cur)
+    elif choice == -2:
+        return None
+    elif choice > 0:
+        if choice <= last_guided_id:
+            return choice
+    else:
+        print("Oops, looks like you made a typo! Try again :)")
+        return easy_client_search(cur)
+
+con = sqlite3.connect("ticks")
 cur = con.cursor()
+new_ticks = []
 
-new_tick(cur)
+cur.execute("PRAGMA foreign_keys = ON;")
 
-# con.commit()
+res = cur.execute("SELECT id FROM ticks ORDER BY id DESC;")
+last_tick = res.fetchone()
+new_tick_id = last_tick[0] + 1
+
+new_ticks = day_out(cur, new_ticks, new_tick_id)
+
+cur.executemany("INSERT INTO ticks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_ticks)
+
+con.commit()
+
+print("Hell yeah dude!! Here's to another great day of climbing :)")
