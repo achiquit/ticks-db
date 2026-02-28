@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# python3 scripts/add_data.py
+python3 scripts/add_data.py
 
 echo "Backing up DB to GitHub"
 git commit -a -m "Automatic DB Update"

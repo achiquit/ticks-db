@@ -106,14 +106,11 @@ def climb(cur: Cursor) -> int:
     repeat = y_n("Have you done this climb before?")
 
     if repeat is True:
-        return climb_search()
+        return climb_search(cur)
     else: 
         return new_climb(cur)
 
-def climb_search() -> int:
-    con = sqlite3.connect("ticks-test")
-    cur = con.cursor()
-
+def climb_search(cur: Cursor) -> int:
     res = cur.execute(f"SELECT id FROM climbs ORDER BY id DESC;")
     newest_climb = res.fetchone()
     newest_climb = newest_climb[0]
@@ -127,14 +124,14 @@ def climb_search() -> int:
     if search_results == -1:
         redo_search = y_n("Try another search?")
         if redo_search is True:
-            return climb_search()
+            return climb_search(cur)
         else:
             return climb()
     elif search_results <= newest_climb:
         return search_results
     else:
         print("You gotta play by the rules, dude!")
-        return climb_search()
+        return climb_search(cur)
 
 def new_climb(cur: Cursor) -> int:
     """Adding a new climb to the DB"""
