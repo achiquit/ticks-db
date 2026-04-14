@@ -622,6 +622,18 @@ def easy_client_search(cur: Cursor) -> int:
         print("Oops, looks like you made a typo! Try again :)")
         return easy_client_search(cur)
 
+def dev() -> bool:
+    print('(1) Did you do some RAD CLIMBING??')
+    print('(2) Or are you updating the DB?')
+    dev = input('(1 or 2) : ')
+    if dev == 2:
+        return True
+    elif dev == 1:
+        return False
+    else:
+        print('Oops, looks like you made a typo! Try again :)')
+        return dev()
+
 con = sqlite3.connect("ticks")
 cur = con.cursor()
 new_ticks = []
@@ -631,11 +643,15 @@ cur.execute("PRAGMA foreign_keys = ON;")
 res = cur.execute("SELECT id FROM ticks ORDER BY id DESC;")
 last_tick = res.fetchone()
 new_tick_id = last_tick[0] + 1
+dev = dev()
 
-new_ticks = day_out(cur, new_ticks, new_tick_id)
+if dev is True:
+    new_ticks = day_out(cur, new_ticks, new_tick_id)
 
-cur.executemany("INSERT INTO ticks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_ticks)
+    cur.executemany("INSERT INTO ticks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_ticks)
 
-con.commit()
+    con.commit()
 
-print("Hell yeah dude!! Here's to another great day of climbing :)")
+    print("Hell yeah dude!! Here's to another great day of climbing :)")
+else:
+    print("Let's update that there database!")

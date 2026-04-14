@@ -45,7 +45,7 @@ SELECT
         WHEN climbed_id IS -1 THEN 'Guiding'
         ELSE
         (
-            SELECT group_concat(partners.fname || ' ' || substr(partners.lname, 1, 1) || '.', ', ')
+            SELECT group_concat(partners.fname || ' ' || substr(partners.lname, 1, 2) || '.', ', ')
             FROM climbed_partners
             INNER JOIN climbed_with ON climbed_with.climbing_id = climbed_partners.id
             INNER JOIN partners ON partners.id = climbed_with.partner_id

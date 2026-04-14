@@ -1,4 +1,4 @@
-SELECT partners.fname || ' ' || partners.lname AS 'Partner', COUNT(DISTINCT ticks.date) AS 'Days', SUM(ticks.pitches) AS 'Pitches', printf('%,d', SUM(height)) AS 'Height(ft)', COUNT(DISTINCT climbs.area) AS 'Areas'
+SELECT partners.fname || ' ' || substr(partners.lname, 1, 2) || '.' AS 'Partner', COUNT(DISTINCT ticks.date) AS 'Days', SUM(ticks.pitches) AS 'Pitches', printf('%,d', SUM(height)) AS 'Height(ft)', COUNT(DISTINCT climbs.area) AS 'Areas'
 FROM
     ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
