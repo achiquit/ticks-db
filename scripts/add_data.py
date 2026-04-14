@@ -625,11 +625,11 @@ def easy_client_search(cur: Cursor) -> int:
 def dev() -> bool:
     print('(1) Did you do some RAD CLIMBING??')
     print('(2) Or are you updating the DB?')
-    dev = input('(1 or 2) : ')
-    if dev == 2:
-        return True
-    elif dev == 1:
+    dev_env = input('(1 or 2) : ')
+    if dev_env == '1':
         return False
+    elif dev_env == '2':
+        return True
     else:
         print('Oops, looks like you made a typo! Try again :)')
         return dev()
@@ -645,7 +645,7 @@ last_tick = res.fetchone()
 new_tick_id = last_tick[0] + 1
 dev = dev()
 
-if dev is True:
+if dev is False:
     new_ticks = day_out(cur, new_ticks, new_tick_id)
 
     cur.executemany("INSERT INTO ticks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_ticks)
