@@ -18,7 +18,7 @@ def day_out(cur: Cursor, new_ticks: list, new_tick_id: int) -> list:
     while another_day is True:
         another_day = y_n("Do you have ticks from another date to make, you absolute madlad?")
         if another_day is True:
-            return day_out(cur, new_ticks)
+            return day_out(cur, new_ticks, new_tick_id)
     
     return new_ticks
 
