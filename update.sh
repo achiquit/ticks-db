@@ -10,6 +10,7 @@ echo ""
 echo ""
 
 echo "=+=+=+=+=+=+=+=--- Backing up DB to GitHub ---=+=+=+=+=+=+=+="
+git add .
 git commit -a -m "Automatic DB Update"
 git push
 
