@@ -3,7 +3,6 @@ WITH RECURSIVE months(month_date) AS (
     UNION ALL
     SELECT date(month_date, '-1 month')
     FROM months
-    WHERE date(month_date) >= date('now', '-59 months')
 )
 SELECT 
     strftime('%Y-%m', month_date) AS month,
