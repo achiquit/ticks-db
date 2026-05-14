@@ -18,7 +18,8 @@ echo ""
 echo ""
 
 echo "=+=+=+=+=+=+=+=--- Sending data to the website directory ---=+=+=+=+=+=+=+="
-cat scripts/send-to-website.sql | sqlite3 ticks
+cat scripts/db_magic.sql | sqlite3 ticks
+python3 scripts/graphs-to-website.py
 
 cd ../websitejazzhands
 ./update.sh

@@ -5,12 +5,12 @@ import plotly.io as pio
 
 pio.templates.default = "plotly_dark"
 
-data = pd.read_csv("data/outputs/yearly-height.csv")
+data = pd.read_csv("data/outputs/monthly-height.csv")
 
 # Create the bar plot
 fig = px.bar(
     data_frame=data, 
-    x="year", 
+    x="month", 
     y="height"
 )
 
@@ -39,5 +39,5 @@ fig.update_xaxes(
 )
 config = {'displayModeBar': False}
 
-with open('../websitejazzhands/climbing/data/plotly_graph_test.html', 'w') as f:
+with open('../websitejazzhands/climbing/data/monthly-height.html', 'w') as f:
     f.write(fig.to_html(include_plotlyjs='cdn', config=config))

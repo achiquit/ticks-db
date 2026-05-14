@@ -1,3 +1,12 @@
+SELECT 
+    strftime('%Y-%m', date) AS month,
+    SUM(height) AS height
+FROM ticks
+GROUP BY month
+ORDER BY month ASC;
+
+-- The below code is what I used before I started using Plotly 
+
 -- WITH RECURSIVE months(month_date) AS (
 --     SELECT date('now', 'start of month')
 --     UNION ALL
@@ -12,10 +21,3 @@
 -- LEFT OUTER JOIN ticks ON strftime('%Y-%m', ticks.date) = month
 -- GROUP BY month
 -- ORDER BY month ASC;
-
-SELECT 
-    strftime('%Y-%m', date) AS month,
-    SUM(height) AS height
-FROM ticks
-GROUP BY month
-ORDER BY month ASC;

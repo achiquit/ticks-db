@@ -39,5 +39,5 @@ fig.update_xaxes(
 )
 config = {'displayModeBar': False}
 
-with open('../websitejazzhands/climbing/data/plotly_graph_test.html', 'w') as f:
+with open('../websitejazzhands/climbing/data/yearly-height.html', 'w') as f:
     f.write(fig.to_html(include_plotlyjs='cdn', config=config))
