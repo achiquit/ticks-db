@@ -24,4 +24,4 @@
 .read scripts/yearly-height.sql
 
 .output data/monthly-height.csv
-.read scripts/monthly-height.csv
+.read scripts/monthly-height.sql
