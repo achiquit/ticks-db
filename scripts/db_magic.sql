@@ -20,8 +20,8 @@
 .read scripts/ticks-by-grade.sql
 
 -- To Data Folder Scripts
-.output /data/yearly-height.csv
+.output data/yearly-height.csv
 .read scripts/yearly-height.sql
 
-.output /data/monthly-height.csv
+.output data/monthly-height.csv
 .read scripts/monthly-height.csv
