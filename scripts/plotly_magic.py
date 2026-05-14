@@ -1,3 +1,5 @@
+print("Making plotly magic!")
+
 import plotly.express as px
 import pandas as pd
 import plotly.io as pio
