@@ -5,7 +5,7 @@ import plotly.io as pio
 
 pio.templates.default = "plotly_dark"
 
-data = pd.read_csv("data/outputs/yearly-height.csv")
+data = pd.read_csv("data/yearly-height.csv")
 
 # Create the bar plot
 fig = px.bar(
