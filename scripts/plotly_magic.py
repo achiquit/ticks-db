@@ -107,5 +107,8 @@ def monthly_height() -> None:
     with open('../websitejazzhands/climbing/data/monthly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+# def overview() -> None:
+
+
 yearly_height()
 monthly_height()
