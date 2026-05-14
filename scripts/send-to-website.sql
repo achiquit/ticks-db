@@ -1,5 +1,3 @@
-print("Sending data to website directory!")
-
 .headers ON
 .mode csv
 .output ../websitejazzhands/climbing/data/all-ticks.csv
