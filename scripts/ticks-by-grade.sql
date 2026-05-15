@@ -1,6 +1,7 @@
 SELECT
-    DISTINCT grades.grade,
-    COUNT(ticks.id) AS count
+    DISTINCT grades.grade AS 'Grade',
+    COUNT(ticks.id) AS 'Count',
+    'Sport' AS 'Type'
 FROM
     grades
     INNER JOIN which_grades ON which_grades.grade = grades.id
