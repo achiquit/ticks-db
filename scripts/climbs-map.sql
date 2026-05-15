@@ -29,15 +29,21 @@ SELECT
             WHERE join_grades.id = climbs.grade)
         END AS 'Difficulty',
     areas.area_name AS 'Area',
-    
-    climb_type.type AS 'Type'
+
+    (SELECT group_concat(climb_type.type, ', ')
+        FROM join_types
+        INNER JOIN which_types ON which_types.id = join_types.id
+        INNER JOIN climb_type ON climb_type.id = which_types.type
+        WHERE join_grades.id = climbs.grade) AS 'Type'
+
+    -- climb_type.type AS 'Type',
 
 FROM
     climbs
     INNER JOIN areas ON areas.id = climbs.area
 
-    INNER JOIN join_types ON climbs.type = join_types.id
-    INNER JOIN which_types ON which_types.id = join_types.id
-    INNER JOIN climb_type ON climb_type.id = which_types.type
+    -- INNER JOIN join_types ON climbs.type = join_types.id
+    -- INNER JOIN which_types ON which_types.id = join_types.id
+    -- INNER JOIN climb_type ON climb_type.id = which_types.type
 
 WHERE gps != 'NULL';
