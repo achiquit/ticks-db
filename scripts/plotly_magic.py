@@ -7,6 +7,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta 
 
 pio.templates.default = "plotly_dark"
+emerald = '#00d492'
+dark_emerald = '#007a55'
+bg_black = '#030712'
 
 def yearly_height() -> None:
 
@@ -21,13 +24,13 @@ def yearly_height() -> None:
     )
 
     fig.update_traces(
-        marker_color='#00d492',
+        marker_color=emerald,
         hovertemplate =
             '<b>Height: %{y}<sup>ft</sup></i>'
     )
     fig.update_layout(
-        plot_bgcolor='#030712',
-        paper_bgcolor='#030712',
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
         margin=dict(l=0, r=0, t=0, b=0),
         hovermode="x unified",
         xaxis=dict(
@@ -40,7 +43,7 @@ def yearly_height() -> None:
         tickformat=",.2d", #Change how the numbers are rounded & written
         nticks=12,
         title=None,
-        gridcolor='#007a55',
+        gridcolor=dark_emerald,
         # tickangle=315,
         tickfont=dict(family='Arial', color='white', size=12),
         ticklabelstandoff=6
@@ -69,13 +72,13 @@ def monthly_height() -> None:
     )
 
     fig.update_traces(
-        marker_color='#00d492',
+        marker_color=emerald,
         hovertemplate =
             '<b>Height: %{y}<sup>ft</sup></i>'
     )
     fig.update_layout(
-        plot_bgcolor='#030712',
-        paper_bgcolor='#030712',
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
         margin=dict(l=0, r=0, t=0, b=0),
         hovermode="x unified",
         xaxis=dict(
@@ -89,7 +92,7 @@ def monthly_height() -> None:
         tickformat=",.2d", #Change how the numbers are rounded & written
         nticks=6,
         title=None,
-        gridcolor='#007a55',
+        gridcolor=dark_emerald,
         # tickangle=315,
         tickfont=dict(family='Arial', color='white', size=12),
         ticklabelstandoff=6
@@ -114,7 +117,7 @@ def overview() -> None:
 
     headerColor='#1e2939'
     evenColor='#080f1e'
-    oddColor='#030712'
+    oddColor=bg_black
 
     fig = go.Figure(
         data=[go.Table(
@@ -134,8 +137,8 @@ def overview() -> None:
     ])
 
     fig.update_layout(
-        plot_bgcolor='#030712',
-        paper_bgcolor="#030712",
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
         margin=dict(l=0, r=0, t=0, b=0)
     )
     config = {'displayModeBar': False}
@@ -144,15 +147,38 @@ def overview() -> None:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def map() -> None:
-    geo_df = gpd.read_file(get_url("naturalearth.cities"))
+    geo_df = gpd.read_file("data/climb-locs.csv")
+
+    # print(geo_df)
 
     fig = px.scatter_geo(geo_df,
-                        lat=geo_df.geometry.y,
-                        lon=geo_df.geometry.x,
-                        hover_name="name")
-    fig.show()
-
+                        lat="Latitude",
+                        lon="Longitude",
+                        hover_name="Area",
+                        hover_data=["Climb", "Difficulty", "Type"])
     
+    fig.update_geos(
+        resolution=50,
+        showcoastlines=True, coastlinecolor=dark_emerald,
+        showcountries=True, countrycolor=dark_emerald,
+        showland=True, landcolor=bg_black,
+        showocean=True, oceancolor=bg_black,
+        fitbounds="locations"
+    )
+    
+    fig.update_layout(
+        plot_bgcolor='#030712',
+        paper_bgcolor="#030712",
+        margin=dict(l=0, r=0, t=0, b=0)
+    )
+
+    # fig.show()
+
+    with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn'))
+
+
 yearly_height()
 monthly_height()
 overview()
+map()
