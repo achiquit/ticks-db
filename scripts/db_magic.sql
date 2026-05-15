@@ -31,3 +31,6 @@
 
 .output data/ticks-by-grade-trad.csv
 .read scripts/ticks-by-grade-trad.sql
+
+.output data/ticks-by-grade.csv
+.read scripts/ticks-by-grade.sql
