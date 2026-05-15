@@ -1,4 +1,5 @@
 SELECT
+    grades.id AS 'ID',
     grades.grade AS 'Grade',
     0 AS 'Count',
     NULL as 'Type'
@@ -9,6 +10,7 @@ WHERE grades.grade LIKE '5.%' AND grades.grade NOT LIKE '5.10' AND grades.grade 
 UNION
 
 SELECT
+    grades.id AS 'ID',
     DISTINCT grades.grade AS 'Grade',
     COUNT(ticks.id) AS 'Count',
     'Sport' AS 'Type'
