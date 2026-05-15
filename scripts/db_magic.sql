@@ -26,5 +26,8 @@
 .output data/climb-locs.csv
 .read scripts/climbs-map.sql
 
-.output data/ticks-by-grade.csv
-.read scripts/ticks-by-grade.sql
+.output data/ticks-by-grade-sport.csv
+.read scripts/ticks-by-grade-sport.sql
+
+.output data/ticks-by-grade-trad.csv
+.read scripts/ticks-by-grade-trad.sql
