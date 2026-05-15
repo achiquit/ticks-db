@@ -11,7 +11,7 @@ UNION
 
 SELECT
     grades.id AS 'ID',
-    DISTINCT grades.grade AS 'Grade',
+    grades.grade AS 'Grade',
     COUNT(ticks.id) AS 'Count',
     'Sport' AS 'Type'
 FROM
