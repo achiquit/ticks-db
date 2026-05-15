@@ -27,4 +27,4 @@
 .read scripts/climbs-map.sql
 
 .output data/ticks-by-grade.csv
-.read scripts/ticks-by-grade.sql
+.read scripts/ticks-by-grade-type.sql
