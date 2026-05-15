@@ -193,8 +193,8 @@ def map() -> None:
         fitbounds="locations"
     )
     fig.update_layout(
-        plot_bgcolor='#030712',
-        paper_bgcolor="#030712",
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
         margin=dict(l=0, r=0, t=0, b=0)
     )
     config = {
@@ -207,8 +207,37 @@ def map() -> None:
     with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+def ticks_by_grade() -> None:
+    data = pd.read_csv("data/ticks-by-grade.csv")
+
+    fig = px.bar(data,
+                x="Grade",
+                y="Count",
+                color="Type",
+                color_discrete_sequence=[trad_color, sport_color],
+                hover_data={'Grade':False}
+            )
+
+    fig.update_layout(
+        barmode='stack',
+        xaxis={
+            'categoryorder':'array',
+            'categoryarray':['5.1','5.2','5.3','5.4','5.5','5.6','5.7-','5.7','5.7+','5.8-','5.8','5.8+','5.9-','5.9','5.9+','5.10a','5.10b','5.10c','5.10d','5.11a','5.11b','5.11c','5.11d','5.12a','5.12b','5.12c','5.12d','5.13a','5.13b','5.13c','5.13d','5.14a','5.14b','5.14c','5.14d','5.15a','5.15b','5.15c','5.15d']
+        },
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
+        margin=dict(l=0, r=0, t=0, b=0),
+        hovermode="x unified"
+    )
+    config = {
+        'displayModeBar': False
+    }
+
+    with open('../websitejazzhands/climbing/data/ticks-by-grade.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 yearly_height()
 monthly_height()
 overview()
 map()
+ticks_by_grade()
