@@ -1,10 +1,10 @@
 SELECT
     grades.grade AS grade,
     climb_type.type AS climb_type,
-    COUNT(ticks.id) AS 'da count'
+    COUNT(ticks.id) AS 'Count'
 FROM
     grades
-    FULL JOIN which_grades ON which_grades.grade = grades.id
+    FULL OUTER JOIN which_grades ON which_grades.grade = grades.id
     FULL JOIN join_grades ON join_grades.id = which_grades.id
     FULL JOIN climbs ON climbs.grade = join_grades.id
     FULL JOIN ticks ON ticks.climb = climbs.id
