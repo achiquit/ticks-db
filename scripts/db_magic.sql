@@ -10,9 +10,6 @@
 .output ../websitejazzhands/climbing/data/partner-leaderboard.csv
 .read scripts/leaderboard.sql
 
-.output ../websitejazzhands/climbing/data/climb-locs.csv
-.read scripts/climbs-map.sql
-
 .output ../websitejazzhands/climbing/data/top-climbs.csv
 .read scripts/top-climbs.sql
 
@@ -28,3 +25,6 @@
 
 .output data/overview-stats.csv
 .read scripts/stats-over-time.sql
+
+.output data/climb-locs.csv
+.read scripts/climbs-map.sql

@@ -2,6 +2,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 import pandas as pd
+import geopandas as gpd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta 
 
@@ -98,7 +99,7 @@ def monthly_height() -> None:
         title=None,
         ticklabelstandoff=6,
         tickangle=45,
-        nticks=32,
+        nticks=28,
         tickfont=dict(family='Arial', color='white', size=10),
         rangeslider_visible=True,
         range=[start_date, end_date]
@@ -142,6 +143,16 @@ def overview() -> None:
     with open('../websitejazzhands/climbing/data/overview-stats.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+def map() -> None:
+    geo_df = gpd.read_file(get_url("naturalearth.cities"))
+
+    fig = px.scatter_geo(geo_df,
+                        lat=geo_df.geometry.y,
+                        lon=geo_df.geometry.x,
+                        hover_name="name")
+    fig.show()
+
+    
 yearly_height()
 monthly_height()
 overview()
