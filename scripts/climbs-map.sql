@@ -34,7 +34,7 @@ SELECT
         FROM join_types
         INNER JOIN which_types ON which_types.id = join_types.id
         INNER JOIN climb_type ON climb_type.id = which_types.type
-        WHERE join_grades.id = climbs.grade) AS 'Type'
+        WHERE join_types.id = climbs.type) AS 'Type'
 
     -- climb_type.type AS 'Type',
 
