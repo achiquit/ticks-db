@@ -1,6 +1,7 @@
 import plotly.express as px
-import pandas as pd
+import plotly.graph_objects as go
 import plotly.io as pio
+import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta 
 
@@ -107,8 +108,40 @@ def monthly_height() -> None:
     with open('../websitejazzhands/climbing/data/monthly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
-# def overview() -> None:
+def overview() -> None:
+    data = pd.read_csv("data/overview-stats.csv")
 
+    headerColor='#1e2939'
+    evenColor='#080f1e'
+    oddColor='#030712'
+
+    fig = go.Figure(
+        data=[go.Table(
+            header=dict(
+                values=['<b>Timeframe</b>','<b>Days Climbed</b>','<b>Ticks Made</b>','<b>Pitches Climbed</b>','<b>Feet Climbed</b>','<b>Partners</b>','<b>Climbs</b>','<b>Areas</b>','<b>Countries</b>','<b>States</b>'],
+                align='center',
+                fill_color=headerColor
+            ),
+            cells=dict(
+                values=data.transpose().values.tolist(),
+                align='center',
+                font_size=14,
+                height=30,
+                fill_color = [[oddColor,evenColor,oddColor, evenColor,oddColor]*5]
+            )
+        )
+    ])
+
+    fig.update_layout(
+        plot_bgcolor='#030712',
+        paper_bgcolor='#030712',
+        margin=dict(l=0, r=0, t=0, b=0)
+    )
+    config = {'displayModeBar': False}
+
+    with open('../websitejazzhands/climbing/data/overview-stats.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 yearly_height()
 monthly_height()
+overview()
