@@ -1,5 +1,5 @@
 SELECT
-    'Last 90 Days' AS 'Timeframe',
+    '90 Days' AS 'Timeframe',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
     printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
@@ -20,7 +20,7 @@ WHERE ticks.date > date('now','-90 days')
 UNION
 
 SELECT
-    'Last Year',
+    '1 Year',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
     printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
@@ -41,7 +41,7 @@ WHERE ticks.date > date('now','-1 year')
 UNION
 
 SELECT
-    'Last 5 Years',
+    '5 Years',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
     printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',

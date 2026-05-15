@@ -134,7 +134,7 @@ def overview() -> None:
 
     fig.update_layout(
         plot_bgcolor='#030712',
-        paper_bgcolor='#030712',
+        paper_bgcolor="#030712",
         margin=dict(l=0, r=0, t=0, b=0)
     )
     config = {'displayModeBar': False}

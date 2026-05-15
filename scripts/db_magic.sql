@@ -4,8 +4,8 @@
 .output ../websitejazzhands/climbing/data/all-ticks.csv
 .read scripts/all-ticks.sql
 
--- .output ../websitejazzhands/climbing/data/all-time-stats.csv
--- .read scripts/stats-over-time.sql
+.output ../websitejazzhands/climbing/data/all-time-stats.csv
+.read scripts/stats-over-time.sql
 
 .output ../websitejazzhands/climbing/data/partner-leaderboard.csv
 .read scripts/leaderboard.sql
