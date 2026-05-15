@@ -28,8 +28,16 @@ SELECT
             INNER JOIN grades ON grades.id = which_grades.grade
             WHERE join_grades.id = climbs.grade)
         END AS 'Difficulty',
-    areas.area_name AS 'Area'
+    areas.area_name AS 'Area',
+    
+    types.type AS 'Type'
+
 FROM
     climbs
     INNER JOIN areas ON areas.id = climbs.area
+
+    INNER JOIN join_types ON climbs.type = join_types.id
+    INNER JOIN which_types ON which_types.id = join_types.id
+    INNER JOIN types ON types.id = which_types.type
+
 WHERE gps != 'NULL';
