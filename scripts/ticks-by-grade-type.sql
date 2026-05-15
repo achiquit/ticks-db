@@ -5,12 +5,12 @@ SELECT
 FROM
     grades
     FULL OUTER JOIN which_grades ON which_grades.grade = grades.id
-    FULL JOIN join_grades ON join_grades.id = which_grades.id
-    FULL JOIN climbs ON climbs.grade = join_grades.id
-    FULL JOIN ticks ON ticks.climb = climbs.id
-    FULL JOIN join_types ON join_types.id = climbs.type
-    FULL JOIN which_types ON which_types.id = join_types.id
-    FULL JOIN climb_type ON climb_type.id = which_types.type
+    FULL OUTER JOIN join_grades ON join_grades.id = which_grades.id
+    FULL OUTER JOIN climbs ON climbs.grade = join_grades.id
+    FULL OUTER JOIN ticks ON ticks.climb = climbs.id
+    FULL OUTER JOIN join_types ON join_types.id = climbs.type
+    FULL OUTER JOIN which_types ON which_types.id = join_types.id
+    FULL OUTER JOIN climb_type ON climb_type.id = which_types.type
 WHERE
     (grades.grade LIKE '5.%' AND grades.grade NOT LIKE '5.15d') AND (climbs.type IN (4,5))
 GROUP BY climb_type.type, grades.grade
