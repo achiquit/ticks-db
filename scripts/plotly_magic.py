@@ -214,9 +214,7 @@ def map() -> None:
             mode="lines",
             showlegend=False,
             hoverinfo='skip',
-            marker=dict(
-                allowoverlap=False
-            )
+            zorder=0
         )
     )
     fig.update_geos(
