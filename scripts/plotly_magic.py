@@ -189,8 +189,7 @@ def map() -> None:
             Snow=snow_color,
             Aid=aid_color,
             Via=via_color
-        ),
-        zorder=5
+        )
     )
     fig = fig.add_trace(
         go.Scattergeo(
