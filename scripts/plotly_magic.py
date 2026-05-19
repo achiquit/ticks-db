@@ -168,6 +168,29 @@ def map() -> None:
         "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
     ).json()
 
+    fig = px.scatter_geo(geo_df,
+        lat="Latitude",
+        lon="Longitude",
+        hover_name="Area",
+        hover_data=dict(
+            Latitude=False,
+            Longitude=False,
+            Climb=True,
+            Difficulty=True,
+            Type=True
+        ),
+        color='Type',
+        color_discrete_map=dict(
+            Trad=trad_color,
+            Sport=sport_color,
+            Boulder=boulder_color,
+            TR=tr_color,
+            Scramble=scramble_color,
+            Snow=snow_color,
+            Aid=aid_color,
+            Via=via_color
+        )
+    )
     fig = fig.add_trace(
         go.Scattergeo(
             lat=[
@@ -191,29 +214,6 @@ def map() -> None:
             mode="lines",
             showlegend=False,
             hoverinfo='skip'
-        )
-    )
-    fig = px.scatter_geo(geo_df,
-        lat="Latitude",
-        lon="Longitude",
-        hover_name="Area",
-        hover_data=dict(
-            Latitude=False,
-            Longitude=False,
-            Climb=True,
-            Difficulty=True,
-            Type=True
-        ),
-        color='Type',
-        color_discrete_map=dict(
-            Trad=trad_color,
-            Sport=sport_color,
-            Boulder=boulder_color,
-            TR=tr_color,
-            Scramble=scramble_color,
-            Snow=snow_color,
-            Aid=aid_color,
-            Via=via_color
         )
     )
     fig.update_geos(
