@@ -214,7 +214,7 @@ def map() -> None:
             mode="lines",
             showlegend=False,
             hoverinfo='skip',
-            legendrank=1001
+            legendrank=999
         )
     )
     fig.update_geos(
