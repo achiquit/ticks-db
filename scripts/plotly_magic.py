@@ -213,6 +213,7 @@ def map() -> None:
             line_width=1,
             mode="lines",
             showlegend=False,
+            hoverinfo='skip'
         )
     )
     fig.update_geos(
