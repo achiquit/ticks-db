@@ -3,6 +3,8 @@ import plotly.graph_objects as go
 import plotly.io as pio
 import pandas as pd
 import geopandas as gpd
+import numpy as np
+import requests
 from datetime import datetime
 from dateutil.relativedelta import relativedelta 
 
@@ -162,6 +164,9 @@ def overview() -> None:
 
 def map() -> None:
     geo_df = gpd.read_file("data/climb-locs.csv")
+    states_geojson = requests.get(
+        "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
+    ).json()
 
     fig = px.scatter_geo(geo_df,
         lat="Latitude",
@@ -184,6 +189,30 @@ def map() -> None:
             Snow=snow_color,
             Aid=aid_color,
             Via=via_color
+        )
+    )
+    fig = fig.add_trace(
+        go.Scattergeo(
+            lat=[
+                v
+                for sub in [
+                    np.array(f["geometry"]["coordinates"])[:, 1].tolist() + [None]
+                    for f in states_geojson["features"]
+                ]
+                for v in sub
+            ],
+            lon=[
+                v
+                for sub in [
+                    np.array(f["geometry"]["coordinates"])[:, 0].tolist() + [None]
+                    for f in states_geojson["features"]
+                ]
+                for v in sub
+            ],
+            line_color=dark_emerald,
+            line_width=1,
+            mode="lines",
+            showlegend=False,
         )
     )
     fig.update_geos(
@@ -210,8 +239,8 @@ def map() -> None:
 
     fig.show()
 
-    with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
-        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+    # with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
+    #     f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def ticks_by_grade() -> None:
     data = pd.read_csv("data/ticks-by-grade.csv")
