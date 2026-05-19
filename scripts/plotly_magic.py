@@ -7,9 +7,11 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta 
 
 pio.templates.default = "plotly_dark"
+
 emerald = '#00d492'
 dark_emerald = '#007a55'
 bg_black = '#030712'
+
 trad_color = '#fb2c36'
 sport_color = '#00a6f4'
 boulder_color = '#e12afb'
@@ -186,8 +188,10 @@ def map() -> None:
     )
     fig.update_geos(
         resolution=50,
+        scope='world',
         showcoastlines=True, coastlinecolor=dark_emerald,
         showcountries=True, countrycolor=dark_emerald,
+        showsubunits=True, subunitcolor=dark_emerald,
         showland=True, landcolor=bg_black,
         showocean=True, oceancolor=bg_black,
         fitbounds="locations"
@@ -203,6 +207,8 @@ def map() -> None:
         'displayModeBar': True,
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
+
+    fig.show()
 
     with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
