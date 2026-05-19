@@ -240,10 +240,8 @@ def map() -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    fig.show()
-
-    # with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
-    #     f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+    with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def ticks_by_grade() -> None:
     data = pd.read_csv("data/ticks-by-grade.csv")
