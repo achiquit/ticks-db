@@ -86,15 +86,13 @@ def monthly_height() -> None:
     fig = px.bar(
         data_frame=data, 
         x="month", 
-        y="height",
-        text_auto='.2s'
+        y="height"
     )
 
     fig.update_traces(
         marker_color=emerald,
         hovertemplate =
-            '<b>Height: %{y}<sup>ft</sup></i>',
-        textposition='outside'
+            '<b>Height: %{y}<sup>ft</sup></i>'
     )
     fig.update_layout(
         plot_bgcolor=bg_black,
@@ -266,7 +264,8 @@ def ticks_by_grade() -> None:
         plot_bgcolor=bg_black,
         paper_bgcolor=bg_black,
         margin=dict(l=0, r=0, t=0, b=0),
-        hovermode="x unified"
+        hovermode="x unified",
+        barmode='group'
     )
     config = {
         'displayModeBar': False
