@@ -140,7 +140,7 @@ def monthly_height() -> None:
         arrowhead=1,
         align='left',
         ax=-50,
-        ay=-500
+        ay=-700
     )
     
     config = {'displayModeBar': False}
