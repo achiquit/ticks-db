@@ -86,13 +86,15 @@ def monthly_height() -> None:
     fig = px.bar(
         data_frame=data, 
         x="month", 
-        y="height"
+        y="height",
+        text_auto='.2s'
     )
 
     fig.update_traces(
         marker_color=emerald,
         hovertemplate =
-            '<b>Height: %{y}<sup>ft</sup></i>'
+            '<b>Height: %{y}<sup>ft</sup></i>',
+        text_position='outside'
     )
     fig.update_layout(
         plot_bgcolor=bg_black,
