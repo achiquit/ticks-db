@@ -94,7 +94,7 @@ def monthly_height() -> None:
         marker_color=emerald,
         hovertemplate =
             '<b>Height: %{y}<sup>ft</sup></i>',
-        text_position='outside'
+        textposition='outside'
     )
     fig.update_layout(
         plot_bgcolor=bg_black,
