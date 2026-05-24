@@ -125,7 +125,7 @@ def monthly_height() -> None:
         rangeslider_visible=True,
         range=[start_date, end_date]
     )
-    fig.add_annotation(x="2026-01-01", y=900,
+    fig.add_annotation(x="2026-01-01", y=9000,
             text="Testing, Testing!",
             showarrow=True,
             arrowhead=1)
