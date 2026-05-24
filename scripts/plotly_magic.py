@@ -84,7 +84,8 @@ def monthly_height() -> None:
     fig = px.bar(
         data_frame=data, 
         x="month", 
-        y="height"
+        y="height",
+        text_auto='.2s'
     )
 
     fig.update_traces(
