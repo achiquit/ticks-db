@@ -138,8 +138,8 @@ def monthly_height() -> None:
         text="Rio Trip",
         showarrow=True,
         arrowhead=1,
-        ax=-50,
-        ay=-700
+        # ax=-50,
+        # ay=-700
     )
     
     config = {'displayModeBar': False}
