@@ -148,7 +148,7 @@ def new_climb(cur: Cursor) -> int:
 
     type = type_func(cur)
 
-    commitment = commitment_func()
+    commitment = commitment_func(cur)
 
     gps = input("GPS: ")
 
@@ -228,10 +228,15 @@ def type_func(cur: Cursor) -> int:
         print(f"{choice} is of type {type(choice)}")
         return type_func(cur)
 
-def commitment_func() -> str:
-    commitment = input("Commitment (I, II, etc, -1 for nothing): ")
+def commitment_func(cur: Cursor) -> str:
+    commitment = input("Commitment (I, II, etc, -1 for nothing, -2 for descriptions of the levels): ")
     if commitment in ['-1', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII']:
         return commitment
+    elif commitment == '-2':
+        commitment_levels = cur.execute(f"SELECT * FROM commitment;")
+        for level in commitment_levels:
+            print(level)
+        return commitment_func(cur)
     else:
         input("You probably made a typo! Try again :)")
         return commitment_func()
