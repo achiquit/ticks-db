@@ -36,13 +36,15 @@ def yearly_height() -> None:
         data_frame=data, 
         x="year", 
         y="height",
-        hover_data={'year':False}
+        hover_data={'year':False},
+        text_auto='.2s'
     )
 
     fig.update_traces(
         marker_color=emerald,
         hovertemplate =
-            '<b>Height: %{y}<sup>ft</sup></i>'
+            '<b>Height: %{y}<sup>ft</sup></i>',
+        textposition="outside"
     )
     fig.update_layout(
         plot_bgcolor=bg_black,
@@ -84,8 +86,7 @@ def monthly_height() -> None:
     fig = px.bar(
         data_frame=data, 
         x="month", 
-        y="height",
-        text_auto='.2s'
+        y="height"
     )
 
     fig.update_traces(
