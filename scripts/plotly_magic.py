@@ -125,6 +125,10 @@ def monthly_height() -> None:
         rangeslider_visible=True,
         range=[start_date, end_date]
     )
+    fig.add_annotation(x=2, y=5,
+            text="Testing, Testing!",
+            showarrow=True,
+            arrowhead=1)
     config = {'displayModeBar': False}
 
     with open('../websitejazzhands/climbing/data/monthly-height.html', 'w') as f:
