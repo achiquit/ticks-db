@@ -125,21 +125,21 @@ def monthly_height() -> None:
         rangeslider_visible=True,
         range=[start_date, end_date]
     )
-    fig.add_annotation(
-        x="2026-01-01",
-        y=9485,
-        text="EPC Trip",
-        showarrow=True,
-        arrowhead=1
-    )
+    # fig.add_annotation(
+    #     x="2026-01-01",
+    #     y=9485,
+    #     text="EPC Trip",
+    #     showarrow=True,
+    #     arrowhead=1
+    # )
     fig.add_annotation(
         x="2025-01-01",
         y=11607,
         text="Rio Trip",
         showarrow=True,
         arrowhead=1,
-        # ax=-50,
-        # ay=-700
+        ax=-50,
+        ay=-700
     )
     
     config = {'displayModeBar': False}
