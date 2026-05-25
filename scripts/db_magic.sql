@@ -25,6 +25,3 @@
 
 .output data/climb-locs.csv
 .read scripts/climbs-map.sql
-
-.output data/ticks-by-grade.csv
-.read scripts/ticks-by-grade.sql

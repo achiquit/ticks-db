@@ -9,17 +9,19 @@
 
 -- UNION
 
-SELECT
-    grades.id AS 'ID',
-    grades.grade AS 'Grade',
-    COUNT(ticks.id) AS 'Count',
-    'Sport' AS 'Type'
-FROM
-    grades
-    INNER JOIN which_grades ON which_grades.grade = grades.id
-    INNER JOIN join_grades ON join_grades.id = which_grades.id
-    LEFT JOIN climbs ON climbs.grade = join_grades.id
-    LEFT JOIN ticks ON ticks.climb = climbs.id
-WHERE grades.grade LIKE '5.%' AND climbs.type = 4
-GROUP BY grades.grade
-ORDER BY grades.id
+-- SELECT
+--     grades.id AS 'ID',
+--     grades.grade AS 'Grade',
+--     COUNT(ticks.id) AS 'Count',
+--     'Sport' AS 'Type'
+-- FROM
+--     grades
+--     INNER JOIN which_grades ON which_grades.grade = grades.id
+--     INNER JOIN join_grades ON join_grades.id = which_grades.id
+--     LEFT JOIN climbs ON climbs.grade = join_grades.id
+--     LEFT JOIN ticks ON ticks.climb = climbs.id
+-- WHERE grades.grade LIKE '5.%' AND climbs.type = 4
+-- GROUP BY grades.grade
+-- ORDER BY grades.id
+
+SELECT id FROM climbs ORDER BY id DESC;
