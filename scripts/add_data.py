@@ -109,6 +109,15 @@ def climb_search(cur: Cursor) -> int:
     else:
         print("You gotta play by the rules, dude!")
         return climb_search(cur)
+    
+def height_func(cur: Cursor, climb: int) -> int:
+
+    avg_height = cur.execute(f"""SELECT ticks.height FROM ticks INNER JOIN climbs ON ticks.climb = climbs.id WHERE climbs.id = {climb} GROUP BY ticks.height ORDER BY COUNT(ticks.height) DESC LIMIT 1;""")
+
+    for result in avg_height:
+        height = get_int(f"How many feet did you climb? (If {result[0]}ft sounds right, it probably is)")
+
+    return height
 
 def new_climb(cur: Cursor) -> int:
     """Adding a new climb to the DB"""
@@ -603,14 +612,6 @@ def easy_client_search(cur: Cursor) -> int:
     else:
         print("Oops, looks like you made a typo! Try again :)")
         return easy_client_search(cur)
-
-def height_func(cur: Cursor, climb: int) -> int:
-
-    avg_height = cur.execute(f"""SELECT ticks.height FROM ticks INNER JOIN climbs ON ticks.climb = climbs.id WHERE climbs.id = {climb} GROUP BY ticks.height ORDER BY COUNT(ticks.height) DESC LIMIT 1;""")
-
-    height = get_int(f"How many feet did you climb? (If {avg_height[0]}ft sounds right, it probably is) : ")
-
-    return height
 
 def dev() -> bool:
     print('(1) Did you do some RAD CLIMBING??')
