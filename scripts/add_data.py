@@ -27,7 +27,7 @@ def new_tick(cur: Cursor, date: str, new_tick_id: int) -> tuple:
 
     pitch_count = get_int("How many pitches, king?")
 
-    height = get_int("How many feet did you climb?")
+    height = height_func(cur, climb_id)
 
     style = style_func()
 
@@ -42,29 +42,6 @@ def new_tick(cur: Cursor, date: str, new_tick_id: int) -> tuple:
     elif input is False:
         client = client_func(cur)
         partner = '-1'
-
-    # print("=+=+=+=+=+=+=+=+ NEW TICK ENTRY =+=+=+=+=+=+=+=+")
-    # print(f"ID: {id}")
-    # print(f"Date: {date}")
-    # print(f"Climb: {climb_id}")
-    # print(f"Pitches: {pitch_count}")
-    # print(f"Height: {height}")
-    # print(f"Style: {style}")
-    # print(f"Success: {success}")
-    # print(f"Notes: {notes}")
-    # print(f"Partner/s: {partner}")
-    # print(f"Client/s: {client}")
-
-    # id = 1180
-    # date = '2026-01-26'
-    # climb_id = 406
-    # pitch_count = 1
-    # height = 100
-    # style = 'Lead'
-    # success = 'Redpoint'
-    # notes = "Ayy"
-    # partner = 113
-    # client = -1
 
     new_tick = (new_tick_id, date, climb_id, pitch_count, height, style, success, notes, partner, client)
 
@@ -626,6 +603,14 @@ def easy_client_search(cur: Cursor) -> int:
     else:
         print("Oops, looks like you made a typo! Try again :)")
         return easy_client_search(cur)
+
+def height_func(cur: Cursor, climb: int) -> int:
+
+    avg_height = cur.execute(f"""SELECT ticks.height FROM ticks INNER JOIN climbs ON ticks.climb = climbs.id WHERE climbs.id = {climb} GROUP BY ticks.height ORDER BY COUNT(ticks.height) DESC LIMIT 1;""")
+
+    height = get_int(f"How many feet did you climb? (If {avg_height[0]}ft sounds right, it probably is) : ")
+
+    return height
 
 def dev() -> bool:
     print('(1) Did you do some RAD CLIMBING??')
