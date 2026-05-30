@@ -112,10 +112,19 @@ def climb_search(cur: Cursor) -> int:
     
 def height_func(cur: Cursor, climb: int) -> int:
 
-    avg_height = cur.execute(f"""SELECT ticks.height FROM ticks INNER JOIN climbs ON ticks.climb = climbs.id WHERE climbs.id = {climb} GROUP BY ticks.height ORDER BY COUNT(ticks.height) DESC LIMIT 1;""")
+    climb_height = cur.execute(f"""
+        SELECT height
+        FROM climbs
+        WHERE id = {climb}
+    """)
 
-    for result in avg_height:
-        height = get_int(f"How many feet did you climb? (If {result[0]}ft sounds right, it probably is)")
+    for result in climb_height:
+        full_climb = y_n("Did you do the whole climb?")
+        if full_climb is True:
+            return result[0]
+        else:
+            height = get_int("How many feet did you climb?")
+            return height
 
     return height
 
@@ -129,6 +138,8 @@ def new_climb(cur: Cursor) -> int:
     name = input("Climb Name: ")
 
     grade = grade_func(cur)
+
+    height = int(input("Height: "))
 
     danger = danger_func()
 
@@ -144,7 +155,7 @@ def new_climb(cur: Cursor) -> int:
 
     cur.execute(f"""
         INSERT INTO climbs VALUES
-            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{gps}', {area_id}, "{notes}")
+            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{gps}', {area_id}, "{notes}", {height})
     """)
 
     return(id)
