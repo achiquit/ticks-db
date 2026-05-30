@@ -8,7 +8,7 @@ FROM
 WHERE NOT partners.id = -1
 GROUP BY partners.id
 UNION
-SELECT 'Guiding' AS 'Partner', COUNT(DISTINCT ticks.date) AS 'Days', SUM(ticks.pitches) AS 'Pitches', printf('%,d', SUM(height)) AS 'Height(ft)', COUNT(DISTINCT climbs.area) AS 'Areas'
+SELECT 'Guiding' AS 'Partner', COUNT(DISTINCT ticks.date) AS 'Days', SUM(ticks.pitches) AS 'Pitches', printf('%,d', SUM(ticks.height)) AS 'Height(ft)', COUNT(DISTINCT climbs.area) AS 'Areas'
 FROM
     ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
