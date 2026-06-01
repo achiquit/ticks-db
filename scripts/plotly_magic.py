@@ -273,6 +273,86 @@ def map() -> None:
     with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+def map_test() -> None:
+    geo_df = gpd.read_file("data/climb-locs.csv")
+    states_geojson = requests.get(
+        "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
+    ).json()
+
+    fig = px.scatter_geo(geo_df,
+        lat="Latitude",
+        lon="Longitude",
+        hover_name="Area",
+        hover_data=dict(
+            Latitude=False,
+            Longitude=False,
+            Climb=True,
+            Difficulty=True,
+            Type=True
+        ),
+        color='Type',
+        color_discrete_map=dict(
+            Trad=trad_color,
+            Sport=sport_color,
+            Boulder=boulder_color,
+            TR=tr_color,
+            Scramble=scramble_color,
+            Snow=snow_color,
+            Aid=aid_color,
+            Via=via_color
+        )
+    )
+    fig = fig.add_trace(
+        go.Scattergeo(
+            lat=[
+                v
+                for sub in [
+                    np.array(f["geometry"]["coordinates"])[:, 1].tolist() + [None]
+                    for f in states_geojson["features"]
+                ]
+                for v in sub
+            ],
+            lon=[
+                v
+                for sub in [
+                    np.array(f["geometry"]["coordinates"])[:, 0].tolist() + [None]
+                    for f in states_geojson["features"]
+                ]
+                for v in sub
+            ],
+            line_color=dark_emerald,
+            line_width=1,
+            mode="lines",
+            showlegend=False,
+            hoverinfo='skip'
+        )
+    )
+    fig.update_geos(
+        resolution=50,
+        scope='world',
+        showcoastlines=True, coastlinecolor=dark_emerald,
+        showcountries=True, countrycolor=dark_emerald,
+        showsubunits=True, subunitcolor=dark_emerald,
+        showlakes=True, lakecolor=dark_emerald,
+        showland=True, landcolor=bg_black,
+        showocean=True, oceancolor=bg_black,
+        fitbounds="locations"
+    )
+    fig.update_layout(
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
+        margin=dict(l=0, r=0, t=0, b=0)
+    )
+    config = {
+        'scrollZoom': True,
+        'displaylogo': False,
+        'displayModeBar': True,
+        'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
+    }
+
+    with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+
 def ticks_by_grade_mobile() -> None:
     no_plus_minus.magic()
 
