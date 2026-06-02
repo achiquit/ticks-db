@@ -1,3 +1,4 @@
+from dash import Dash, dcc, html
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -7,7 +8,9 @@ import numpy as np
 import requests
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import no_plus_minus 
+import no_plus_minus
+from base64 import b64encode
+import io
 
 pio.templates.default = "plotly_dark"
 
@@ -279,6 +282,9 @@ def map_test() -> None:
         "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
     ).json()
 
+    app = Dash(__name__)
+
+
     fig = px.scatter_geo(geo_df,
         lat="Latitude",
         lon="Longitude",
@@ -302,47 +308,14 @@ def map_test() -> None:
             Via=via_color
         )
     )
-    fig = fig.add_trace(
-        go.Scattergeo(
-            lat=[
-                v
-                for sub in [
-                    np.array(f["geometry"]["coordinates"])[:, 1].tolist() + [None]
-                    for f in states_geojson["features"]
-                ]
-                for v in sub
-            ],
-            lon=[
-                v
-                for sub in [
-                    np.array(f["geometry"]["coordinates"])[:, 0].tolist() + [None]
-                    for f in states_geojson["features"]
-                ]
-                for v in sub
-            ],
-            line_color=dark_emerald,
-            line_width=1,
-            mode="lines",
-            showlegend=False,
-            hoverinfo='skip'
-        )
-    )
-    fig.update_geos(
-        resolution=50,
-        scope='world',
-        showcoastlines=True, coastlinecolor=dark_emerald,
-        showcountries=True, countrycolor=dark_emerald,
-        showsubunits=True, subunitcolor=dark_emerald,
-        showlakes=True, lakecolor=dark_emerald,
-        showland=True, landcolor=bg_black,
-        showocean=True, oceancolor=bg_black,
-        fitbounds="locations"
-    )
-    fig.update_layout(
-        plot_bgcolor=bg_black,
-        paper_bgcolor=bg_black,
-        margin=dict(l=0, r=0, t=0, b=0)
-    )
+
+    buffer = io.StringIO()
+
+    fig.write_html(buffer)
+
+    html_bytes = buffer.getvalue().encode()
+    encoded = b64encode(html_bytes).decode()
+
     config = {
         'scrollZoom': True,
         'displaylogo': False,
@@ -350,8 +323,15 @@ def map_test() -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
-        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+    # app = Dash()
+    # app.layout = html.Div([
+    #     dcc.Graph(figure=fig)
+    # ])
+
+    app.run(debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
+
+    # with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
+    #     f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def ticks_by_grade_mobile() -> None:
     no_plus_minus.magic()
