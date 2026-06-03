@@ -25,3 +25,6 @@
 
 .output data/climb-locs.csv
 .read scripts/climbs-map.sql
+
+.output data/climb-locs-heat.csv
+.read scripts/climbs-heatmap.sql

@@ -197,6 +197,7 @@ def overview() -> None:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def map() -> None:
+    ### This script creates a scatter map of every climb I've done. It's great except that the US State lines are plotted over the scatter points and I can't figure out how to fix that. ###
     geo_df = gpd.read_file("data/climb-locs.csv")
     states_geojson = requests.get(
         "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
@@ -276,45 +277,43 @@ def map() -> None:
     with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
-def map_test() -> None:
-    geo_df = gpd.read_file("data/climb-locs.csv")
-    states_geojson = requests.get(
-        "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
-    ).json()
+def heatmap() -> None:
+    geo_df = gpd.read_file("data/climb-locs-heat.csv")
 
-    app = Dash(__name__)
-
-
-    fig = px.scatter_geo(geo_df,
-        lat="Latitude",
-        lon="Longitude",
-        hover_name="Area",
+    fig = px.density_map(geo_df,
+        lat='Latitude',
+        lon='Longitude',
+        z='Height',
+        radius=8,
+        center=dict(lat=33, lon=320), zoom=1.4,
+        map_style="carto-darkmatter",
         hover_data=dict(
+            Latitude=False,
+            Longitude=False,
+            Climb=True,
+            Difficulty=True,
+            Type=True,
+            Height=True,
+            Area=True
+        ),
+        color_continuous_scale=["#ff2b6d", "#9810fa", emerald],
+        range_color=[0,20000]
+    )
+    
+
+    hover_data=dict(
             Latitude=False,
             Longitude=False,
             Climb=True,
             Difficulty=True,
             Type=True
         ),
-        color='Type',
-        color_discrete_map=dict(
-            Trad=trad_color,
-            Sport=sport_color,
-            Boulder=boulder_color,
-            TR=tr_color,
-            Scramble=scramble_color,
-            Snow=snow_color,
-            Aid=aid_color,
-            Via=via_color
-        )
+
+    fig.update_layout(
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
+        margin=dict(l=0, r=0, t=0, b=0)
     )
-
-    buffer = io.StringIO()
-
-    fig.write_html(buffer)
-
-    html_bytes = buffer.getvalue().encode()
-    encoded = b64encode(html_bytes).decode()
 
     config = {
         'scrollZoom': True,
@@ -323,15 +322,7 @@ def map_test() -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    # app = Dash()
-    # app.layout = html.Div([
-    #     dcc.Graph(figure=fig)
-    # ])
-
-    app.run(debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
-
-    # with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
-    #     f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+    pio.write_html(fig, '../websitejazzhands/climbing/data/climb-locs.html', include_plotlyjs='cdn')
 
 def ticks_by_grade_mobile() -> None:
     no_plus_minus.magic()
@@ -398,6 +389,6 @@ def ticks_by_grade_desktop() -> None:
 yearly_height()
 monthly_height()
 overview()
-map()
+heatmap()
 ticks_by_grade_mobile()
 ticks_by_grade_desktop()
