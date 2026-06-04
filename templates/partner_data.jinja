@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YJWM5NM3W"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7YJWM5NM3W');
+        </script>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{partner_name}}</title>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+        <style type="text/tailwindcss">
+        @layer utilities {
+            .hamburger-toggle {
+              @apply [&>div]:h-0 [&>div]:bg-white [&>div]:before:translate-y-0 [&>div]:before:rotate-45 [&>div]:after:translate-y-0 [&>div]:after:-rotate-45;
+            }
+        }
+        </style>
+        <script src="https://kit.fontawesome.com/c8077251a5.js" crossorigin="anonymous"></script>
+        <link href="/styles.css" rel="stylesheet">
+        <link rel="icon" href="/favicon.png">
+    </head>
+    <body class="bg-gray-950 [&_.body]:text-gray-400 [&_.title]:text-white [&_.title]:text-4xl [&_.title]:text-center [&_.title]:mb-2 [&_span]:text-emerald-300">
+
+        <div id="header" class="sticky top-0  z-60"></div>
+        
+        <main id="main" class="bg-gray-950 container mx-auto px-4 py-6 transition-all duration-600 [&_a]:text-emerald-300">
+
+            <p class="title">Climbing Between Me and {{partner_name}}</p>
+            <p class="body text-center">Thanks so much for climbing with me! :) <br><br>Together, we've climbed <span>{{pitch_count}} pitches</span> and <span>{{height_count}} feet</span> across <span>{{day_count}} days</span> in <span>{{area_count}} areas</span>.</p>
+            
+            
+
+        </main>
+
+        <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="/js/script.js"></script>
+        
+    </body>
+</html>

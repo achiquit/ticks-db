@@ -1,11 +1,8 @@
 SELECT
-    date AS 'Date',
-    climbs.name AS 'Climb',
-    areas.area_name AS 'Area',
-    ticks.height AS 'Height',
-    climbs.gps AS 'Loc'
-FROM TICKS
-INNER JOIN climbs ON climbs.id = ticks.climb
-INNER JOIN areas ON climbs.area = areas.id
-ORDER BY date DESC
-LIMIT 5;
+    COUNT(DISTINCT climbs.area)
+FROM ticks
+INNER JOIN climbs ON ticks.climb = climbs.id
+INNER JOIN climbed_partners ON ticks.climbed_id = climbed_with.climbing_id
+JOIN climbed_with ON climbed_partners.id = climbed_with.climbing_id
+JOIN partners ON climbed_with.partner_id = partners.id
+WHERE partners.id = 2;

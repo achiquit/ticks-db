@@ -1,4 +1,3 @@
-from dash import Dash, dcc, html
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -10,7 +9,6 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import no_plus_minus
 from base64 import b64encode
-import io
 
 pio.templates.default = "plotly_dark"
 
