@@ -5,6 +5,8 @@ import os
 import geopandas as gpd
 import plotly.express as px
 import plotly.io as pio
+import csv
+import shutil
 
 emerald = '#00d492'
 dark_emerald = '#007a55'
@@ -24,12 +26,8 @@ def partner_list() -> list:
             partners
     """)
 
-    counter = 0
     for item in res:
         partners += [list(item)]
-        counter += 1
-        if counter > 5:
-            break
     
     return partners
 
@@ -93,7 +91,8 @@ def height_func(cur: Cursor, partner: int) -> int:
     for item in res:
         return item[0] 
 
-def heatmap_func(cur: Cursor, partner: int) -> None:
+def heatmap_func(cur: Cursor, partner: int, partner_name_code: str) -> None:
+    
     res = cur.execute(f"""
         SELECT
             date AS 'Date',
@@ -143,28 +142,34 @@ def heatmap_func(cur: Cursor, partner: int) -> None:
         ORDER BY date DESC;
     """)
 
-    geo_df = res
+    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.csv', 'w+', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Date', 'Climb', 'Difficulty', 'Type', 'Area', 'Height', 'Latitude', 'Longitude'])
+        writer.writerows(res)
+
+    geo_df = gpd.read_file(f"""../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.csv""")
+
+    os.remove(f"""../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.csv""")
 
     fig = px.density_map(geo_df,
-        lat=6,
-        lon=7,
-        z=5,
+        lat='Latitude',
+        lon='Longitude',
+        z='Height',
         radius=8,
         center=dict(lat=33, lon=320), zoom=1.4,
         map_style="carto-darkmatter",
-        # hover_data=dict(
-        #     Latitude=False,
-        #     Longitude=False,
-        #     Climb=True,
-        #     Difficulty=True,
-        #     Type=True,
-        #     Height=True,
-        #     Area=True
-        # ),
+        hover_data=dict(
+            Latitude=False,
+            Longitude=False,
+            Climb=True,
+            Difficulty=True,
+            Type=True,
+            Height=True,
+            Area=True
+        ),
         color_continuous_scale=["#ff2b6d", "#9810fa", emerald],
         range_color=[0,20000]
     )
-    
 
     hover_data=dict(
             Latitude=False,
@@ -187,35 +192,160 @@ def heatmap_func(cur: Cursor, partner: int) -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name}"):
-        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name}")
-    pio.write_html(fig, f'../websitejazzhands/climbing/partners/{partner_name}/climb-locs.html', include_plotlyjs='cdn', config=config)
+    pio.write_html(fig, f'../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.html', include_plotlyjs='cdn', config=config)
 
-con = sqlite3.connect("ticks")
-cur = con.cursor()
+def all_ticks(cur: Cursor, partner: int) -> None:
+    res = cur.execute(f"""
+        SELECT 
+            ticks.date AS 'Date', 
+            climbs.name AS 'Climb', 
+            (
+                CASE
+                    WHEN climbs.danger IS -1 AND climbs.commitment IS -1 THEN
+                        (SELECT group_concat(grades.grade, ', ')
+                        FROM join_grades
+                        INNER JOIN which_grades ON which_grades.id = join_grades.id
+                        INNER JOIN grades ON grades.id = which_grades.grade
+                        WHERE join_grades.id = climbs.grade)
+                    WHEN climbs.danger IS NOT -1 AND climbs.commitment IS -1 THEN
+                        (SELECT group_concat(grades.grade, ', ') || ', ' || climbs.danger
+                        FROM join_grades
+                        INNER JOIN which_grades ON which_grades.id = join_grades.id
+                        INNER JOIN grades ON grades.id = which_grades.grade
+                        WHERE join_grades.id = climbs.grade)
+                    WHEN climbs.danger IS -1 AND climbs.commitment IS NOT -1 THEN
+                        (SELECT group_concat(grades.grade, ', ')  || ', Grade ' || climbs.commitment
+                        FROM join_grades
+                        INNER JOIN which_grades ON which_grades.id = join_grades.id
+                        INNER JOIN grades ON grades.id = which_grades.grade
+                        WHERE join_grades.id = climbs.grade)
+                    ELSE
+                        (SELECT group_concat(grades.grade, ', ') || ', ' || climbs.danger || ', Grade ' || climbs.commitment
+                        FROM join_grades
+                        INNER JOIN which_grades ON which_grades.id = join_grades.id
+                        INNER JOIN grades ON grades.id = which_grades.grade
+                        WHERE join_grades.id = climbs.grade)
+                    END
+            ) AS 'Difficulty',
+            (
+                SELECT group_concat(climb_type.type, ', ')
+                FROM join_types
+                INNER JOIN which_types ON which_types.id = join_types.id
+                INNER JOIN climb_type ON climb_type.id = which_types.type
+                WHERE join_types.id = climbs.type
+            ) AS 'Type',
+            areas.area_name AS 'Area',
+            ticks.pitches AS 'Pitches',
+            ticks.height AS 'Height',
+            ticks.style || ', ' || ticks.success AS 'Style',
+            group_concat(partners.fname || ' ' || substr(partners.lname, 1, 2) || '.', ', ') AS 'Partner(s)',
+            CASE
+                WHEN ticks.notes IS -1 THEN 'Nuthin'' to say'
+                ELSE ticks.notes 
+            END AS 'Notes'
+        FROM
+            ticks
+            INNER JOIN climbs ON ticks.climb = climbs.id
+            INNER JOIN areas ON areas.id = climbs.area
+            INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
+            INNER JOIN climbed_with ON climbed_with.climbing_id = climbed_partners.id
+            INNER JOIN partners ON partners.id = climbed_with.partner_id
+        GROUP BY ticks.id
+        HAVING ',' || group_concat(partners.id) || ',' LIKE '%,{partner},%'
+        ORDER BY 
+            date DESC,
+            ticks.id DESC
+        LIMIT 1000000000;
+    """)
 
-partners = partner_list()
+    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}/data"):
+        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}/data")
+    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/data/all-ticks.csv', 'w+', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Date', 'Climb', 'Difficulty', 'Type', 'Area', 'Pitches', 'Height', 'Style', 'Partner(s)', 'Notes'])
+        writer.writerows(res)
 
-# env = Environment(loader = FileSystemLoader('../websitejazzhands/templates'))
-env = Environment(loader = FileSystemLoader('templates'))
+    # Source path
+    src = r'../websitejazzhands/climbing/js'
 
-template = env.get_template('partner_data.jinja')
+    # Destination pat
+    dest = f'../websitejazzhands/climbing/partners/{partner_name_code}/js'
 
-for partner in partners:
-    partner_id = partner[0]
-    partner_name = f"{partner[1]}-{partner[2]}"
-    areas = area_func(cur, partner_id)
-    days = days_func(cur, partner_id)
-    pitches = pitches_func(cur, partner_id)
-    height = height_func(cur, partner_id)
-    heatmap_func(cur, partner_id)
-    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name}"):
-        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name}")
-    with open(f'../websitejazzhands/climbing/partners/{partner_name}/index.html', 'w+') as f:
-        print(template.render(
-            partner_name = f"{partner[1]} {partner[2]}",
-            area_count = f"{areas}",
-            day_count = f"{days}",
-            pitch_count = f"{pitches}",
-            height_count = f"{height}"
-        ), file = f)
+    # Copy the content of source to destination
+    try:
+        shutil.copytree(src, dest)
+    except:
+        pass
+
+def top_areas(cur: Cursor, partner: int) -> None:
+    res = cur.execute(f"""
+        SELECT
+            areas.area_name AS 'Area',
+            COUNT(DISTINCT ticks.date) AS 'Days',
+            SUM(ticks.height) AS 'Height',
+            areas.state || ', ' || areas.country AS 'Location'
+        FROM
+            ticks
+            INNER JOIN climbs ON ticks.climb = climbs.id
+            INNER JOIN areas ON areas.id = climbs.area
+            INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
+            INNER JOIN climbed_with ON climbed_with.climbing_id = climbed_partners.id
+            INNER JOIN partners ON partners.id = climbed_with.partner_id
+        GROUP BY areas.area_name, partners.id
+        HAVING ',' || group_concat(partners.id) || ',' LIKE '%,{partner},%'
+        ORDER BY SUM(ticks.height) ASC;
+    """)
+
+    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}/data"):
+        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}/data")
+    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/data/top-areas.csv', 'w+', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Area', 'Days', 'Height', 'Location'])
+        writer.writerows(res)
+
+def main():   
+    con = sqlite3.connect("ticks")
+    cur = con.cursor()
+
+    partners = partner_list()
+
+    env = Environment(loader = FileSystemLoader('templates'))
+
+    for partner in partners:
+        partner_id = partner[0]
+        partner_name_code = f"{partner[1]}-{partner[2]}"
+        if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}"):
+            os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}")
+        areas = area_func(cur, partner_id)
+        days = days_func(cur, partner_id)
+        pitches = pitches_func(cur, partner_id)
+        height = height_func(cur, partner_id)
+        heatmap_func(cur, partner_id, partner_name_code)
+        all_ticks(cur, partner_id)
+        top_areas(cur, partner_id)
+        
+        template = env.get_template('partner_data.jinja')
+        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
+            print(template.render(
+                partner_name_read = f"{partner[1]} {partner[2]}",
+                partner_name_code = f"{partner_name_code}",
+                area_count = f"{areas}",
+                day_count = f"{days}",
+                pitch_count = f"{pitches}",
+                height_count = f"{height}"
+            ), file = f)
+        
+        template = env.get_template('ticks.jinja')
+        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/ticks.html', 'w+') as f:
+            print(template.render(
+                partner_name_code = f"{partner_name_code}"
+            ), file = f)
+        
+        template = env.get_template('top_areas.jinja')
+        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/top_areas.html', 'w+') as f:
+            print(template.render(
+                partner_name_code = f"{partner_name_code}"
+            ), file = f)
+
+if __name__ == '__main__':
+    main()

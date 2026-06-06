@@ -1,6 +1,7 @@
 from datetime import datetime
 import sqlite3
 from sqlite3 import Cursor
+import partner_pages
 
 def day_out(cur: Cursor, new_ticks: list, new_tick_id: int) -> list:
     print("Hell yeah, way to get after it, dawg!")
@@ -657,3 +658,7 @@ if dev is False:
     print("Hell yeah dude!! Here's to another great day of climbing :)")
 else:
     print("Let's update that there database!")
+
+print("Updating Partner Pages (this may take a moment)")
+
+partner_pages.main()

@@ -1,0 +1,147 @@
+<!-- How to use the tables
+https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YJWM5NM3W"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7YJWM5NM3W');
+        </script>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AC - Climbing</title>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style type="text/tailwindcss">
+        @layer utilities {
+            .hamburger-toggle {
+              @apply [&>div]:h-0 [&>div]:bg-white [&>div]:before:translate-y-0 [&>div]:before:rotate-45 [&>div]:after:translate-y-0 [&>div]:after:-rotate-45;
+            }
+        }
+        </style>
+        <script src="https://kit.fontawesome.com/c8077251a5.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+        <link href="/styles.css" rel="stylesheet">
+        <link rel="icon" href="/favicon.png">
+    </head>
+    <body class="bg-gray-950">
+
+        <div id="header" class="sticky top-0 z-60"></div>
+        
+        <main id="main" class="bg-gray-950 container mx-auto px-4 py-6 transition-all duration-600">
+            <p class="text-white text-6xl text-center pb-8">My Climbing</p>
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+
+                <div class="lg:col-span-3 h-60">
+
+                    <!-- CSV to Table -->
+                    <iframe style="border-style: none;" src="/climbing/all-time-stats.html" class="w-full h-full rounded-xl overflow-x-scroll lg:hidden"></iframe>
+
+                    <!-- Plotly Table -->
+                    <iframe style="border-style: none;" src="/climbing/data/overview-stats.html" class="w-full h-9/10 rounded-xl hidden lg:block"></iframe>
+
+                </div>
+
+                <div class="h-60 py-3 lg:-pb-3 lg:pt-0">
+                    <p class="text-white text-2xl pb-2">Height<sup>(ft)</sup> Climbed by Year</p>
+
+                    <iframe style="border-style: none;" src="/climbing/data/yearly-height.html" class="w-full h-9/10 rounded-xl"></iframe>
+
+                </div>
+
+                <div class="lg:col-span-2 h-60">
+                    <p class="text-white text-2xl pb-2">Height<sup>(ft)</sup> Climbed by Month</p>
+
+                    <iframe style="border-style: none;" src="/climbing/data/monthly-height.html" class="w-full h-9/10 rounded-xl"></iframe>
+                </div>
+
+                <div class="h-150 lg:-mt-4 lg:col-span-2 lg:mt-0">
+                    <iframe style="border-style: none;" src="/climbing/all-ticks.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+                <div class="h-150">
+
+                    <div id="indicators-carousel" class="relative w-full h-150" data-carousel="static">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-150 overflow-hidden">
+
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                                <iframe style="border-style: none;" src="/climbing/leaderboard.html" class="w-full h-full rounded-xl"></iframe>
+                            </div>
+
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <iframe style="border-style: none;" src="/climbing/top-climbs.html" class="w-full h-full rounded-xl"></iframe>
+                            </div>
+
+                        </div>
+                        <!-- Slider indicators -->
+                        <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                        </div>
+                        <!-- Slider controls -->
+                        <button type="button" class="absolute bottom-0 start-0 z-30 flex justify-center px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 mb-1.5 group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="absolute bottom-0 end-0 z-30 flex justify-center px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 mb-1.5 group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Climbing Map -->
+                <div class="h-150 pt-5 lg:col-span-3">
+
+                    <!-- Plotly Map -->
+                    <iframe style="border-style: none;" src="/climbing/data/climb-locs.html" class="w-full h-9/10 rounded-xl"></iframe>
+
+                </div>
+
+                <!-- Rock Ticks by Grade -->
+                <div class="lg:col-span-3 h-65 lg:-mt-10">
+                    <p class="text-white text-2xl pb-2">Rock Ticks by Grade</p>
+
+                    <iframe style="border-style: none;" src="/climbing/data/ticks-by-grade-desktop.html" class="w-full h-9/10 rounded-xl hidden md:block"></iframe>
+
+                    <iframe style="border-style: none;" src="/climbing/data/ticks-by-grade-mobile.html" class="w-full h-9/10 rounded-xl md:hidden"></iframe>
+
+                </div>
+
+                <!-- Comments -->
+                <div class="lg:col-span-3">
+                    <p class="text-4xl text-white text-center">Comments</p>
+                    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
+                    <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24umYrIW59177aFJXDLotxK."+"&opts=16798&num=10&ts=1743261284031");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); </script>
+                </div>
+            </div>
+            
+        </main>
+
+        <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="/js/script.js"></script>
+    <script type="module" src="/climbing/js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    </body>
+</html>

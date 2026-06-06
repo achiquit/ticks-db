@@ -33,10 +33,24 @@
         
         <main id="main" class="bg-gray-950 container mx-auto px-4 py-6 transition-all duration-600 [&_a]:text-emerald-300">
 
-            <p class="title">Climbing Between Me and {{partner_name}}</p>
-            <p class="body text-center">Thanks so much for climbing with me! :) <br><br>Together, we've climbed <span>{{pitch_count}} pitches</span> and <span>{{height_count}} feet</span> across <span>{{day_count}} days</span> in <span>{{area_count}} areas</span>.</p>
-            
-            
+            <p class="title">Climbing Between Me and {{partner_name_read}}</p>
+            <p class="body text-center">Thanks so much for climbing with me! :)<br>Let's rope up again sometime! <br><br>Together, we've climbed <span>{{pitch_count}} pitches</span> and <span>{{height_count}} feet</span> across <span>{{day_count}} days</span> in <span>{{area_count}} areas</span>.</p>
+
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+
+                <div class="h-150 pt-5 lg:-mb-12 lg:col-span-3">
+                    <iframe style="border-style: none;" src="/climbing/partners/{{partner_name_code}}/climb-locs.html" class="w-full h-9/10 rounded-xl"></iframe>
+                </div>
+
+                <div class="h-150 -mt-12 lg:col-span-2 lg:mt-0">
+                    <iframe style="border-style: none;" src="/climbing/partners/{{partner_name_code}}/ticks.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+                <div class="h-150 -mt-12 lg:col-span-1 lg:mt-0">
+                    <iframe style="border-style: none;" src="/climbing/partners/{{partner_name_code}}/top_areas.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+            </div>
 
         </main>
 
