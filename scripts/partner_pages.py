@@ -311,6 +311,8 @@ def main():
 
     env = Environment(loader = FileSystemLoader('templates'))
 
+    print(partners)
+
     for partner in partners:
         partner_id = partner[0]
         partner_name_code = f"{partner[1]}-{partner[2]}"
