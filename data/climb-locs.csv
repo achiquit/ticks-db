@@ -354,8 +354,8 @@ Latitude,Longitude,Climb,Difficulty,Area,Type
 44.1454," -73.75082",TR,5.10a,"The Spiders Web",Trad
 44.1454," -73.75082",Esthesia,5.10a,"The Spiders Web",Trad
 44.1454," -73.75082","Slim Pickins",5.9,"The Spiders Web",Trad
-44.4097," -73.5037","Bloody Mary",5.9,Poke+AC0-O+AC0-Moonshine,Trad
-44.4097," -73.5037","The Fastest Gun",5.10b,Poke+AC0-O+AC0-Moonshine,Trad
+44.4097," -73.5037","Bloody Mary",5.9,Poke-O-Moonshine,Trad
+44.4097," -73.5037","The Fastest Gun",5.10b,Poke-O-Moonshine,Trad
 44.064," -71.1663","Goofer's Delight",5.10a,"Cathedral Ledge",Trad
 44.064," -71.1663","The Prow",5.11d,"Cathedral Ledge",Trad
 44.064," -71.1663",Recompense,5.9,"Cathedral Ledge",Trad

@@ -12,7 +12,7 @@ emerald = '#00d492'
 dark_emerald = '#007a55'
 bg_black = '#030712'
 
-def partner_list() -> list:
+def partner_list(cur: Cursor) -> list:
     ### Make sure to remove the counter from the for loop to get all partners ###
 
     partners = []
@@ -307,7 +307,7 @@ def main():
     con = sqlite3.connect("ticks")
     cur = con.cursor()
 
-    partners = partner_list()
+    partners = partner_list(cur)
 
     env = Environment(loader = FileSystemLoader('templates'))
 
