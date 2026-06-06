@@ -13,6 +13,9 @@
 .output ../websitejazzhands/climbing/data/top-climbs.csv
 .read scripts/top-climbs.sql
 
+.output ../websitejazzhands/climbing/data/top-areas.csv
+.read scripts/top-areas.sql
+
 -- To Data Folder Scripts
 .output data/yearly-height.csv
 .read scripts/yearly-height.sql
