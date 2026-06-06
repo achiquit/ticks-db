@@ -277,7 +277,7 @@ def all_ticks(cur: Cursor, partner: int, partner_name_code) -> None:
     except:
         pass
 
-def top_areas(cur: Cursor, partner: int) -> None:
+def top_areas(cur: Cursor, partner: int, partner_name_code) -> None:
     res = cur.execute(f"""
         SELECT
             areas.area_name AS 'Area',
@@ -322,7 +322,7 @@ def main():
         height = height_func(cur, partner_id)
         heatmap_func(cur, partner_id, partner_name_code)
         all_ticks(cur, partner_id, partner_name_code)
-        top_areas(cur, partner_id)
+        top_areas(cur, partner_id, partner_name_code)
         
         template = env.get_template('partner_data.jinja')
         with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
