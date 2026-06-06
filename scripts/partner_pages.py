@@ -194,7 +194,7 @@ def heatmap_func(cur: Cursor, partner: int, partner_name_code: str) -> None:
 
     pio.write_html(fig, f'../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.html', include_plotlyjs='cdn', config=config)
 
-def all_ticks(cur: Cursor, partner: int) -> None:
+def all_ticks(cur: Cursor, partner: int, partner_name_code) -> None:
     res = cur.execute(f"""
         SELECT 
             ticks.date AS 'Date', 
@@ -311,8 +311,6 @@ def main():
 
     env = Environment(loader = FileSystemLoader('templates'))
 
-    print(partners)
-
     for partner in partners:
         partner_id = partner[0]
         partner_name_code = f"{partner[1]}-{partner[2]}"
@@ -323,7 +321,7 @@ def main():
         pitches = pitches_func(cur, partner_id)
         height = height_func(cur, partner_id)
         heatmap_func(cur, partner_id, partner_name_code)
-        all_ticks(cur, partner_id)
+        all_ticks(cur, partner_id, partner_name_code)
         top_areas(cur, partner_id)
         
         template = env.get_template('partner_data.jinja')
