@@ -1,7 +1,7 @@
 SELECT
     areas.area_name AS 'Area',
     COUNT(DISTINCT ticks.date) AS 'Days',
-    SUM(ticks.height) AS 'Height',
+    printf("%,d", SUM(ticks.height)) AS 'Height',
     areas.state || ', ' || areas.country AS 'Location'
 FROM
     ticks
