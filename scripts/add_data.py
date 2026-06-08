@@ -453,6 +453,8 @@ def new_partner(cur: Cursor) -> list:
 
     new_partner = [new_id, fname, lname]
 
+    partners_to_update.append(new_id)
+
     return(new_partner)
 
 def partner_search(cur: Cursor, search: str) -> list:
@@ -500,6 +502,7 @@ def easy_partner_search(cur: Cursor, param: str, new_amalgam_id: int) -> int:
         return new_amalgam_func(cur, new_amalgam_id)
     elif partner_id < new_amalgam_id:
         if partner_id > 0:
+            partners_to_update.append(partner_id)
             return partner_id
     else:
         input("Looks like you made a typo! Try again :)")
@@ -640,6 +643,7 @@ def dev() -> bool:
 con = sqlite3.connect("ticks")
 cur = con.cursor()
 new_ticks = []
+partners_to_update = []
 
 cur.execute("PRAGMA foreign_keys = ON;")
 
@@ -661,4 +665,4 @@ else:
 
 print("Updating Partner Pages (this may take a moment)")
 
-partner_pages.main()
+partner_pages.main(partners_to_update)
