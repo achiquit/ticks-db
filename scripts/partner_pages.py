@@ -302,7 +302,7 @@ def top_areas(cur: Cursor, partner: int, partner_name_code) -> None:
         writer.writerow(['Area', 'Days', 'Height', 'Location'])
         writer.writerows(res)
 
-def main(partners_to_update: list):   
+def main():   
     con = sqlite3.connect("ticks")
     cur = con.cursor()
 
