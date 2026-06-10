@@ -8,4 +8,6 @@ FROM
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON areas.id = climbs.area
 GROUP BY areas.area_name
-ORDER BY SUM(ticks.height) ASC;
+ORDER BY 
+    COUNT(DISTINCT ticks.date) DESC,
+    SUM(ticks.height) DESC;

@@ -9,6 +9,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import no_plus_minus
 from base64 import b64encode
+import plotly.figure_factory as ff
 
 pio.templates.default = "plotly_dark"
 
@@ -358,12 +359,13 @@ def ticks_by_grade_desktop() -> None:
 
     data = pd.read_csv("data/ticks-by-grade.csv")
 
-    fig = px.bar(data,
+    fig = px.histogram(data,
                 x="Grade",
                 y="Count",
                 color="Type",
                 color_discrete_sequence=[trad_color, sport_color],
-                hover_data={'Grade':False}
+                hover_data={'Grade':False},
+                marginal='box'
             )
 
     fig.update_layout(
