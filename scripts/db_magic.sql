@@ -31,3 +31,6 @@
 
 .output data/climb-locs-heat.csv
 .read scripts/climbs-heatmap.sql
+
+.output data/grades_by_date.csv
+.read scripts/grades_by_date.sql
