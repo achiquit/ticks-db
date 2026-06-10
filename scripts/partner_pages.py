@@ -302,7 +302,7 @@ def top_areas(cur: Cursor, partner: int, partner_name_code) -> None:
         writer.writerow(['Area', 'Days', 'Height', 'Location'])
         writer.writerows(res)
 
-def main():   
+def main(partners_to_update: list):   
     con = sqlite3.connect("ticks")
     cur = con.cursor()
 
@@ -312,39 +312,44 @@ def main():
 
     for partner in partners:
         partner_id = partner[0]
-        partner_name_code = f"{partner[1]}-{partner[2]}"
-        if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}"):
-            os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}")
-        areas = area_func(cur, partner_id)
-        days = days_func(cur, partner_id)
-        pitches = pitches_func(cur, partner_id)
-        height = height_func(cur, partner_id)
-        heatmap_func(cur, partner_id, partner_name_code)
-        all_ticks(cur, partner_id, partner_name_code)
-        top_areas(cur, partner_id, partner_name_code)
-        
-        template = env.get_template('partner_data.jinja')
-        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
-            print(template.render(
-                partner_name_read = f"{partner[1]} {partner[2]}",
-                partner_name_code = f"{partner_name_code}",
-                area_count = f"{areas}",
-                day_count = f"{days}",
-                pitch_count = f"{pitches}",
-                height_count = f"{height}"
-            ), file = f)
-        
-        template = env.get_template('ticks.jinja')
-        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/ticks.html', 'w+') as f:
-            print(template.render(
-                partner_name_code = f"{partner_name_code}"
-            ), file = f)
-        
-        template = env.get_template('top_areas.jinja')
-        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/top_areas.html', 'w+') as f:
-            print(template.render(
-                partner_name_code = f"{partner_name_code}"
-            ), file = f)
+
+        for to_update in partners_to_update:
+            if partner_id == to_update:
+
+                partner_name_code = f"{partner[1]}-{partner[2]}"
+                if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}"):
+                    os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}")
+                areas = area_func(cur, partner_id)
+                days = days_func(cur, partner_id)
+                pitches = pitches_func(cur, partner_id)
+                height = height_func(cur, partner_id)
+                heatmap_func(cur, partner_id, partner_name_code)
+                all_ticks(cur, partner_id, partner_name_code)
+                top_areas(cur, partner_id, partner_name_code)
+                
+                template = env.get_template('partner_data.jinja')
+
+                with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
+                    print(template.render(
+                        partner_name_read = f"{partner[1]} {partner[2]}",
+                        partner_name_code = f"{partner_name_code}",
+                        area_count = f"{areas}",
+                        day_count = f"{days}",
+                        pitch_count = f"{pitches}",
+                        height_count = f"{height}"
+                    ), file = f)
+                
+                template = env.get_template('ticks.jinja')
+                with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/ticks.html', 'w+') as f:
+                    print(template.render(
+                        partner_name_code = f"{partner_name_code}"
+                    ), file = f)
+                
+                template = env.get_template('top_areas.jinja')
+                with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/top_areas.html', 'w+') as f:
+                    print(template.render(
+                        partner_name_code = f"{partner_name_code}"
+                    ), file = f)
 
 if __name__ == '__main__':
     main()

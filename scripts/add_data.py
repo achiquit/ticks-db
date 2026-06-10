@@ -407,6 +407,9 @@ def new_amalgam_func(cur: Cursor, new_amalgam_id: int) -> int:
             else:
                 partners.append(partner_search(cur, search))
 
+    for partner in partners:
+        partners_to_update.append(partner)
+
     return new_amalgam_id
 
 def new_amalgam(cur: Cursor, new_amalgam_id: int, partners: list) -> int:
@@ -500,10 +503,31 @@ def easy_partner_search(cur: Cursor, param: str, new_amalgam_id: int) -> int:
         return new_amalgam_func(cur, new_amalgam_id)
     elif partner_id < new_amalgam_id:
         if partner_id > 0:
+            listy = partner_id_extractor(cur, partner_id)
+            for partner in listy:
+                partners_to_update.append(partner)
             return partner_id
     else:
         input("Looks like you made a typo! Try again :)")
         return partner_func(cur)
+
+def partner_id_extractor(cur: Cursor, amalgam_id: int) -> list:
+    partner_ids = []
+    partners = cur.execute(f"""
+        SELECT
+            partners.id
+        FROM
+            climbed_partners
+            INNER JOIN climbed_with ON climbed_with.climbing_id = climbed_partners.id
+            INNER JOIN partners ON partners.id = climbed_with.partner_id
+        WHERE
+            climbed_partners.id = {amalgam_id}
+    """)
+
+    for partner in partners:
+        partner_ids.append(partner[0])
+
+    return partner_ids
 
 def client_func(cur: Cursor) -> int:
     res = cur.execute("SELECT id FROM guided ORDER BY id DESC;")
@@ -640,6 +664,7 @@ def dev() -> bool:
 con = sqlite3.connect("ticks")
 cur = con.cursor()
 new_ticks = []
+partners_to_update = []
 
 cur.execute("PRAGMA foreign_keys = ON;")
 
@@ -661,4 +686,4 @@ else:
 
 print("Updating Partner Pages (this may take a moment)")
 
-partner_pages.main()
+partner_pages.main(partners_to_update)
