@@ -9,7 +9,6 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import no_plus_minus
 from base64 import b64encode
-import plotly.figure_factory as ff
 
 pio.templates.default = "plotly_dark"
 
@@ -324,7 +323,7 @@ def heatmap() -> None:
     pio.write_html(fig, '../websitejazzhands/climbing/data/climb-locs.html', include_plotlyjs='cdn')
 
 def ticks_by_grade_mobile() -> None:
-    no_plus_minus.magic()
+    no_plus_minus.main("scripts/ticks-by-grade.sql", "data/ticks-by-grade.csv", True)
 
     data = pd.read_csv("data/ticks-by-grade.csv")
 
@@ -355,7 +354,7 @@ def ticks_by_grade_mobile() -> None:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def ticks_by_grade_desktop() -> None:
-    no_plus_minus.magic()
+    no_plus_minus.main("scripts/ticks-by-grade.sql", "data/ticks-by-grade.csv", True)
 
     data = pd.read_csv("data/ticks-by-grade.csv")
 
@@ -386,6 +385,27 @@ def ticks_by_grade_desktop() -> None:
     with open('../websitejazzhands/climbing/data/ticks-by-grade-desktop.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+def grades_by_date() -> None:
+    no_plus_minus.main("scripts/grades_by_date.sql", "data/grades_by_date.csv", False)
+    data = pd.read_csv("data/grades_by_date.csv")
+
+    fig = px.scatter(data,
+                    x="Date",
+                    y="Grade",
+                    color="Type",
+                    symbol="Type",
+                    hover_data=['Date','Climb','Grade','Type'],
+                    facet_col='Type'
+    )
+    fig.update_layout(
+        yaxis={
+            'categoryorder':'array',
+            'categoryarray':['5.1','5.2','5.3','5.4','5.5','5.6','5.7','5.8','5.9','5.10a','5.10b','5.10c','5.10d','5.11a','5.11b','5.11c','5.11d','5.12a','5.12b','5.12c','5.12d','5.13a','5.13b','5.13c','5.13d','5.14a','5.14b','5.14c','5.14d','5.15a','5.15b','5.15c','5.15d']
+        }
+    )
+    fig.show()
+
+# grades_by_date()
 yearly_height()
 monthly_height()
 overview()
