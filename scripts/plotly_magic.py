@@ -362,7 +362,7 @@ def ticks_by_grade_desktop() -> None:
                 x="Grade",
                 y="Count",
                 color="Type",
-                color_discrete_sequence=[trad_color, sport_color],
+                color_discrete_sequence=[sport_color, trad_color],
                 hover_data={'Grade':False},
                 marginal='box'
             )
