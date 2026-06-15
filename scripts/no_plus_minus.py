@@ -70,9 +70,9 @@ def better_ver(csv_path: str, grade_pos: int, headers: list) -> None:
 
     to_remove = []
     for entry in table:
-        if "+" in entry[1]:
+        if "+" in entry[grade_pos]:
             to_remove.append(entry)
-        elif "-" in entry[1]:
+        elif "-" in entry[grade_pos]:
             to_remove.append(entry)
 
     for item in to_remove:
@@ -82,7 +82,7 @@ def better_ver(csv_path: str, grade_pos: int, headers: list) -> None:
         added = False
         while added == False:
             for item in table:
-                if f"{item_remove[1][0:3]}{item_remove[3]}{item_remove[4]}" == f"{item[1][0:3]}{item[3]}{item[4]}":
+                if f"{item_remove[grade_pos][0:3]}{item_remove[3]}{item_remove[4]}" == f"{item[grade_pos][0:3]}{item[3]}{item[4]}":
                     item[2] += item_remove[2]
                     added = True
 

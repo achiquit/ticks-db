@@ -16,18 +16,8 @@ emerald = '#00d492'
 dark_emerald = '#007a55'
 bg_black = '#030712'
 
-trad_color = '#fb2c36'
-sport_color = '#00a6f4'
-boulder_color = '#e12afb'
-tr_color = '#fd9a00'
-wi_color = '#615fff'
-ai_color = '#ad46ff'
-scramble_color = '#9ae600'
-snow_color = '#f8fafc'
-aid_color = '#a50036'
-via_color = '#9f2d00'
-tradaid_color = '#ffd230'
-tradsnow_color = '#53eafd'
+trad_color = '#9810fa'
+sport_color = emerald
 
 def yearly_height() -> None:
 
@@ -194,87 +184,6 @@ def overview() -> None:
     with open('../websitejazzhands/climbing/data/overview-stats.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
-def map() -> None:
-    ### This script creates a scatter map of every climb I've done. It's great except that the US State lines are plotted over the scatter points and I can't figure out how to fix that. ###
-    geo_df = gpd.read_file("data/climb-locs.csv")
-    states_geojson = requests.get(
-        "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces_lines.geojson"
-    ).json()
-
-    fig = px.scatter_geo(geo_df,
-        lat="Latitude",
-        lon="Longitude",
-        hover_name="Area",
-        hover_data=dict(
-            Latitude=False,
-            Longitude=False,
-            Climb=True,
-            Difficulty=True,
-            Type=True
-        ),
-        color='Type',
-        color_discrete_map=dict(
-            Trad=trad_color,
-            Sport=sport_color,
-            Boulder=boulder_color,
-            TR=tr_color,
-            Scramble=scramble_color,
-            Snow=snow_color,
-            Aid=aid_color,
-            Via=via_color
-        )
-    )
-    fig = fig.add_trace(
-        go.Scattergeo(
-            lat=[
-                v
-                for sub in [
-                    np.array(f["geometry"]["coordinates"])[:, 1].tolist() + [None]
-                    for f in states_geojson["features"]
-                ]
-                for v in sub
-            ],
-            lon=[
-                v
-                for sub in [
-                    np.array(f["geometry"]["coordinates"])[:, 0].tolist() + [None]
-                    for f in states_geojson["features"]
-                ]
-                for v in sub
-            ],
-            line_color=dark_emerald,
-            line_width=1,
-            mode="lines",
-            showlegend=False,
-            hoverinfo='skip'
-        )
-    )
-    fig.update_geos(
-        resolution=50,
-        scope='world',
-        showcoastlines=True, coastlinecolor=dark_emerald,
-        showcountries=True, countrycolor=dark_emerald,
-        showsubunits=True, subunitcolor=dark_emerald,
-        showlakes=True, lakecolor=dark_emerald,
-        showland=True, landcolor=bg_black,
-        showocean=True, oceancolor=bg_black,
-        fitbounds="locations"
-    )
-    fig.update_layout(
-        plot_bgcolor=bg_black,
-        paper_bgcolor=bg_black,
-        margin=dict(l=0, r=0, t=0, b=0)
-    )
-    config = {
-        'scrollZoom': True,
-        'displaylogo': False,
-        'displayModeBar': True,
-        'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
-    }
-
-    with open('../websitejazzhands/climbing/data/climb-locs.html', 'w') as f:
-        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
-
 def heatmap() -> None:
     geo_df = gpd.read_file("data/climb-locs-heat.csv")
 
@@ -421,11 +330,12 @@ def ticks_by_success_and_style() -> None:
                        facet_row="Success",
                        facet_col="Style",
                        category_orders={
-                           "Style": ["TR/Follow", "Lead", "LRS"],
+                           "Style": ["TR/Follow", "Lead", "Lead Rope Solo"],
                            "Success": ["Fell/Hung", "Send"]
                         },
                         color="Type",
-                        color_discrete_sequence=[trad_color, sport_color]
+                        color_discrete_sequence=[trad_color, sport_color],
+                        marginal='box'
                         )
     
     fig.update_layout(
@@ -434,11 +344,18 @@ def ticks_by_success_and_style() -> None:
             'categoryorder':'array',
             'categoryarray':['5.1','5.2','5.3','5.4','5.5','5.6','5.7','5.8','5.9','5.10a','5.10b','5.10c','5.10d','5.11a','5.11b','5.11c','5.11d','5.12a','5.12b','5.12c','5.12d','5.13a','5.13b','5.13c','5.13d','5.14a','5.14b','5.14c','5.14d','5.15a','5.15b','5.15c','5.15d']
         },
+        yaxis=dict(
+            title_text="Count",
+        ),    
+        yaxis4=dict(
+            title_text="Count",
+        ),
         plot_bgcolor=bg_black,
         paper_bgcolor=bg_black,
-        margin=dict(l=0, r=0, t=0, b=0),
+        margin=dict(l=0, r=0, t=15, b=0),
         hovermode="x unified"
     )
+    fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
     config = {
         'displayModeBar': False
     }

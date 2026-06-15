@@ -84,7 +84,7 @@ SELECT
     grades.grade AS 'Grade',
     COUNT(ticks.id) AS 'Count',
     'Fell/Hung' AS 'Success',
-    'LRS' AS 'Style',
+    'Lead Rope Solo' AS 'Style',
     'Sport' AS 'Type'
 FROM
     grades
@@ -103,7 +103,7 @@ SELECT
     grades.grade AS 'Grade',
     COUNT(ticks.id) AS 'Count',
     'Fell/Hung' AS 'Success',
-    'LRS' AS 'Style',
+    'Lead Rope Solo' AS 'Style',
     'Trad' AS 'Type'
 FROM
     grades
@@ -222,7 +222,7 @@ SELECT
     grades.grade AS 'Grade',
     COUNT(ticks.id) AS 'Count',
     'Send' AS 'Success',
-    'LRS' AS 'Style',
+    'Lead Rope Solo' AS 'Style',
     'Sport' AS 'Type'
 FROM
     grades
@@ -245,7 +245,7 @@ SELECT
     grades.grade AS 'Grade',
     COUNT(ticks.id) AS 'Count',
     'Send' AS 'Success',
-    'LRS' AS 'Style',
+    'Lead Rope Solo' AS 'Style',
     'Trad' AS 'Type'
 FROM
     grades
