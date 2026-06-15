@@ -34,3 +34,6 @@
 
 .output data/grades_by_date.csv
 .read scripts/grades_by_date.sql
+
+.output data/grades-by-success-and-style.csv
+.read scripts/ticks-by-success-style-grade.sql

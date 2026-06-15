@@ -1,8 +1,3 @@
-from datetime import datetime
+import plotly_magic
 
-example = '2023-07-17'
-
-test = datetime.strptime(example, '%Y-%m-%d')
-
-print(test)
-print(type(test))
+plotly_magic.ticks_by_success_and_style()

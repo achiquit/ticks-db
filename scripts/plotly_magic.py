@@ -386,6 +386,7 @@ def ticks_by_grade_desktop() -> None:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def grades_by_date() -> None:
+    # I'm currently not working on this one and do not have it implemented
     no_plus_minus.main("scripts/grades_by_date.sql", "data/grades_by_date.csv", False)
     data = pd.read_csv("data/grades_by_date.csv")
 
@@ -405,7 +406,46 @@ def grades_by_date() -> None:
     )
     fig.show()
 
-# grades_by_date()
+def ticks_by_success_and_style() -> None:
+    csv_path = "data/grades-by-success-and-style.csv"
+    grade_pos = 1
+    headers = ["ID", "Grade", "Count", "Success", "Style", "Type"]
+
+    no_plus_minus.better_ver(csv_path, grade_pos, headers)
+
+    data = pd.read_csv("data/grades-by-success-and-style.csv")
+
+    fig = px.histogram(data,
+                       x="Grade",
+                       y="Count",
+                       facet_row="Success",
+                       facet_col="Style",
+                       category_orders={
+                           "Style": ["TR/Follow", "Lead", "LRS"],
+                           "Success": ["Fell/Hung", "Send"]
+                        },
+                        color="Type",
+                        color_discrete_sequence=[trad_color, sport_color]
+                        )
+    
+    fig.update_layout(
+        barmode='group',
+        xaxis={
+            'categoryorder':'array',
+            'categoryarray':['5.1','5.2','5.3','5.4','5.5','5.6','5.7','5.8','5.9','5.10a','5.10b','5.10c','5.10d','5.11a','5.11b','5.11c','5.11d','5.12a','5.12b','5.12c','5.12d','5.13a','5.13b','5.13c','5.13d','5.14a','5.14b','5.14c','5.14d','5.15a','5.15b','5.15c','5.15d']
+        },
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
+        margin=dict(l=0, r=0, t=0, b=0),
+        hovermode="x unified"
+    )
+    config = {
+        'displayModeBar': False
+    }
+    
+    with open('../websitejazzhands/climbing/data/ticks-by-success-and-style.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+
 yearly_height()
 monthly_height()
 overview()

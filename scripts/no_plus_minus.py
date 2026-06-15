@@ -54,5 +54,43 @@ def main(sql_path: str, csv_path: str, int_conv = bool):
         writer = csv.writer(csvfile)
         writer.writerows(ticks_by_grade)
 
+def better_ver(csv_path: str, grade_pos: int, headers: list) -> None:
+
+    table = []
+
+    with open(csv_path,'r') as data:
+        for line in csv.reader(data):
+            table.append(line)
+
+    table.remove(table[0])
+
+    for line in table:
+        count = line[2]
+        line[2] = int(count)
+
+    to_remove = []
+    for entry in table:
+        if "+" in entry[1]:
+            to_remove.append(entry)
+        elif "-" in entry[1]:
+            to_remove.append(entry)
+
+    for item in to_remove:
+        table.remove(item)
+
+    for item_remove in to_remove:
+        added = False
+        while added == False:
+            for item in table:
+                if f"{item_remove[1][0:3]}{item_remove[3]}{item_remove[4]}" == f"{item[1][0:3]}{item[3]}{item[4]}":
+                    item[2] += item_remove[2]
+                    added = True
+
+    table.insert(0, headers)
+
+    with open(csv_path, 'w+', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerows(table)
+
 if __name__ == '__main__':
     main()
