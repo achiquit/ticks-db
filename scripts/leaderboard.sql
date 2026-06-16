@@ -15,4 +15,4 @@ FROM
     INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
     JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
     JOIN partners ON climbed_with.partner_id = partners.id
-WHERE partners.id = -1 AND guided_id != -1;
+WHERE partners.id = -1 AND NOT guided_id = -1;
