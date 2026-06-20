@@ -25,7 +25,7 @@ ID,Grade,Count,Type
 14,5.9,75,Trad
 17,5.10a,0,NULL
 17,5.10a,57,Sport
-17,5.10a,85,Trad
+17,5.10a,86,Trad
 18,5.10b,0,NULL
 18,5.10b,23,Trad
 18,5.10b,38,Sport
@@ -36,13 +36,13 @@ ID,Grade,Count,Type
 20,5.10d,12,Sport
 20,5.10d,17,Trad
 22,5.11a,0,NULL
-22,5.11a,27,Trad
+22,5.11a,29,Trad
 22,5.11a,43,Sport
 23,5.11b,0,NULL
 23,5.11b,3,Trad
 23,5.11b,21,Sport
 24,5.11c,0,NULL
-24,5.11c,1,Trad
+24,5.11c,2,Trad
 24,5.11c,11,Sport
 25,5.11d,0,NULL
 25,5.11d,3,Trad
