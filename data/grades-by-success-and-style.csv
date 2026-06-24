@@ -3,19 +3,20 @@ ID,Grade,Count,Success,Style,Type
 1,5.1,7,Send,Lead,Trad
 2,5.2,1,Send,Lead Rope Solo,Trad
 2,5.2,3,Send,TR/Follow,Trad
-2,5.2,31,Send,Lead,Trad
+2,5.2,32,Send,Lead,Trad
 3,5.3,4,Send,TR/Follow,Trad
 3,5.3,13,Send,Lead,Trad
 4,5.4,3,Send,Lead,Sport
 4,5.4,7,Send,Lead Rope Solo,Trad
 4,5.4,12,Send,TR/Follow,Trad
-4,5.4,61,Send,Lead,Trad
+4,5.4,62,Send,Lead,Trad
 5,5.5,1,Send,Lead Rope Solo,Sport
 5,5.5,1,Send,TR/Follow,Sport
 5,5.5,3,Send,Lead Rope Solo,Trad
 5,5.5,6,Send,Lead,Sport
 5,5.5,7,Send,TR/Follow,Trad
 5,5.5,30,Send,Lead,Trad
+6,5.6,1,Fell/Hung,Lead,Trad
 6,5.6,1,Send,Lead Rope Solo,Sport
 6,5.6,2,Send,TR/Follow,Sport
 6,5.6,9,Send,Lead Rope Solo,Trad
