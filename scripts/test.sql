@@ -65,5 +65,4 @@ WHERE FA = True
 GROUP BY ticks.id
 ORDER BY 
     date DESC,
-    ticks.id DESC
-;
+    ticks.id DESC;

@@ -1,4 +1,5 @@
 SELECT 
+    ticks.id as 'ID',
     ticks.date AS 'Date', 
     climbs.name AS 'Climb', 
     (
@@ -53,12 +54,14 @@ SELECT
         ) END AS 'Partner(s)',
     CASE
         WHEN ticks.notes IS -1 THEN 'Nuthin'' to say'
+        WHEN ticks.fa IS True THEN "First ascent of " || climbs.name || ". " || ticks.notes
         ELSE ticks.notes 
     END AS 'Notes'
 FROM
     ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON areas.id = climbs.area
+WHERE FA = True
 GROUP BY ticks.id
 ORDER BY 
     date DESC,
