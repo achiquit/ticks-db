@@ -61,7 +61,6 @@ FROM
     ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON areas.id = climbs.area
-WHERE FA = True
 GROUP BY ticks.id
 ORDER BY 
     date DESC,
