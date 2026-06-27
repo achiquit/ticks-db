@@ -62,5 +62,4 @@ FROM
 GROUP BY ticks.id
 ORDER BY 
     date DESC,
-    ticks.id DESC
-LIMIT 1000000000;
+    ticks.id DESC;

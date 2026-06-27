@@ -80,14 +80,14 @@ ID,Grade,Count,Success,Style,Type
 20,5.10d,5,Send,Lead,Sport
 20,5.10d,5,Send,TR/Follow,Trad
 20,5.10d,7,Send,Lead,Trad
-22,5.11a,1,Fell/Hung,TR/Follow,Trad
 22,5.11a,1,Send,Lead Rope Solo,Sport
+22,5.11a,2,Fell/Hung,TR/Follow,Trad
 22,5.11a,4,Fell/Hung,Lead,Trad
 22,5.11a,6,Send,Lead,Trad
 22,5.11a,10,Send,TR/Follow,Sport
 22,5.11a,13,Fell/Hung,Lead,Sport
-22,5.11a,18,Send,TR/Follow,Trad
 22,5.11a,19,Send,Lead,Sport
+22,5.11a,19,Send,TR/Follow,Trad
 23,5.11b,1,Fell/Hung,Lead Rope Solo,Trad
 23,5.11b,1,Fell/Hung,TR/Follow,Trad
 23,5.11b,1,Send,TR/Follow,Sport

@@ -36,6 +36,8 @@ def new_tick(cur: Cursor, date: str, new_tick_id: int) -> tuple:
 
     notes = notes_func()
 
+    fa = y_n("Was this a first ascent?")
+
     input = y_n("Were you climbing for pleasure?")
     if input is True:
         partner = partner_func(cur)
@@ -44,7 +46,7 @@ def new_tick(cur: Cursor, date: str, new_tick_id: int) -> tuple:
         client = client_func(cur)
         partner = '-1'
 
-    new_tick = (new_tick_id, date, climb_id, pitch_count, height, style, success, notes, partner, client)
+    new_tick = (new_tick_id, date, climb_id, pitch_count, height, style, success, notes, partner, client, fa)
 
     return new_tick
 
@@ -676,7 +678,7 @@ dev = dev()
 if dev is False:
     new_ticks = day_out(cur, new_ticks, new_tick_id)
 
-    cur.executemany("INSERT INTO ticks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_ticks)
+    cur.executemany("INSERT INTO ticks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", new_ticks)
 
     con.commit()
 
