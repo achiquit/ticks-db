@@ -356,6 +356,8 @@ def main(partners_to_update: list):
 
     env = Environment(loader = FileSystemLoader('templates'))
 
+    print(f"Partners to Update: {partners_to_update}")
+
     for partner in partners:
         partner_id = partner[0]
 

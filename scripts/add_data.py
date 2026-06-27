@@ -58,7 +58,7 @@ def y_n(text: str) -> bool:
         return False
     else:
         input("Come on man, you gotta play by the rules!")
-        y_n(text)
+        return y_n(text)
 
 def get_int(text: str) -> int:
     number_as_integer = None
@@ -477,7 +477,7 @@ def partner_search(cur: Cursor, search: str) -> list:
         return partner_search(cur, search)
     elif choice == -2:
         return new_partner(cur)
-    elif choice > 0:
+    elif choice >= 0:
         if choice <= last_partner_id:
             res = cur.execute(f"SELECT id, fname, lname FROM partners WHERE id = {choice};")
             partner = res.fetchall()
@@ -504,7 +504,7 @@ def easy_partner_search(cur: Cursor, param: str, new_amalgam_id: int) -> int:
     elif partner_id == -2:
         return new_amalgam_func(cur, new_amalgam_id)
     elif partner_id < new_amalgam_id:
-        if partner_id > 0:
+        if partner_id >= 0:
             listy = partner_id_extractor(cur, partner_id)
             for partner in listy:
                 partners_to_update.append(partner)
