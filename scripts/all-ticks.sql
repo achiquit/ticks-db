@@ -1,5 +1,4 @@
 SELECT 
-    ticks.id as 'ID',
     ticks.date AS 'Date', 
     climbs.name AS 'Climb', 
     (
