@@ -410,7 +410,7 @@ def new_amalgam_func(cur: Cursor, new_amalgam_id: int) -> int:
                 partners.append(partner_search(cur, search))
 
     for partner in partners:
-        partners_to_update.append(partner)
+        partners_to_update.append(partner[0])
 
     return new_amalgam_id
 

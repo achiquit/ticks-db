@@ -400,4 +400,4 @@ def main(partners_to_update: list):
                     ), file = f)
 
 if __name__ == '__main__':
-    main()
+    update_all()
