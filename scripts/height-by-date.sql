@@ -1,6 +1,6 @@
 SELECT
     date AS 'Date',
-    height AS 'Height'
+    SUM(height) AS 'Height'
 FROM
     ticks
 GROUP BY date
