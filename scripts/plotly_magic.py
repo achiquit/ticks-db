@@ -22,6 +22,8 @@ emerald_scale = ["#E6FFF7", "#B8FFE8", "#8AFFDA", "#5CFFCB", "#2EFFBD", "#00FFAE
 trad_color = '#9810fa'
 sport_color = emerald
 
+website_loc = "../websitejazzhands/climbing/data/"
+
 def yearly_height() -> None:
 
     data = pd.read_csv("data/yearly-height.csv")
@@ -70,7 +72,7 @@ def yearly_height() -> None:
     )
     config = {'displayModeBar': False}
 
-    with open('../websitejazzhands/climbing/data/yearly-height.html', 'w') as f:
+    with open(f'{website_loc}yearly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def monthly_height() -> None:
@@ -152,7 +154,7 @@ def monthly_height() -> None:
     
     config = {'displayModeBar': False}
 
-    with open('../websitejazzhands/climbing/data/monthly-height.html', 'w') as f:
+    with open(f'{website_loc}monthly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def overview() -> None:
@@ -186,7 +188,7 @@ def overview() -> None:
     )
     config = {'displayModeBar': False}
 
-    with open('../websitejazzhands/climbing/data/overview-stats.html', 'w') as f:
+    with open(f'{website_loc}overview-stats.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def heatmap() -> None:
@@ -234,7 +236,7 @@ def heatmap() -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    pio.write_html(fig, '../websitejazzhands/climbing/data/climb-locs.html', include_plotlyjs='cdn')
+    pio.write_html(fig, f'{website_loc}climb-locs.html', include_plotlyjs='cdn')
 
 def ticks_by_grade_mobile() -> None:
     no_plus_minus.main("scripts/ticks-by-grade.sql", "data/ticks-by-grade.csv", True)
@@ -265,7 +267,7 @@ def ticks_by_grade_mobile() -> None:
         'displayModeBar': False
     }
 
-    with open('../websitejazzhands/climbing/data/ticks-by-grade-mobile.html', 'w') as f:
+    with open(f'{website_loc}ticks-by-grade-mobile.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def ticks_by_grade_desktop() -> None:
@@ -297,29 +299,8 @@ def ticks_by_grade_desktop() -> None:
         'displayModeBar': False
     }
 
-    with open('../websitejazzhands/climbing/data/ticks-by-grade-desktop.html', 'w') as f:
+    with open(f'{website_loc}ticks-by-grade-desktop.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
-
-def grades_by_date() -> None:
-    # I'm currently not working on this one and do not have it implemented
-    no_plus_minus.main("scripts/grades_by_date.sql", "data/grades_by_date.csv", False)
-    data = pd.read_csv("data/grades_by_date.csv")
-
-    fig = px.scatter(data,
-                    x="Date",
-                    y="Grade",
-                    color="Type",
-                    symbol="Type",
-                    hover_data=['Date','Climb','Grade','Type'],
-                    facet_col='Type'
-    )
-    fig.update_layout(
-        yaxis={
-            'categoryorder':'array',
-            'categoryarray':['5.1','5.2','5.3','5.4','5.5','5.6','5.7','5.8','5.9','5.10a','5.10b','5.10c','5.10d','5.11a','5.11b','5.11c','5.11d','5.12a','5.12b','5.12c','5.12d','5.13a','5.13b','5.13c','5.13d','5.14a','5.14b','5.14c','5.14d','5.15a','5.15b','5.15c','5.15d']
-        }
-    )
-    fig.show()
 
 def ticks_by_success_and_style() -> None:
     csv_path = "data/grades-by-success-and-style.csv"
@@ -367,7 +348,7 @@ def ticks_by_success_and_style() -> None:
         'displayModeBar': False
     }
     
-    with open('../websitejazzhands/climbing/data/ticks-by-success-and-style.html', 'w') as f:
+    with open(f'{website_loc}ticks-by-success-and-style.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def height_by_date() -> None:
@@ -426,7 +407,7 @@ def height_by_date() -> None:
     config = {
         'displayModeBar': False
     }
-    with open('../websitejazzhands/climbing/data/height-by-date.html', 'w') as f:
+    with open(f'{website_loc}height-by-date.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 yearly_height()
