@@ -20,7 +20,7 @@ bg_black = '#030712'
 emerald_scale = ["#E6FFF7", "#B8FFE8", "#8AFFDA", "#5CFFCB", "#2EFFBD", "#00FFAE", "#00D492", "#00A370", "#007550", "#004731", "#001A11"]
 
 # trad_color = '#9810fa'
-trad_color = '#2b7fff'
+trad_color = '#ffb86a'
 sport_color = emerald
 
 website_loc = "../websitejazzhands/climbing/data/"
