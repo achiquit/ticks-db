@@ -44,6 +44,7 @@ def new_tick(cur: Cursor, date: str, new_tick_id: int) -> tuple:
         client= '-1'
     elif input is False:
         client = client_func(cur)
+        partners_to_update.append(-1)
         partner = '-1'
 
     new_tick = (new_tick_id, date, climb_id, pitch_count, height, style, success, notes, partner, client, fa)
@@ -686,6 +687,6 @@ if dev is False:
 else:
     print("Let's update that there database!")
 
-print("Updating Partner Pages (this may take a moment)")
+print("Updating Partner Pages")
 
 partner_pages.main(partners_to_update)
