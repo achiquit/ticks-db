@@ -37,13 +37,13 @@ SELECT
         SELECT
             printf('%,d', SUM(ticks.pitches))
         FROM ticks
-        WHERE ticks.date > date('now','-90 days')
+        WHERE ticks.date > date('now','-1 year')
     )  AS 'Pitches Climbed',
     (
         SELECT
             printf('%,d', SUM(ticks.height)) || 'ft'
         FROM ticks
-        WHERE ticks.date > date('now','-90 days')
+        WHERE ticks.date > date('now','-1 year')
     ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
@@ -68,13 +68,13 @@ SELECT
         SELECT
             printf('%,d', SUM(ticks.pitches))
         FROM ticks
-        WHERE ticks.date > date('now','-90 days')
+        WHERE ticks.date > date('now','-5 years')
     )  AS 'Pitches Climbed',
     (
         SELECT
             printf('%,d', SUM(ticks.height)) || 'ft'
         FROM ticks
-        WHERE ticks.date > date('now','-90 days')
+        WHERE ticks.date > date('now','-5 years')
     ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
@@ -99,13 +99,11 @@ SELECT
         SELECT
             printf('%,d', SUM(ticks.pitches))
         FROM ticks
-        WHERE ticks.date > date('now','-90 days')
     )  AS 'Pitches Climbed',
     (
         SELECT
             printf('%,d', SUM(ticks.height)) || 'ft'
         FROM ticks
-        WHERE ticks.date > date('now','-90 days')
     ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
