@@ -20,7 +20,7 @@ bg_black = '#030712'
 emerald_scale = ["#E6FFF7", "#B8FFE8", "#8AFFDA", "#5CFFCB", "#2EFFBD", "#00FFAE", "#00D492", "#00A370", "#007550", "#004731", "#001A11"]
 
 # trad_color = '#9810fa'
-trad_color = '#ff6900'
+trad_color = '#dab2ff'
 sport_color = emerald
 
 website_loc = "../websitejazzhands/climbing/data/"
@@ -156,6 +156,65 @@ def monthly_height() -> None:
     config = {'displayModeBar': False}
 
     with open(f'{website_loc}monthly-height.html', 'w') as f:
+        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
+
+def height_by_date() -> None:
+
+    start_date = "2010-06-15"
+    end_date = datetime.today().strftime("%Y-%m-%d")
+    # date range from start date to end date and random
+    # column named value using amount of days as shape
+    df = pd.DataFrame({
+        "date": pd.date_range(start_date, end_date),
+        "height": 0
+    })
+
+    with open('data/height-by-date.csv', 'r') as read_obj:
+        csv_reader = csv.reader(read_obj)
+
+        values = list(csv_reader)
+
+    values.pop(0)
+
+    for value in values:
+        value[1] = int(value[1])
+
+        df['height'] = np.where(df['date'] == value[0], df['height'] + value[1], df['height'] + 0)
+
+    df_reversed = df[::-1]
+
+    # creating the plot
+    fig = calplot(
+        df_reversed,
+        x="date",
+        y="height",
+        years_title=True,
+        dark_theme=True,
+        gap=0,
+        colorscale=[
+                    (0.00, bg_black),
+                    (0.05, emerald_scale[9]),
+                    (0.10, emerald_scale[8]),
+                    (0.15, emerald_scale[7]),
+                    (0.20, emerald_scale[6]),
+                    (0.30, emerald_scale[5]),
+                    (0.50, emerald_scale[4]),
+                    (0.70, emerald_scale[3]),
+                    (0.90, emerald_scale[2]),
+                    (1.00, emerald_scale[1])
+        ],
+        name="Height"
+    )
+    fig.update_layout(
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
+        margin=dict(l=0, r=0, t=25, b=0),
+        dragmode=False
+    )
+    config = {
+        'displayModeBar': False
+    }
+    with open(f'{website_loc}height-by-date.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def overview() -> None:
@@ -350,65 +409,6 @@ def ticks_by_success_and_style() -> None:
     }
     
     with open(f'{website_loc}ticks-by-success-and-style.html', 'w') as f:
-        f.write(fig.to_html(include_plotlyjs='cdn', config=config))
-
-def height_by_date() -> None:
-
-    start_date = "2019-06-15"
-    end_date = datetime.today().strftime("%Y-%m-%d")
-    # date range from start date to end date and random
-    # column named value using amount of days as shape
-    df = pd.DataFrame({
-        "date": pd.date_range(start_date, end_date),
-        "height": 0
-    })
-
-    with open('data/height-by-date.csv', 'r') as read_obj:
-        csv_reader = csv.reader(read_obj)
-
-        values = list(csv_reader)
-
-    values.pop(0)
-
-    for value in values:
-        value[1] = int(value[1])
-
-        df['height'] = np.where(df['date'] == value[0], df['height'] + value[1], df['height'] + 0)
-
-    df_reversed = df[::-1]
-
-    # creating the plot
-    fig = calplot(
-        df_reversed,
-        x="date",
-        y="height",
-        years_title=True,
-        dark_theme=True,
-        gap=0,
-        colorscale=[
-                    (0.00, bg_black),
-                    (0.05, emerald_scale[9]),
-                    (0.10, emerald_scale[8]),
-                    (0.15, emerald_scale[7]),
-                    (0.20, emerald_scale[6]),
-                    (0.30, emerald_scale[5]),
-                    (0.50, emerald_scale[4]),
-                    (0.70, emerald_scale[3]),
-                    (0.90, emerald_scale[2]),
-                    (1.00, emerald_scale[1])
-        ],
-        name="Height"
-    )
-    fig.update_layout(
-        plot_bgcolor=bg_black,
-        paper_bgcolor=bg_black,
-        margin=dict(l=0, r=0, t=25, b=0),
-        dragmode=False
-    )
-    config = {
-        'displayModeBar': False
-    }
-    with open(f'{website_loc}height-by-date.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 yearly_height()
