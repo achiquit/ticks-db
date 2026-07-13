@@ -11,6 +11,7 @@ import no_plus_minus
 from base64 import b64encode
 import csv
 from plotly_calplot import calplot
+from plotly_calheatmap import calheatmap
 
 pio.templates.default = "plotly_dark"
 
@@ -159,6 +160,7 @@ def monthly_height() -> None:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
 def height_by_date() -> None:
+    # https://github.com/thomazyujibaba/plotly-calheatmap
 
     start_date = "2019-06-15"
     end_date = datetime.today().strftime("%Y-%m-%d")
@@ -183,33 +185,28 @@ def height_by_date() -> None:
 
     df_reversed = df[::-1]
 
-    # creating the plot
-    fig = calplot(
+    fig = calheatmap(
         df_reversed,
         x="date",
         y="height",
+        
         years_title=True,
         dark_theme=True,
         gap=0,
-        colorscale=[
-                    (0.00, bg_black),
-                    (0.05, emerald_scale[9]),
-                    (0.10, emerald_scale[8]),
-                    (0.15, emerald_scale[7]),
-                    (0.20, emerald_scale[6]),
-                    (0.30, emerald_scale[5]),
-                    (0.50, emerald_scale[4]),
-                    (0.70, emerald_scale[3]),
-                    (0.90, emerald_scale[2]),
-                    (1.00, emerald_scale[1])
-        ],
-        name="Height"
+        colors=[emerald_scale[9],emerald_scale[8],emerald_scale[7],emerald_scale[6],emerald_scale[5],emerald_scale[4],emerald_scale[3],emerald_scale[2],emerald_scale[1]],
+        zero_color=bg_black,
+        name="Height",
+        month_gap=-1000,
+        space_between_plots=.04,
+        # navigation=True
     )
     fig.update_layout(
         plot_bgcolor=bg_black,
         paper_bgcolor=bg_black,
         margin=dict(l=0, r=0, t=25, b=0),
-        dragmode=False
+        # margin_pad=5,
+        dragmode=False,
+        # height=2000
     )
     config = {
         'displayModeBar': False
