@@ -2,8 +2,16 @@ SELECT
     '90 Days' AS 'Timeframe',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
-    printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
-    printf('%,d', SUM(ticks.height)) || 'ft' AS 'Feet Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.pitches))
+        FROM ticks
+    )  AS 'Pitches Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.height)) || 'ft'
+        FROM ticks
+    ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
     (COUNT(DISTINCT area)) AS 'Areas',
@@ -23,8 +31,16 @@ SELECT
     '1 Year',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
-    printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
-    printf('%,d', SUM(ticks.height)) || 'ft' AS 'Feet Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.pitches))
+        FROM ticks
+    )  AS 'Pitches Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.height)) || 'ft'
+        FROM ticks
+    ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
     (COUNT(DISTINCT area)) AS 'Areas',
@@ -44,8 +60,16 @@ SELECT
     '5 Years',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
-    printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
-    printf('%,d', SUM(ticks.height)) || 'ft' AS 'Feet Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.pitches))
+        FROM ticks
+    )  AS 'Pitches Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.height)) || 'ft'
+        FROM ticks
+    ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
     (COUNT(DISTINCT area)) AS 'Areas',
@@ -65,8 +89,16 @@ SELECT
     'All Time',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
-    printf('%,d', SUM(ticks.pitches)) AS 'Pitches Climbed',
-    printf('%,d', SUM(ticks.height)) || 'ft' AS 'Feet Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.pitches))
+        FROM ticks
+    )  AS 'Pitches Climbed',
+    (
+        SELECT
+            printf('%,d', SUM(ticks.height)) || 'ft'
+        FROM ticks
+    ) AS 'Feet Climbed',
     (COUNT(DISTINCT partner_id)) AS 'Partners',
     (COUNT(DISTINCT climb)) AS 'Climbs',
     (COUNT(DISTINCT area)) AS 'Areas',
