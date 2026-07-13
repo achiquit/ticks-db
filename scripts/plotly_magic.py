@@ -160,7 +160,7 @@ def monthly_height() -> None:
 
 def height_by_date() -> None:
 
-    start_date = "2010-06-15"
+    start_date = "2019-06-15"
     end_date = datetime.today().strftime("%Y-%m-%d")
     # date range from start date to end date and random
     # column named value using amount of days as shape
