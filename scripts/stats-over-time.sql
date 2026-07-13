@@ -13,7 +13,7 @@ FROM ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON climbs.area = areas.id
     INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
-    INNER JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
+    LEFT JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
     INNER JOIN partners ON climbed_with.partner_id = partners.id
 WHERE ticks.date > date('now','-90 days')
 
@@ -34,7 +34,7 @@ FROM ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON climbs.area = areas.id
     INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
-    INNER JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
+    LEFT JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
     INNER JOIN partners ON climbed_with.partner_id = partners.id
 WHERE ticks.date > date('now','-1 year')
 
@@ -55,7 +55,7 @@ FROM ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON climbs.area = areas.id
     INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
-    INNER JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
+    LEFT JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
     INNER JOIN partners ON climbed_with.partner_id = partners.id
 WHERE ticks.date > date('now','-5 years')
 
@@ -76,6 +76,6 @@ FROM ticks
     INNER JOIN climbs ON ticks.climb = climbs.id
     INNER JOIN areas ON climbs.area = areas.id
     INNER JOIN climbed_partners ON ticks.climbed_id = climbed_partners.id
-    INNER JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
+    LEFT JOIN climbed_with ON  climbed_partners.id = climbed_with.climbing_id
     INNER JOIN partners ON climbed_with.partner_id = partners.id
 ORDER BY 2 ASC;
