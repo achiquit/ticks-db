@@ -686,7 +686,7 @@ def main(partners_to_update: list):
                 all_ticks(cur, partner_id, partner_name_code)
                 top_areas(cur, partner_id, partner_name_code)
                 
-                template = env.get_template('partner_data.html')
+                template = env.get_template('partner_data.jinja')
 
                 with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
                     print(template.render(
