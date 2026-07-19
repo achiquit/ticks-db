@@ -691,4 +691,4 @@ else:
 print("Updating Partner Pages")
 
 partner_pages.main(partners_to_update)
-climbing_dashboard()
+climbing_dashboard.main()
