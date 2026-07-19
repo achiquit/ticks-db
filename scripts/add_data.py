@@ -2,6 +2,7 @@ from datetime import datetime
 import sqlite3
 from sqlite3 import Cursor
 import partner_pages
+import climbing_dashboard
 
 def day_out(cur: Cursor, new_ticks: list, new_tick_id: int) -> list:
     print("Hell yeah, way to get after it, dawg!")
@@ -690,3 +691,4 @@ else:
 print("Updating Partner Pages")
 
 partner_pages.main(partners_to_update)
+climbing_dashboard()

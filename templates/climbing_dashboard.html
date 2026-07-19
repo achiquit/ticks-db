@@ -1,0 +1,154 @@
+<!-- How to use the tables
+https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YJWM5NM3W"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7YJWM5NM3W');
+        </script>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AC - Climbing</title>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style type="text/tailwindcss">
+        @layer utilities {
+            .hamburger-toggle {
+              @apply [&>div]:h-0 [&>div]:bg-white [&>div]:before:translate-y-0 [&>div]:before:rotate-45 [&>div]:after:translate-y-0 [&>div]:after:-rotate-45;
+            }
+        }
+        </style>
+        <script src="https://kit.fontawesome.com/c8077251a5.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+        <link href="/styles.css" rel="stylesheet">
+        <link href="/climbing/css/custom.css" rel="stylesheet">
+        <link rel="icon" href="/favicon.png">
+    </head>
+    <body class="bg-gray-950">
+
+        <div id="header" class="sticky top-0 z-60"></div>
+        
+        <main id="main" class="bg-gray-950 container mx-auto px-4 py-6 transition-all duration-600">
+            <p class="text-white text-6xl text-center pb-4">My Climbing</p>
+
+            <div class="flex justify-center [&_.ticker-title]:text-gray-400 [&_.ticker-title]:text-lg [&_.ticker-title]:text-center">
+                <p class="text-lg text-gray-400">I've climbed</p>
+                <div class="ticker-wrap">
+                    <div class="ticker">
+
+                        <ul>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{feet_num}} {{feet_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{meter_num}} {{meter_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{eiffel_num}} {{eiffel_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{banana_num}} {{banana_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{fathoms_num}} {{fathoms_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{cubits_num}} {{cubits_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{andres_num}} {{andres_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{el_cap_num}} {{el_cap_unit}}</span></a></li>
+                        <li class='ticker-item'><a href="#"><span class="ticker-title">{{miles_num}} {{miles_unit}}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-400">, {{pitches}} pitches, across {{climbs}} total climbs in {{areas}} crags with {{partners}} partners!</p>
+            </div>
+
+            <p class="text-lg text-gray-400 pb-8 text-center">If you're one of those {{partners}} partners, let's rope up again! If you're not, we should climb sometime :)</p>
+
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+
+                <!-- Overview Stats -->
+                <div class="lg:col-span-3 h-60">
+
+                    <!-- CSV to Table -->
+                    <iframe style="border-style: none;" src="/climbing/all-time-stats.html" class="w-full h-full rounded-xl overflow-x-scroll lg:hidden"></iframe>
+
+                    <!-- Plotly Table -->
+                    <iframe style="border-style: none;" src="/climbing/data/overview-stats.html" class="w-full h-9/10 rounded-xl hidden lg:block"></iframe>
+
+                </div>
+
+                <!-- Yearly Height Bar Chart -->
+                <div class="h-60 py-3 lg:-pb-3 lg:pt-0">
+                    <p class="text-white text-2xl pb-2">Height<sup>(ft)</sup> Climbed by Year</p>
+
+                    <iframe style="border-style: none;" src="/climbing/data/yearly-height.html" class="w-full h-9/10 rounded-xl"></iframe>
+
+                </div>
+
+                <!-- Monthly & Daily Height Bar Chart -->
+                <div class="lg:col-span-2 h-60">
+                    <p class="text-white text-2xl pb-2">Height<sup>(ft)</sup> Climbed by <span id="month-title" class="text-emerald-300 underline">Month</span> or <span id="day-title" class="text-white underline">Day</span></p>
+
+                    <iframe id="monthly-height" style="border-style: none;" src="/climbing/data/monthly-height.html" class="w-full h-9/10 rounded-xl"></iframe>
+
+                    <iframe id="daily-height" style="border-style: none;" src="/climbing/data/height-by-date.html" class="w-full h-17/20 rounded-xl hidden"></iframe>
+                </div>
+
+                <!-- All Ticks Table -->
+                <div class="h-150 lg:-mt-4 lg:col-span-2 lg:mt-0">
+                    <iframe style="border-style: none;" src="/climbing/all-ticks.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+                <!-- Partners Leaderboard -->
+                <div class="h-150 col-span-1">
+                    <iframe style="border-style: none;" src="/climbing/leaderboard.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+                <!-- Climbing Map -->
+                <div class="h-150 pt-5 lg:col-span-3">
+
+                    <!-- Plotly Map -->
+                    <iframe style="border-style: none;" src="/climbing/data/climb-locs.html" class="w-full h-9/10 rounded-xl"></iframe>
+
+                </div>
+
+                <!-- Rock Ticks by Grade, Success, Style, and Type -->
+                <div class="lg:col-span-3 h-100 lg:-mt-10">
+                    <p class="text-white text-2xl pb-2 hidden md:block">Rock Ticks by Grade, Success, and Style</p>
+
+                    <p class="text-white text-2xl pb-2 block md:hidden">Rock Ticks by Grade</p>
+
+                    <iframe style="border-style: none;" src="/climbing/data/ticks-by-success-and-style.html" class="w-full h-9/10 rounded-xl hidden md:block"></iframe>
+
+                    <iframe style="border-style: none;" src="/climbing/data/ticks-by-grade-mobile.html" class="w-full h-9/10 rounded-xl md:hidden"></iframe>
+
+                </div>
+
+                <!-- Top Areas -->
+                <div class="h-150 col-span-1">
+                    <iframe style="border-style: none;" src="/climbing/top-areas.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+                <!-- Top Climbs -->
+                <div class="h-150 lg:col-span-2">
+                    <iframe style="border-style: none;" src="/climbing/top-climbs.html" class="w-full h-full rounded-xl"></iframe>
+                </div>
+
+                <!-- Comments -->
+                <div class="lg:col-span-3">
+                    <p class="text-4xl text-white text-center">Comments</p>
+                    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
+                    <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24umYrIW59177aFJXDLotxK."+"&opts=16798&num=10&ts=1743261284031");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); </script>
+                </div>
+            </div>
+            
+        </main>
+
+        <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="/js/script.js"></script>
+    <script type="module" src="/climbing/js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    </body>
+</html>

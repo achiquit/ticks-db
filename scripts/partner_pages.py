@@ -589,7 +589,7 @@ def guiding_page(cur: Cursor) -> None:
     all_ticks_guiding(cur)
     top_areas_guiding(cur)
 
-    template = env.get_template('partner_data.jinja')
+    template = env.get_template('partner_data.html')
 
     with open(f'../websitejazzhands/climbing/partners/guiding/index.html', 'w+') as f:
         print(template.render(
@@ -635,7 +635,7 @@ def update_all() -> None:
         all_ticks(cur, partner_id, partner_name_code)
         top_areas(cur, partner_id, partner_name_code)
 
-        template = env.get_template('partner_data.jinja')
+        template = env.get_template('partner_data.html')
 
         with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
             print(template.render(
@@ -686,7 +686,7 @@ def main(partners_to_update: list):
                 all_ticks(cur, partner_id, partner_name_code)
                 top_areas(cur, partner_id, partner_name_code)
                 
-                template = env.get_template('partner_data.jinja')
+                template = env.get_template('partner_data.html')
 
                 with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
                     print(template.render(
