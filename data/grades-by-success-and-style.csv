@@ -62,8 +62,8 @@ ID,Grade,Count,Success,Style,Type
 18,5.10b,4,Fell/Hung,Lead,Sport
 18,5.10b,4,Fell/Hung,Lead,Trad
 18,5.10b,8,Send,TR/Follow,Sport
-18,5.10b,9,Send,Lead,Trad
 18,5.10b,9,Send,TR/Follow,Trad
+18,5.10b,10,Send,Lead,Trad
 18,5.10b,26,Send,Lead,Sport
 19,5.10c,2,Fell/Hung,Lead,Trad
 19,5.10c,2,Fell/Hung,TR/Follow,Sport
