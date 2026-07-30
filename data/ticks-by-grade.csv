@@ -1,13 +1,13 @@
 ID,Grade,Count,Type
 1,5.1,0,NULL
-1,5.1,14,Trad
+1,5.1,15,Trad
 2,5.2,0,NULL
 2,5.2,48,Trad
 3,5.3,0,NULL
 3,5.3,18,Trad
 4,5.4,0,NULL
 4,5.4,3,Sport
-4,5.4,87,Trad
+4,5.4,88,Trad
 5,5.5,0,NULL
 5,5.5,9,Sport
 5,5.5,43,Trad
