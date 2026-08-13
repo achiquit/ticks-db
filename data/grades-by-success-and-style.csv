@@ -28,8 +28,8 @@ ID,Grade,Count,Success,Style,Type
 8,5.7,11,Send,Lead Rope Solo,Trad
 8,5.7,19,Send,TR/Follow,Sport
 8,5.7,28,Send,TR/Follow,Trad
-8,5.7,46,Send,Lead,Sport
-8,5.7,71,Send,Lead,Trad
+8,5.7,47,Send,Lead,Sport
+8,5.7,72,Send,Lead,Trad
 11,5.8,1,Fell/Hung,Lead Rope Solo,Sport
 11,5.8,3,Fell/Hung,Lead,Sport
 11,5.8,3,Send,Lead Rope Solo,Sport
@@ -38,7 +38,7 @@ ID,Grade,Count,Success,Style,Type
 11,5.8,16,Send,TR/Follow,Sport
 11,5.8,31,Send,TR/Follow,Trad
 11,5.8,48,Send,Lead,Sport
-11,5.8,61,Send,Lead,Trad
+11,5.8,62,Send,Lead,Trad
 14,5.9,2,Send,Lead Rope Solo,Sport
 14,5.9,3,Fell/Hung,Lead,Trad
 14,5.9,5,Send,Lead Rope Solo,Trad
