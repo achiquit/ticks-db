@@ -254,7 +254,7 @@ def heatmap() -> None:
         lat='Latitude',
         lon='Longitude',
         z='Height',
-        radius=2,
+        radius=8,
         center=dict(lat=33, lon=320), zoom=1.4,
         map_style="carto-darkmatter",
         hover_data=dict(
@@ -268,7 +268,7 @@ def heatmap() -> None:
         ),
         color_continuous_scale=["#ff2b6d", "#9810fa", emerald],
         range_color=[0,2],
-        # histfunc='count'
+        histnorm='density'
     )
     
 
