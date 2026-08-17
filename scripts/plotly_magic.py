@@ -256,7 +256,7 @@ def heatmap() -> None:
         z='Height',
         histfunc='sum',
         # radius=8,
-        center=dict(lat=33, lon=320), zoom=1.4,
+        # center=dict(lat=33, lon=320), zoom=1.4,
         map_style="carto-darkmatter",
         hover_data=dict(
             Latitude=False,
