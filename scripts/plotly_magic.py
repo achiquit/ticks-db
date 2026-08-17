@@ -252,7 +252,7 @@ def heatmap() -> None:
 
     fig = px.density_map(geo_df,
         lat='Latitude',
-        long='Longitude',
+        lon='Longitude',
         z='Height',
         # histfunc='sum',
         radius=8,
