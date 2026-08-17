@@ -250,14 +250,14 @@ def overview() -> None:
 def heatmap() -> None:
     geo_df = gpd.read_file("data/climb-locs-heat.csv")
 
-    fig = px.density_heatmap(geo_df,
-        x='Latitude',
-        y='Longitude',
+    fig = px.density_map(geo_df,
+        lat='Latitude',
+        long='Longitude',
         z='Height',
-        histfunc='sum',
-        # radius=8,
-        # center=dict(lat=33, lon=320), zoom=1.4,
-        # map_style="carto-darkmatter",
+        # histfunc='sum',
+        radius=8,
+        center=dict(lat=33, lon=320), zoom=1.4,
+        map_style="carto-darkmatter",
         hover_data=dict(
             Latitude=False,
             Longitude=False,
