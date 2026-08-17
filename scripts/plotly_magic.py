@@ -251,8 +251,8 @@ def heatmap() -> None:
     geo_df = gpd.read_file("data/climb-locs-heat.csv")
 
     fig = px.density_heatmap(geo_df,
-        lat='Latitude',
-        lon='Longitude',
+        x='Latitude',
+        y='Longitude',
         z='Height',
         histfunc='sum',
         radius=8,
