@@ -250,7 +250,7 @@ def overview() -> None:
 def heatmap() -> None:
     geo_df = gpd.read_file("data/climb-locs-heat.csv")
 
-    fig = px.density_map(geo_df,
+    fig = px.density_heatmap(geo_df,
         lat='Latitude',
         lon='Longitude',
         z='Height',
