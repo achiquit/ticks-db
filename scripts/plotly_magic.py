@@ -268,7 +268,7 @@ def heatmap() -> None:
             Area=True
         ),
         color_continuous_scale=["#ff2b6d", "#9810fa", emerald],
-        range_color=[0,2]
+        range_color=[0,20000]
     )
     
 
