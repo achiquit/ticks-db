@@ -1,5 +1,5 @@
 SELECT
-    '90 Days' AS 'Timeframe',
+    '90 Days' AS 'Within the last...',
     COUNT(DISTINCT date) AS 'Days Climbed',
     printf('%,d', COUNT(DISTINCT ticks.id)) AS 'Ticks Made',
     (
