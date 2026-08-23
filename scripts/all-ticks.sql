@@ -38,7 +38,7 @@ SELECT
     ) AS 'Type',
     areas.area_name AS 'Area',
     ticks.pitches AS 'Pitches',
-    printf("%,d", ticks.height) AS 'Height',
+    printf("%,d", ticks.height) AS 'Height(ft)',
     ticks.style || ', ' || ticks.success AS 'Style',
     CASE
         WHEN climbed_id IS -1 AND guided_id IS -1 THEN 'Unknown Partner'
