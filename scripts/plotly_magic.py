@@ -223,7 +223,7 @@ def overview() -> None:
     fig = go.Figure(
         data=[go.Table(
             header=dict(
-                values=['<b>Timeframe</b>','<b>Days Climbed</b>','<b>Ticks Made</b>','<b>Pitches Climbed</b>','<b>Feet Climbed</b>','<b>Partners</b>','<b>Climbs</b>','<b>Areas</b>','<b>Countries</b>','<b>States</b>'],
+                values=['<b>Within the Last...</b>','<b>Days Climbed</b>','<b>Ticks Made</b>','<b>Pitches Climbed</b>','<b>Feet Climbed</b>','<b>Partners</b>','<b>Climbs</b>','<b>Areas</b>','<b>Countries</b>','<b>States</b>'],
                 align='center',
                 fill_color=headerColor
             ),
