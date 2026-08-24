@@ -3,6 +3,7 @@ import sqlite3
 from sqlite3 import Cursor
 import partner_pages
 import climbing_dashboard
+from pyhigh import get_elevation, clear_cache
 
 def day_out(cur: Cursor, new_ticks: list, new_tick_id: int) -> list:
     print("Hell yeah, way to get after it, dawg!")
@@ -152,15 +153,19 @@ def new_climb(cur: Cursor) -> int:
 
     commitment = commitment_func(cur)
 
-    gps = input("GPS: ")
+    print("GPS Time!")
+    lat = input("Latitude: ")
+    lon = input("Longitude: ")
 
     area_id = area(cur)
 
     notes = input("Climb notes: ")
 
+    elevation = elevation_func(cur, area_id, lat, lon)
+
     cur.execute(f"""
         INSERT INTO climbs VALUES
-            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{gps}', {area_id}, "{notes}", {height})
+            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{lat}, {lon}', {area_id}, "{notes}", {height}, {elevation})
     """)
 
     return(id)
@@ -202,6 +207,25 @@ def area(cur: Cursor) -> int:
         else:
             input("Oops, looks like you made a typo! Try again :)")
             return(area(cur))
+
+def elevation_func(cur: Cursor, area: int, lat: float, lon: float) -> int:
+    res = cur.execute(f"""
+        SELECT
+            COUNT(*)
+        FROM
+            areas
+        WHERE id = {area}
+        AND country = 'United States';
+    """)
+
+    if res == 1:
+        elev = get_elevation(lat, lon)
+        elev = elev * 3.280839895
+        elev = int(elev)
+        return elev
+    else:
+        print("Oops, looks like this climb is international!")
+        return input("What's the elevation of the climb? : ")
 
 def danger_func() -> str:
     danger = input("Danger Rating (G, PG, PG-13, R, X, or -1): ")
