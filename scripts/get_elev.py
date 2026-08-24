@@ -1,7 +1,6 @@
 ###### ONLY WORKS FOR CLIMBS WITHIN THE UNITED STATES ########
 
 import sqlite3
-from sqlite3 import Cursor
 from pyhigh import get_elevation_batch, get_elevation, clear_cache
 
 con = sqlite3.connect("ticks")
