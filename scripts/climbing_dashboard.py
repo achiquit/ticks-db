@@ -40,6 +40,8 @@ def pitches_func(cur: Cursor) -> int:
 
     to_add = "{:,.0f}".format(res[0][0])
 
+    print(f"number of pitches: {res[0][0]}")
+
     return to_add
 
 def climbs_func(cur: Cursor) -> int:
@@ -116,14 +118,12 @@ def main():
         ["meters", 3.2808], 
         ["Eiffel Towers", 1083], 
         ["bananas", 0.5833],
-        # To finish adding below here
         ["fathoms", 6],
         ["cubits", 1.5],
         ["Andres", 5.92],
         ["El Capitans", 3000],
         ["miles", 5280]
     ]
-    vals = []
 
     items.append(height_func(cur))
     items.append(pitches_func(cur))
