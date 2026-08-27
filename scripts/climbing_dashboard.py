@@ -40,8 +40,6 @@ def pitches_func(cur: Cursor) -> int:
 
     to_add = "{:,.0f}".format(res[0][0])
 
-    print(f"number of pitches: {res[0][0]}")
-
     return to_add
 
 def climbs_func(cur: Cursor) -> int:
@@ -158,7 +156,8 @@ def main():
             pitches = pitches_func(cur),
             climbs = climbs_func(cur),
             areas = areas_func(cur),
-            partners = partners_func(cur)
+            partners = partners_func(cur),
+            testy = "testeeeee"
         ), file = f)
         print("Updated climbing dashboard template")
 
