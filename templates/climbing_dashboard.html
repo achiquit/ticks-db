@@ -36,7 +36,7 @@ https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
         <div id="header" class="sticky top-0 z-60"></div>
         
         <main id="main" class="bg-gray-950 container mx-auto px-4 py-6 transition-all duration-600">
-            <p class="text-white text-6xl text-center pb-4">My Climbing {{testy}}</p>
+            <p class="text-white text-6xl text-center pb-4">My Climbing</p>
 
             <div class="hidden justify-center [&_.ticker-title]:text-gray-400 [&_.ticker-title]:text-lg [&_.ticker-title]:text-center lg:flex lg:flex-col">
                 <p class="text-lg text-gray-400 text-center">In the <span id="climbing-time"></span> since my first outdoor climbing trip, I've climbed...</p>
@@ -45,8 +45,8 @@ https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
                         <div class="ticker [&_li]:text-right">
 
                             <ul>
-                            <li class='ticker-item'><a href="#"><span class="ticker-title">169,657 feet</span></a></li>
-                            <li class='ticker-item'><a href="#"><span class="ticker-title">51,712 meters</span></a></li>
+                            <li class='ticker-item'><a href="#"><span class="ticker-title">{{feet_num}} {{feet_unit}}</span></a></li>
+                            <li class='ticker-item'><a href="#"><span class="ticker-title">{{meter_num}} {{meter_unit}}</span></a></li>
                             <li class='ticker-item'><a href="#"><span class="ticker-title">157 Eiffel Towers</span></a></li>
                             <li class='ticker-item'><a href="#"><span class="ticker-title">290,857 bananas</span></a></li>
                             <li class='ticker-item'><a href="#"><span class="ticker-title">28,276 fathoms</span></a></li>
@@ -57,7 +57,7 @@ https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
                             </ul>
                         </div>
                     </div>
-                    <p class="text-lg text-gray-400">, 1,977 pitches, across 708 total climbs in 147 crags with 118 partners!</p>
+                    <p class="text-lg text-gray-400">, {{pitches}} pitches, across 708 total climbs in 147 crags with 118 partners!</p>
                 </div>
             </div>
 

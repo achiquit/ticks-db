@@ -156,8 +156,7 @@ def main():
             pitches = pitches_func(cur),
             climbs = climbs_func(cur),
             areas = areas_func(cur),
-            partners = partners_func(cur),
-            testy = "testeeeee"
+            partners = partners_func(cur)
         ), file = f)
         print("Updated climbing dashboard template")
 
