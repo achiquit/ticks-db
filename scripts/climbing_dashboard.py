@@ -106,8 +106,8 @@ def main():
     con = sqlite3.connect("ticks")
     cur = con.cursor()
 
-    env = Environment(loader = FileSystemLoader('../websitejazzhands/templates'))
-    template = env.get_template('climbing_dashboard.jinja')
+    env = Environment(loader = FileSystemLoader('/templates'))
+    template = env.get_template('climbing_dashboard.html')
 
     items = []
 
