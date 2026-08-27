@@ -107,7 +107,7 @@ def main():
     cur = con.cursor()
 
     env = Environment(loader = FileSystemLoader('../websitejazzhands/templates'))
-    template = env.get_template('climbing_dashboard.html')
+    template = env.get_template('climbing_dashboard.jinja')
 
     items = []
 
