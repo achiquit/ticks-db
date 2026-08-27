@@ -160,6 +160,7 @@ def main():
             areas = areas_func(cur),
             partners = partners_func(cur)
         ), file = f)
+        print("Updated climbing dashboard template")
 
 if __name__ == '__main__':
     main()
