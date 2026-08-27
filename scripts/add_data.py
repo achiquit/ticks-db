@@ -218,7 +218,7 @@ def elevation_func(cur: Cursor, area: int, lat: float, lon: float) -> int:
         AND country = 'United States';
     """)
 
-    if res == 1:
+    if res[0] == 1:
         elev = get_elevation(lat, lon)
         elev = elev * 3.280839895
         elev = int(elev)
