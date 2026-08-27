@@ -224,10 +224,10 @@ def elevation_func(cur: Cursor, area: int, lat: float, lon: float) -> int:
             elev = get_elevation(39.74437, -105.40297)
             elev = elev * 3.280839895
             elev = int(elev)
-            print(elev)
+            return elev
         else:
             print("Oops, looks like this climb is international!")
-            input("What's the elevation of the climb? : ")
+            return input("What's the elevation of the climb? : ")
 
 def danger_func() -> str:
     danger = input("Danger Rating (G, PG, PG-13, R, X, or -1): ")
