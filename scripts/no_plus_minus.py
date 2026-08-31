@@ -92,5 +92,105 @@ def better_ver(csv_path: str, grade_pos: int, headers: list) -> None:
         writer = csv.writer(csvfile)
         writer.writerows(table)
 
+def even_better_ver(csv_path: str, grade_pos: int, count_pos: int, other_factors: list, add_header: bool = False, header: list = [], int_conv: bool = True, remove_0: bool = True, remove_5_point_1: bool = True) -> None:
+
+    # Args explained:
+    #   csv_path: Path to the csv with the data
+    #   grade_pos: Where the grade names are stored
+    #   count_pos: Where the counts are stored
+    #   other_factors: Position of other factors like Sport/Trad, Success, etc.
+    #   add_header: Defaults to false, determines whether the user wants to add a header to the data
+    #   header: If add_header is true, this is the new header
+    #   int_conv: Defaults to true, converts count to int. Idk if I'll ever want this to be false, but it can be!
+    #   remove_0: Defaults to true, removes any items with a 0 count
+    #   remove_5_point_1: Defaults to true, removes any items with a grade 5.1; they're weird db noise I haven't fixed yet
+
+    to_remove = []
+
+    with open(csv_path, 'r') as f:
+        csv_reader = csv.reader(f)
+        ticks_count = list(csv_reader)
+
+    if int_conv is True:
+        for item in ticks_count:
+            item[count_pos] = int(item[count_pos])
+
+    # Go through and find all the grades with a + or a -, take them out of the original list and add them to their own list
+    found = 1
+    while found > 0:
+        found = 0
+        for item in ticks_count:
+            if "+" in item[grade_pos]:
+                found += 1
+                item[grade_pos] = item[grade_pos][0:3]
+                to_remove.append(item)
+                ticks_count.remove(item)
+            elif "-" in item[grade_pos]:
+                found += 1
+                item[grade_pos] = item[grade_pos][0:3]
+                to_remove.append(item)
+                ticks_count.remove(item)
+
+    # Remove any redundant grades accounting for other factors - MAY ENCOUNTER FACTOR RELATED BUGS HERE
+    count = 0
+    while count < len(ticks_count) - 1:
+        if ticks_count[count][grade_pos] == ticks_count[count + 1][grade_pos]:
+            if ticks_count[count][count_pos] == 0:
+                ticks_count.remove(ticks_count[count])
+            elif ticks_count[count + 1][count_pos] == 0:
+                ticks_count.remove(ticks_count[count + 1])
+                count -= 1
+        count += 1
+
+    # Add all the counts of all the grades with a + or - to their corresponding grades, accounting for other factors 
+    for item in to_remove:
+        added = False
+        while added is False:
+            for grade in ticks_count:
+                if item[grade_pos] == grade[grade_pos]:
+                    if len(other_factors) > 0:
+                        factor = 0
+                        factor_status = []
+                        while factor < len(other_factors):
+                            if item[other_factors[factor]] == grade[other_factors[factor]]:
+                                factor_status.append(True)
+                            else:
+                                factor_status.append(False)
+                            factor += 1
+                        if False not in factor_status:
+                            grade[count_pos] += item[count_pos]
+                        added = True
+                    else:
+                        grade[count_pos] += item[count_pos]
+                        added = True
+
+    # remove any rows with a 0 count
+    found = 1
+    while found > 0:
+        found = 0
+        for item in ticks_count:
+            if item[count_pos] == 0:
+                ticks_count.remove(item)
+                found += 1
+
+    # remove any rows where the grade is 5.1
+    found = 1
+    while found > 0:
+        found = 0
+        for item in ticks_count:
+            if item[grade_pos] == '5.1':
+                ticks_count.remove(item)
+                found += 1
+
+    with open(csv_path, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        if add_header is True:
+            if len(header) == len(ticks_count[0]):
+                writer.writerow(header)  
+            else:
+                print("It didn't work because the header you're trying to add doesn't have the same number of columns as the data you're using dawg!")
+                
+        writer.writerows(ticks_count)
+
 if __name__ == '__main__':
     main()

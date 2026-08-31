@@ -4,13 +4,13 @@ import plotly.io as pio
 import pandas as pd
 import geopandas as gpd
 import numpy as np
-import requests
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import no_plus_minus
 from base64 import b64encode
 import csv
 from plotly_calheatmap import calheatmap
+import sqlite3
 
 pio.templates.default = "plotly_dark"
 
@@ -408,6 +408,139 @@ def ticks_by_success_and_style() -> None:
     with open(f'{website_loc}ticks-by-success-and-style.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+def ticks_by_grade_style_and_year() -> None:
+
+    data = 'data/grades_alltime_by_year_and_type.csv'
+    con = sqlite3.connect("ticks")
+    cur = con.cursor()
+
+    res = cur.execute(f"""
+        SELECT
+            grades.id AS 'ID',
+            grades.grade AS 'Grade',
+            0 AS 'Count',
+            'NULL' as 'Type',
+            'NULL' as 'Year'
+        FROM 
+            grades
+        WHERE grades.grade LIKE '5.%' AND grades.grade NOT LIKE '5.10' AND grades.grade NOT LIKE '5.11' AND grades.grade NOT LIKE '5.12' AND grades.grade NOT LIKE '5.13' AND grades.grade NOT LIKE '5.14' AND grades.grade NOT LIKE '5.15'
+
+        UNION
+
+        SELECT
+            grades.id AS 'ID',
+            grades.grade AS 'Grade',
+            COUNT(ticks.id) AS 'Count',
+            'Sport' AS 'Type',
+            strftime('%Y', ticks.date) AS 'Year'
+        FROM
+            grades
+            INNER JOIN which_grades ON which_grades.grade = grades.id
+            INNER JOIN join_grades ON join_grades.id = which_grades.id
+            LEFT JOIN climbs ON climbs.grade = join_grades.id
+            LEFT JOIN ticks ON ticks.climb = climbs.id
+        WHERE grades.grade LIKE '5.%' AND climbs.type = 4
+        GROUP BY grades.grade, strftime('%Y', ticks.date)
+
+        UNION
+
+        SELECT
+            grades.id AS 'ID',
+            grades.grade AS 'Grade',
+            COUNT(ticks.id) AS 'Count',
+            'Trad' AS 'Type',
+            strftime('%Y', ticks.date) AS 'Year'
+        FROM
+            grades
+            INNER JOIN which_grades ON which_grades.grade = grades.id
+            INNER JOIN join_grades ON join_grades.id = which_grades.id
+            LEFT JOIN climbs ON climbs.grade = join_grades.id
+            LEFT JOIN ticks ON ticks.climb = climbs.id
+        WHERE grades.grade LIKE '5.%' AND grades.grade NOT LIKE 'C%' AND grades.grade NOT LIKE '%Snow%' AND grades.grade NOT LIKE '%th%' AND climbs.type = 5 OR climbs.type = 12 AND grades.grade NOT LIKE 'C%' AND grades.grade NOT LIKE '%Snow%' AND grades.grade NOT LIKE '%th%' OR climbs.type = 13 AND grades.grade NOT LIKE 'C%' AND grades.grade NOT LIKE '%Snow%' AND grades.grade NOT LIKE '%th%'
+        GROUP BY grades.grade, strftime('%Y', ticks.date);
+    """)
+
+    res = res.fetchall()
+
+    with open(f'data/grades_alltime_by_year_and_type.csv', 'w+', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(res)
+
+    year = 2019
+    cur_year = datetime.now().year
+    years = []
+    while year <= cur_year:
+        years.append(year)
+        year += 1
+    grades = ["5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8", "5.9", "5.10a", "5.10b", "5.10c", "5.10d", "5.11a", "5.11b", "5.11c", "5.11d", "5.12a", "5.12b", "5.12c", "5.12d", "5.13a", "5.13b", "5.13c", "5.13d", "5.14a", "5.14b", "5.14c", "5.14d", "5.15a", "5.15b", "5.15c", "5.15d"]
+    header = ["Grade ID", "Grade", "Count", "Climb Type", "Year"]
+    no_plus_minus.even_better_ver(data, 1, 2, [3, 4], True, header)
+
+    check = ["Grade ID", "Grade", "Count", "Climb Type", "Year"]
+
+    data = pd.read_csv(data)
+
+    # fig = px.violin(data,
+    #             y = "Count",
+    #             x = "Grade",
+    #             color = "Climb Type",
+    #             violinmode = "overlay",
+    #             # animation_frame = "Year",
+    #             # animation_group = "Climb Type",
+    #             color_discrete_map = {
+    #                 "Sport": sport_color,
+    #                 "Trad": trad_color
+    #             },
+    #             category_orders = {
+    #                 "Year": years,
+    #                 "Grade": grades
+    #             })
+    # fig.show()
+
+    fig = px.bar(data,
+                x="Grade",
+                y="Count",
+                color="Climb Type",
+                barmode="group",
+                # facet_row="Climb Type",
+                # facet_col="Year",
+                animation_frame = "Year",
+                color_discrete_map = {
+                    "Sport": sport_color,
+                    "Trad": trad_color
+                },
+                category_orders = {
+                    "Year": years,
+                    "Grade": grades
+                })
+    fig["layout"].pop("updatemenus")
+    fig.update_layout(
+        yaxis_range = [0, 30],
+        xaxis_range = [-1, 20]
+    )
+    fig.show()
+
+    # fig = px.line(data,
+    #             x = "Grade",
+    #             y = "Count",
+    #             color = "Climb Type",
+    #             markers = True,
+    #             line_shape = "spline",
+    #             animation_frame = "Year",
+    #             animation_group = "Climb Type",
+    #             range_x = ["5.2", "5.12c"],
+    #             range_y = [0,50],
+    #             color_discrete_map = {
+    #                 "Sport": sport_color,
+    #                 "Trad": trad_color
+    #             },
+    #             category_orders = {
+    #                 "Year": years,
+    #                 "Grade": grades
+    #             })
+    # fig.show()
+
+
 yearly_height()
 monthly_height()
 overview()
@@ -415,3 +548,4 @@ heatmap()
 ticks_by_grade_mobile()
 ticks_by_success_and_style()
 height_by_date()
+ticks_by_grade_style_and_year()
