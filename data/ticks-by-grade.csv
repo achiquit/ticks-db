@@ -7,7 +7,7 @@ ID,Grade,Count,Type
 3,5.3,18,Trad
 4,5.4,0,NULL
 4,5.4,3,Sport
-4,5.4,88,Trad
+4,5.4,89,Trad
 5,5.5,0,NULL
 5,5.5,9,Sport
 5,5.5,43,Trad
@@ -16,7 +16,7 @@ ID,Grade,Count,Type
 6,5.6,85,Trad
 8,5.7,0,NULL
 8,5.7,45,Sport
-8,5.7,108,Trad
+8,5.7,109,Trad
 11,5.8,0,NULL
 11,5.8,62,Sport
 11,5.8,90,Trad
