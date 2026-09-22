@@ -128,12 +128,12 @@ def monthly_height() -> None:
 
     fig.add_annotation(
         x="2026-9-05",
-        y=800,
+        y=1250,
         text='<a href="/adventures/2026/life-update/" target="_blank"><b>Started Grad School</b></a>',
         showarrow=True,
         arrowhead=0,
         ax=-70,
-        ay=-500
+        ay=-94
     )
     fig.add_annotation(
         x="2025-12-01",
