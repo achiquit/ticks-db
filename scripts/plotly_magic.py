@@ -125,6 +125,16 @@ def monthly_height() -> None:
         rangeslider_visible=True,
         range=[start_date, end_date]
     )
+
+    fig.add_annotation(
+        x="2026-9-05",
+        y=1200,
+        text='<a href="/adventures/2026/life-update/" target="_blank"><b>Started Grad School</b></a>',
+        showarrow=True,
+        arrowhead=0,
+        ax=-70,
+        ay=-500
+    )
     fig.add_annotation(
         x="2025-12-01",
         y=7000,
@@ -154,6 +164,8 @@ def monthly_height() -> None:
     )
     
     config = {'displayModeBar': False}
+
+    fig.show()
 
     with open(f'{website_loc}monthly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
@@ -548,4 +560,5 @@ heatmap()
 ticks_by_grade_mobile()
 ticks_by_success_and_style()
 height_by_date()
+
 # ticks_by_grade_style_and_year()
