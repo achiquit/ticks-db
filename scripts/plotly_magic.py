@@ -165,8 +165,6 @@ def monthly_height() -> None:
     
     config = {'displayModeBar': False}
 
-    fig.show()
-
     with open(f'{website_loc}monthly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
