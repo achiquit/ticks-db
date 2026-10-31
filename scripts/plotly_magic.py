@@ -600,14 +600,14 @@ def ticks_by_grade_style_and_year() -> None:
     # fig.show()
 
 
-# yearly_height()
-# monthly_height()
-# overview()
-# heatmap()
-# ticks_by_grade_mobile()
-# ticks_by_success_and_style()
-# height_by_date()
+yearly_height()
+monthly_height()
+overview()
+heatmap()
+ticks_by_grade_mobile()
+ticks_by_success_and_style()
+height_by_date()
 
-yearly_height_test()
+# yearly_height_test()
 
 # ticks_by_grade_style_and_year()
