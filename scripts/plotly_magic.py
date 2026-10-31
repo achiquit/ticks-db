@@ -76,6 +76,55 @@ def yearly_height() -> None:
     with open(f'{website_loc}yearly-height.html', 'w') as f:
         f.write(fig.to_html(include_plotlyjs='cdn', config=config))
 
+def yearly_height_test() -> None:
+    data = pd.read_csv("data/yearly-height.csv")
+
+    # Create the bar plot
+    fig = px.bar(
+        data_frame=data, 
+        x="year", 
+        y="height",
+        hover_data={'year':False},
+        text_auto='.2s'
+    )
+
+    fig.update_traces(
+        marker_color=emerald,
+        hovertemplate =
+            '<b>Height: %{y}<sup>ft</sup></i>',
+        textposition="outside"
+    )
+    fig.update_layout(
+        plot_bgcolor=bg_black,
+        paper_bgcolor=bg_black,
+        margin=dict(l=0, r=0, t=0, b=0),
+        hovermode="x unified",
+        xaxis=dict(
+            unifiedhovertitle=dict(
+                text='<b>%{x|%Y}</b>'
+            )
+        ),
+        dragmode=False
+    )
+    fig.update_yaxes(
+        tickformat=",.2d", #Change how the numbers are rounded & written
+        nticks=12,
+        title=None,
+        gridcolor=dark_emerald,
+        # tickangle=315,
+        tickfont=dict(family='Arial', color='white', size=12),
+        ticklabelstandoff=6
+    )
+    fig.update_xaxes(
+        title=None,
+        ticklabelstandoff=6,
+        nticks=12,
+        tickfont=dict(family='Arial', color='white', size=12)
+    )
+    config = {'displayModeBar': False}
+
+    fig.show()
+
 def monthly_height() -> None:
     data = pd.read_csv("data/monthly-height.csv")
     end_date = datetime.today()
@@ -551,12 +600,14 @@ def ticks_by_grade_style_and_year() -> None:
     # fig.show()
 
 
-yearly_height()
-monthly_height()
-overview()
-heatmap()
-ticks_by_grade_mobile()
-ticks_by_success_and_style()
-height_by_date()
+# yearly_height()
+# monthly_height()
+# overview()
+# heatmap()
+# ticks_by_grade_mobile()
+# ticks_by_success_and_style()
+# height_by_date()
+
+yearly_height_test()
 
 # ticks_by_grade_style_and_year()
