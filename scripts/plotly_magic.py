@@ -182,7 +182,7 @@ def monthly_height() -> None:
         showarrow=True,
         arrowhead=0,
         ax=-20,
-        ay=-200
+        ay=-50
     )
     fig.add_annotation(
         x="2025-12-01",
