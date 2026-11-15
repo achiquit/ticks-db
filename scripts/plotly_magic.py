@@ -23,7 +23,7 @@ emerald_scale = ["#E6FFF7", "#B8FFE8", "#8AFFDA", "#5CFFCB", "#2EFFBD", "#00FFAE
 trad_color = "#af58ff"
 sport_color = emerald
 
-website_loc = "../websitejazzhands/climbing/data/"
+website_loc = "../achiquit.github.io/climbing/data/"
 
 def yearly_height() -> None:
 

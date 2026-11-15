@@ -1,19 +1,19 @@
 -- Direct To Website Scripts
 .headers ON
 .mode csv
-.output ../websitejazzhands/climbing/data/all-ticks.csv
+.output ../achiquit.github.io/climbing/data/all-ticks.csv
 .read scripts/all-ticks.sql
 
-.output ../websitejazzhands/climbing/data/all-time-stats.csv
+.output ../achiquit.github.io/climbing/data/all-time-stats.csv
 .read scripts/stats-over-time.sql
 
-.output ../websitejazzhands/climbing/data/partner-leaderboard.csv
+.output ../achiquit.github.io/climbing/data/partner-leaderboard.csv
 .read scripts/leaderboard.sql
 
-.output ../websitejazzhands/climbing/data/top-climbs.csv
+.output ../achiquit.github.io/climbing/data/top-climbs.csv
 .read scripts/top-climbs.sql
 
-.output ../websitejazzhands/climbing/data/top-areas.csv
+.output ../achiquit.github.io/climbing/data/top-areas.csv
 .read scripts/top-areas.sql
 
 -- To Data Folder Scripts

@@ -133,7 +133,7 @@ def main():
 
     transforms = height_goodies(height, transforms)
 
-    with open(f'../websitejazzhands/climbing/index.html', 'w+') as f:
+    with open(f'../achiquit.github.io/climbing/index.html', 'w+') as f:
         print(template.render(
             feet_unit = "feet",
             feet_num = transforms["feet"],

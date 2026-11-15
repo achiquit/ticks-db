@@ -22,5 +22,5 @@ echo "=+=+=+=+=+=+=+=--- Sending data to the website directory ---=+=+=+=+=+=+=+
 cat scripts/db_magic.sql | sqlite3 ticks
 python3 scripts/plotly_magic.py
 
-cd ../websitejazzhands
+cd ../achiquit.github.io
 ./update.sh

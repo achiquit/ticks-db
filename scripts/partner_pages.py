@@ -12,6 +12,8 @@ emerald = '#00d492'
 dark_emerald = '#007a55'
 bg_black = '#030712'
 
+website_loc = "../achiquit.github.io/climbing"
+
 def partner_list(cur: Cursor) -> list:
 
     partners = []
@@ -186,14 +188,14 @@ def heatmap_func(cur: Cursor, partner: int, partner_name_code: str) -> None:
         ORDER BY date DESC;
     """)
 
-    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.csv', 'w+', newline='') as f:
+    with open(f'{website_loc}/partners/{partner_name_code}/climb-locs.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Date', 'Climb', 'Difficulty', 'Type', 'Area', 'Height', 'Latitude', 'Longitude'])
         writer.writerows(res)
 
-    geo_df = gpd.read_file(f"""../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.csv""")
+    geo_df = gpd.read_file(f"""{website_loc}/partners/{partner_name_code}/climb-locs.csv""")
 
-    os.remove(f"""../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.csv""")
+    os.remove(f"""{website_loc}/partners/{partner_name_code}/climb-locs.csv""")
 
     fig = px.density_map(geo_df,
         lat='Latitude',
@@ -236,7 +238,7 @@ def heatmap_func(cur: Cursor, partner: int, partner_name_code: str) -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    pio.write_html(fig, f'../websitejazzhands/climbing/partners/{partner_name_code}/climb-locs.html', include_plotlyjs='cdn', config=config)
+    pio.write_html(fig, f'{website_loc}/partners/{partner_name_code}/climb-locs.html', include_plotlyjs='cdn', config=config)
 
 def heatmap_func_guiding(cur: Cursor) -> None:
     res = cur.execute(f"""
@@ -285,14 +287,14 @@ def heatmap_func_guiding(cur: Cursor) -> None:
         ORDER BY date DESC;
     """)
 
-    with open('../websitejazzhands/climbing/partners/guiding/climb-locs.csv', 'w+', newline='') as f:
+    with open(f'{website_loc}/partners/guiding/climb-locs.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Date', 'Climb', 'Difficulty', 'Type', 'Area', 'Height', 'Latitude', 'Longitude'])
         writer.writerows(res)
 
-    geo_df = gpd.read_file("""../websitejazzhands/climbing/partners/guiding/climb-locs.csv""")
+    geo_df = gpd.read_file(f"""{website_loc}/partners/guiding/climb-locs.csv""")
 
-    os.remove("""../websitejazzhands/climbing/partners/guiding/climb-locs.csv""")
+    os.remove(f"""{website_loc}/partners/guiding/climb-locs.csv""")
 
     fig = px.density_map(geo_df,
         lat='Latitude',
@@ -335,7 +337,7 @@ def heatmap_func_guiding(cur: Cursor) -> None:
         'modeBarButtonsToRemove': ['select', 'lasso', 'pan', 'toImage']
     }
 
-    pio.write_html(fig, '../websitejazzhands/climbing/partners/guiding/climb-locs.html', include_plotlyjs='cdn', config=config)
+    pio.write_html(fig, f'{website_loc}/partners/guiding/climb-locs.html', include_plotlyjs='cdn', config=config)
 
 def all_ticks(cur: Cursor, partner: int, partner_name_code) -> None:
     res = cur.execute(f"""
@@ -401,18 +403,18 @@ def all_ticks(cur: Cursor, partner: int, partner_name_code) -> None:
         LIMIT 1000000000;
     """)
 
-    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}/data"):
-        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}/data")
-    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/data/all-ticks.csv', 'w+', newline='') as f:
+    if not os.path.exists(f"{website_loc}/partners/{partner_name_code}/data"):
+        os.makedirs(f"{website_loc}/partners/{partner_name_code}/data")
+    with open(f'{website_loc}/partners/{partner_name_code}/data/all-ticks.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Date', 'Climb', 'Difficulty', 'Type', 'Area', 'Pitches', 'Height', 'Style', 'Partner(s)', 'Notes'])
         writer.writerows(res)
 
     # Source path
-    src = r'../websitejazzhands/climbing/js'
+    src = rf'{website_loc}/js'
 
     # Destination pat
-    dest = f'../websitejazzhands/climbing/partners/{partner_name_code}/js'
+    dest = f'{website_loc}/partners/{partner_name_code}/js'
 
     # Copy the content of source to destination
     try:
@@ -480,18 +482,18 @@ def all_ticks_guiding(cur: Cursor) -> None:
         LIMIT 1000000000;
     """)
 
-    if not os.path.exists("../websitejazzhands/climbing/partners/guiding/data"):
-        os.makedirs("../websitejazzhands/climbing/partners/guiding/data")
-    with open('../websitejazzhands/climbing/partners/guiding/data/all-ticks.csv', 'w+', newline='') as f:
+    if not os.path.exists(f"{website_loc}/partners/guiding/data"):
+        os.makedirs(f"{website_loc}/partners/guiding/data")
+    with open(f'{website_loc}/partners/guiding/data/all-ticks.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Tick ID', 'Date', 'Climb', 'Difficulty', 'Type', 'Area', 'Pitches', 'Height', 'Style', 'Notes'])
         writer.writerows(res)
 
     # Source path
-    src = r'../websitejazzhands/climbing/js'
+    src = rf'{website_loc}/js'
 
     # Destination pat
-    dest = '../websitejazzhands/climbing/partners/guiding/js'
+    dest = f'{website_loc}/partners/guiding/js'
 
     # Copy the content of source to destination
     try:
@@ -518,9 +520,9 @@ def top_areas(cur: Cursor, partner: int, partner_name_code) -> None:
         ORDER BY printf('%,d', SUM(ticks.height)) ASC;
     """)
 
-    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}/data"):
-        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}/data")
-    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/data/top-areas.csv', 'w+', newline='') as f:
+    if not os.path.exists(f"{website_loc}/partners/{partner_name_code}/data"):
+        os.makedirs(f"{website_loc}/partners/{partner_name_code}/data")
+    with open(f'{website_loc}/partners/{partner_name_code}/data/top-areas.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Area', 'Days', 'Height', 'Location'])
         writer.writerows(res)
@@ -543,9 +545,9 @@ def top_areas(cur: Cursor, partner: int, partner_name_code) -> None:
         ORDER BY printf('%,d', SUM(ticks.height)) ASC;
     """)
 
-    if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}/data"):
-        os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}/data")
-    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/data/top-areas.csv', 'w+', newline='') as f:
+    if not os.path.exists(f"{website_loc}/partners/{partner_name_code}/data"):
+        os.makedirs(f"{website_loc}/partners/{partner_name_code}/data")
+    with open(f'{website_loc}/partners/{partner_name_code}/data/top-areas.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Area', 'Days', 'Height', 'Location'])
         writer.writerows(res)
@@ -566,9 +568,9 @@ def top_areas_guiding(cur: Cursor) -> None:
         ORDER BY COUNT(DISTINCT ticks.date) DESC, SUM(ticks.height) DESC;
     """)
 
-    if not os.path.exists("../websitejazzhands/climbing/partners/guiding/data"):
-        os.makedirs("../websitejazzhands/climbing/partners/guiding/data")
-    with open('../websitejazzhands/climbing/partners/guiding/data/top-areas.csv', 'w+', newline='') as f:
+    if not os.path.exists(f"{website_loc}/partners/guiding/data"):
+        os.makedirs(f"{website_loc}/partners/guiding/data")
+    with open(f'{website_loc}/partners/guiding/data/top-areas.csv', 'w+', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Area', 'Days', 'Height', 'Location'])
         writer.writerows(res)
@@ -579,8 +581,8 @@ def guiding_page(cur: Cursor) -> None:
 
     partner_name_code = "guiding"
 
-    if not os.path.exists(f"../websitejazzhands/climbing/partners/guiding"):
-        os.makedirs(f"../websitejazzhands/climbing/partners/guiding")
+    if not os.path.exists(f"{website_loc}/partners/guiding"):
+        os.makedirs(f"{website_loc}/partners/guiding")
     areas = area_func_guiding(cur)
     days = days_func_guiding(cur)
     pitches = pitches_func_guiding(cur)
@@ -591,7 +593,7 @@ def guiding_page(cur: Cursor) -> None:
 
     template = env.get_template('partner_data.html')
 
-    with open(f'../websitejazzhands/climbing/partners/guiding/index.html', 'w+') as f:
+    with open(f'{website_loc}/partners/guiding/index.html', 'w+') as f:
         print(template.render(
             partner_name_read = "Various Clients",
             partner_name_code = "guiding",
@@ -602,13 +604,13 @@ def guiding_page(cur: Cursor) -> None:
         ), file = f)
 
     template = env.get_template('ticks.jinja')
-    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/ticks.html', 'w+') as f:
+    with open(f'{website_loc}/partners/{partner_name_code}/ticks.html', 'w+') as f:
         print(template.render(
             partner_name_code = f"{partner_name_code}"
         ), file = f)
 
     template = env.get_template('top_areas.jinja')
-    with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/top_areas.html', 'w+') as f:
+    with open(f'{website_loc}/partners/{partner_name_code}/top_areas.html', 'w+') as f:
         print(template.render(
             partner_name_code = f"{partner_name_code}"
         ), file = f)
@@ -625,8 +627,8 @@ def update_all() -> None:
         partner_id = partner[0]
 
         partner_name_code = f"{partner[1]}-{partner[2]}"
-        if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}"):
-            os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}")
+        if not os.path.exists(f"{website_loc}/partners/{partner_name_code}"):
+            os.makedirs(f"{website_loc}/partners/{partner_name_code}")
         areas = area_func(cur, partner_id)
         days = days_func(cur, partner_id)
         pitches = pitches_func(cur, partner_id)
@@ -637,7 +639,7 @@ def update_all() -> None:
 
         template = env.get_template('partner_data.html')
 
-        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
+        with open(f'{website_loc}/partners/{partner_name_code}/index.html', 'w+') as f:
             print(template.render(
                 partner_name_read = f"{partner[1]} {partner[2]}",
                 partner_name_code = f"{partner_name_code}",
@@ -648,13 +650,13 @@ def update_all() -> None:
             ), file = f)
 
         template = env.get_template('ticks.jinja')
-        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/ticks.html', 'w+') as f:
+        with open(f'{website_loc}/partners/{partner_name_code}/ticks.html', 'w+') as f:
             print(template.render(
                 partner_name_code = f"{partner_name_code}"
             ), file = f)
 
         template = env.get_template('top_areas.jinja')
-        with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/top_areas.html', 'w+') as f:
+        with open(f'{website_loc}/partners/{partner_name_code}/top_areas.html', 'w+') as f:
             print(template.render(
                 partner_name_code = f"{partner_name_code}"
             ), file = f)
@@ -676,8 +678,8 @@ def main(partners_to_update: list):
             if partner_id == to_update:
 
                 partner_name_code = f"{partner[1]}-{partner[2]}"
-                if not os.path.exists(f"../websitejazzhands/climbing/partners/{partner_name_code}"):
-                    os.makedirs(f"../websitejazzhands/climbing/partners/{partner_name_code}")
+                if not os.path.exists(f"{website_loc}/partners/{partner_name_code}"):
+                    os.makedirs(f"{website_loc}/partners/{partner_name_code}")
                 areas = area_func(cur, partner_id)
                 days = days_func(cur, partner_id)
                 pitches = pitches_func(cur, partner_id)
@@ -688,7 +690,7 @@ def main(partners_to_update: list):
                 
                 template = env.get_template('partner_data.jinja')
 
-                with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/index.html', 'w+') as f:
+                with open(f'{website_loc}/partners/{partner_name_code}/index.html', 'w+') as f:
                     print(template.render(
                         partner_name_read = f"{partner[1]} {partner[2]}",
                         partner_name_code = f"{partner_name_code}",
@@ -699,13 +701,13 @@ def main(partners_to_update: list):
                     ), file = f)
                 
                 template = env.get_template('ticks.jinja')
-                with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/ticks.html', 'w+') as f:
+                with open(f'{website_loc}/partners/{partner_name_code}/ticks.html', 'w+') as f:
                     print(template.render(
                         partner_name_code = f"{partner_name_code}"
                     ), file = f)
                 
                 template = env.get_template('top_areas.jinja')
-                with open(f'../websitejazzhands/climbing/partners/{partner_name_code}/top_areas.html', 'w+') as f:
+                with open(f'{website_loc}/partners/{partner_name_code}/top_areas.html', 'w+') as f:
                     print(template.render(
                         partner_name_code = f"{partner_name_code}"
                     ), file = f)
