@@ -32,7 +32,7 @@ SELECT
     ) AS 'Difficulty',
     SUM(CASE WHEN guided_id = -1 THEN 1 ELSE 0 END) AS 'Leisure Laps',
     SUM(CASE WHEN guided_id != -1 THEN 1 ELSE 0 END) AS 'Guiding Laps',
-    climbs.url AS 'MP URL';
+    climbs.url AS 'MP URL'
 FROM
     ticks
 INNER JOIN
