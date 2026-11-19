@@ -163,9 +163,13 @@ def new_climb(cur: Cursor) -> int:
 
     elevation = elevation_func(cur, area_id, lat, lon)
 
+    url = input("Enter the MP URL here (If there isn't one, enter n): ")
+    if url == "n":
+        url = (None,)
+
     cur.execute(f"""
         INSERT INTO climbs VALUES
-            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{lat}, {lon}', {area_id}, "{notes}", {height}, {elevation})
+            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{lat}, {lon}', {area_id}, "{notes}", {height}, {elevation}, {url})
     """)
 
     return(id)
@@ -221,7 +225,7 @@ def elevation_func(cur: Cursor, area: int, lat: float, lon: float) -> int:
     for item in res:
 
         if item[0] == 1:
-            elev = get_elevation(39.74437, -105.40297)
+            elev = get_elevation(lat, lon)
             elev = elev * 3.280839895
             elev = int(elev)
             return elev
