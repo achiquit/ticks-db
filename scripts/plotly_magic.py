@@ -171,7 +171,9 @@ def monthly_height() -> None:
         tickangle=45,
         nticks=28,
         tickfont=dict(family='Arial', color='white', size=10),
-        rangeslider_visible=True,
+        rangeslider=dict(
+            visible=True,
+            bgcolor=bg_black),
         range=[start_date, end_date]
     )
 
