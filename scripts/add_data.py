@@ -169,7 +169,7 @@ def new_climb(cur: Cursor) -> int:
 
     cur.execute(f"""
         INSERT INTO climbs VALUES
-            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{lat}, {lon}', {area_id}, "{notes}", {height}, {elevation}, {url})
+            ({id}, "{name}", {grade}, '{danger}', {type}, '{commitment}', '{lat}, {lon}', {area_id}, "{notes}", {height}, {elevation}, "{url}")
     """)
 
     return(id)
