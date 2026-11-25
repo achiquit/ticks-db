@@ -161,7 +161,7 @@ def new_climb(cur: Cursor) -> int:
 
     notes = input("Climb notes: ")
 
-    elevation = elevation_func(cur, area_id, lat, lon)
+    elevation = elevation_func(cur, area_id, float(lat), float(lon))
 
     url = input("Enter the MP URL here (If there isn't one, enter n): ")
     if url == "n":
