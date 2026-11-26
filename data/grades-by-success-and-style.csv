@@ -4,23 +4,24 @@ ID,Grade,Count,Success,Style,Type
 2,5.2,1,Send,Lead Rope Solo,Trad
 2,5.2,3,Send,TR/Follow,Trad
 2,5.2,40,Send,Lead,Trad
+3,5.3,1,Send,Lead,Sport
 3,5.3,4,Send,TR/Follow,Trad
 3,5.3,14,Send,Lead,Trad
-4,5.4,4,Send,Lead,Sport
+4,5.4,6,Send,Lead,Sport
 4,5.4,7,Send,Lead Rope Solo,Trad
 4,5.4,13,Send,TR/Follow,Trad
 4,5.4,69,Send,Lead,Trad
 5,5.5,1,Send,Lead Rope Solo,Sport
 5,5.5,2,Send,TR/Follow,Sport
 5,5.5,3,Send,Lead Rope Solo,Trad
-5,5.5,7,Send,Lead,Sport
 5,5.5,7,Send,TR/Follow,Trad
+5,5.5,9,Send,Lead,Sport
 5,5.5,31,Send,Lead,Trad
 6,5.6,1,Fell/Hung,Lead,Trad
 6,5.6,1,Send,Lead Rope Solo,Sport
 6,5.6,3,Send,TR/Follow,Sport
 6,5.6,9,Send,Lead Rope Solo,Trad
-6,5.6,11,Send,Lead,Sport
+6,5.6,12,Send,Lead,Sport
 6,5.6,28,Send,TR/Follow,Trad
 6,5.6,45,Send,Lead,Trad
 8,5.7,1,Fell/Hung,TR/Follow,Trad
@@ -85,7 +86,7 @@ ID,Grade,Count,Success,Style,Type
 22,5.11a,5,Fell/Hung,Lead,Trad
 22,5.11a,6,Send,Lead,Trad
 22,5.11a,12,Send,TR/Follow,Sport
-22,5.11a,13,Fell/Hung,Lead,Sport
+22,5.11a,14,Fell/Hung,Lead,Sport
 22,5.11a,19,Send,TR/Follow,Trad
 22,5.11a,20,Send,Lead,Sport
 23,5.11b,1,Fell/Hung,Lead Rope Solo,Trad

@@ -134,12 +134,24 @@ https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
                 </div>
 
                 <!-- Comments -->
-                <div class="lg:col-span-3">
+                <div class="lg:col-span-2">
                     <p class="text-4xl text-white text-center">Comments</p>
                     <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
                     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
                     <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24umYrIW59177aFJXDLotxK."+"&opts=16798&num=10&ts=1743261284031");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); </script>
                 </div>
+
+                <!-- Compare Ticks with MP csv -->
+                <div class="lg:col-span-1">
+                    <p class="text-4xl text-white text-center">Compare Our Climbs</p>
+                    <p class="text-gray-400 text-center">If you download your Mountain Project ticks<br>(Your MP profile > View all your ticks > Export CSV), you can upload them here and see which routes we've both climbed!</p>
+                    <form id="ticksForm" class="text-white">
+                        <input type="file" id ="ticksInput" accept=".csv">
+                        <input type="submit" value="Submit">
+                    </form>
+                    <p name="" id="ticksResult" class="text-white"></p>
+                </div>
+
             </div>
             
         </main>
@@ -150,6 +162,7 @@ https://github.com/derekeder/csv-to-html-table?tab=readme-ov-file -->
     <script type="module" src="/js/script.js"></script>
     <script type="module" src="/climbing/js/custom.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="module" src="/climbing/js/compare_ticks.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </body>
